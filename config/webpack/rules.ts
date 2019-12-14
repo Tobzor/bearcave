@@ -19,8 +19,9 @@ const style: RuleSetRule = {
             loader: "css-loader",
             options: {
                 sourceMap: true,
-                modules: true,
-                localIndentName: "[local]__[hash:base64:5]",
+                modules: {
+                    localIndentName: "[path][name]__[local]--[hash:base64:5]",
+                },
             },
         },
         { loader: "less-loader" },
