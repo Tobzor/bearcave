@@ -44,5 +44,5 @@
         "allowUnusedLabels": true
     },
 
-    "include": ["src/**/*", "config/**/*"]
+    "include": ["src/**/*", "config/**/*", "external.d.ts"]
 }

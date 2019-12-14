@@ -13,5 +13,5 @@ const start = async () => {
 };
 
 start()
-    .then(() => console.log("Bearcave started successfully"))
+    .then(() => console.log("Bearcave started successfully!"))
     .catch(e => console.error(e));

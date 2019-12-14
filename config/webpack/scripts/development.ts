@@ -11,8 +11,8 @@ import baseConfig from "./base.config";
 const hot = new HtmlWebpackPlugin({ title: "Hot Module Replacement" });
 
 let config: Configuration = {
-    mode: "development",
     ...baseConfig,
+    mode: "development",
     plugins: [...baseConfig.plugins, hot],
     devServer: devServerOptions,
     devtool: "eval-source-map",
