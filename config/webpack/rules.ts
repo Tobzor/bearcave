@@ -2,7 +2,7 @@ import { RuleSetRule, Module } from "webpack";
 import { join } from "path";
 import { rootPath } from "./root";
 
-let transpiler: RuleSetRule = {
+const transpiler: RuleSetRule = {
     test: /\.(js|jsx|tsx|ts)$/,
     exclude: [/node_modules/, /build/],
     loader: "babel-loader",
@@ -11,12 +11,12 @@ let transpiler: RuleSetRule = {
     },
 };
 
-let html: RuleSetRule = {
+const html: RuleSetRule = {
     test: /\.html$/,
     use: [{ loader: "html-loader" }],
 };
 
-let moduledLess: RuleSetRule = {
+const moduledLess: RuleSetRule = {
     test: /\.(less)$/,
     include: [join(rootPath, "/src/components")],
     use: [
@@ -30,20 +30,20 @@ let moduledLess: RuleSetRule = {
     ],
 };
 
-let less: RuleSetRule = {
+const less: RuleSetRule = {
     test: /\.(less)$/,
     include: [join(rootPath, "/src/app.less")],
     exclude: [join(rootPath, "/src/components")],
     use: [{ loader: "style-loader" }, { loader: "css-loader" }, { loader: "less-loader" }],
 };
 
-let css: RuleSetRule = {
+const css: RuleSetRule = {
     test: /\.css$/,
     exclude: [join(rootPath, "/src/components")],
     use: [{ loader: "style-loader" }, { loader: "css-loader" }],
 };
 
-let images: RuleSetRule = {
+const images: RuleSetRule = {
     test: /\.(png|jpg|gif|jpeg)$/,
     include: [join(rootPath, "/resources/images"), join(rootPath, "/node_modules/semantic-ui-css")],
     use: [
@@ -60,7 +60,7 @@ let images: RuleSetRule = {
     ],
 };
 
-let icons: RuleSetRule = {
+const icons: RuleSetRule = {
     test: /\.svg$/,
     use: [
         {
@@ -73,7 +73,7 @@ let icons: RuleSetRule = {
     ],
 };
 
-let fonts: RuleSetRule = {
+const fonts: RuleSetRule = {
     test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
     include: [
         join(rootPath, "/resources/fonts"),
@@ -91,7 +91,7 @@ let fonts: RuleSetRule = {
     ],
 };
 
-export const defineBaseRules = function(): Module {
+export const defineBaseRules = function (): Module {
     return { rules: [transpiler, html, moduledLess, less, css, images, icons, fonts] };
 };
 /**

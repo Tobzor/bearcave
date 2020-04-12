@@ -5,11 +5,13 @@ type ExternalRefs = {
 };
 type Refs = ExternalRefs;
 
-interface Bearcave {}
+interface Bearcave {
+    refs: Refs;
+}
 
 const BearcaveContext = createContext({} as Bearcave);
 
-const createBearcave = (refs: Refs) => {
+const createBearcave = (refs: Refs): Bearcave => {
     return {
         refs,
     };

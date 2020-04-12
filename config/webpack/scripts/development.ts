@@ -16,7 +16,7 @@ const environmentPlugin = new Dotenv({
     path: EnvPaths.test,
 });
 
-let config: Configuration = {
+const config: Configuration = {
     ...baseConfig,
     module: baseConfig.module,
     resolve: baseConfig.resolve,

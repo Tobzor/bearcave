@@ -11,8 +11,11 @@ module.exports = {
         "plugin:prettier/recommended",
     ],
     parserOptions: {
-        excmaVersion: 2018,
+        ecmaVersion: 2018,
         sourceType: "module",
+        ecmaFeatures: {
+            jsx: true
+        }
     },
     globals: {
         localStorage: true,
@@ -23,42 +26,16 @@ module.exports = {
             version: "detect",
         },
     },
-    env: { browser: true },
+    env: { browser: true, node: true, es6: true },
     rules: {
-        "@typescript-eslint/no-use-before-define": "off",
-        "@typescript-eslint/no-explicit-any": "off",
-        "@typescript-eslint/member-delimiter-style": [
-            "error",
-            {
-                multiline: {
-                    delimiter: "none",
-                    requireLast: false,
-                },
-                singleline: {
-                    delimiter: "comma",
-                    requireLast: false,
-                },
-            },
-        ],
-
-        indent: "off",
-        "@typescript-eslint/indent": ["warn", 4],
-
-        semi: "off",
-        "@typescript-eslint/semi": ["warn"],
-
-        "space-before-function-paren": "off",
-        "@typescript-eslint/space-before-function-paren": [
-            "warn",
-            {
-                anonymous: "never",
-                named: "never",
-                asyncArrow: "always",
-            },
-        ],
-
-        // allow "doublequoted" strings with support for `template literals`.
-        quotes: "off",
-        "@typescript-eslint/quotes": ["warn", "double", { allowTemplateLiterals: true }],
+        "@typescript-eslint/explicit-function-return-type": "off"
     },
+    overrides: [
+        {
+            "files": ["*.ts", "*.tsx"],
+            "rules": {
+                "@typescript-eslint/explicit-function-return-type": ["warn"]
+            }
+        }
+    ]
 };

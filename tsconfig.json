@@ -56,5 +56,5 @@
     },
 
     "include": ["src/**/*", "config/**/*"],
-    "exclude": ["config/testBuild.js"]
+    "exclude": ["config/server/express.js", "config/server/pm2.js"]
 }

@@ -6,7 +6,7 @@ import { Output } from "webpack";
  * @param rootPath - the root path of the webserver.
  * @param env - the stringified environment name.
  */
-export let defineOutput = function(rootPath: string, env?: string): Output {
+export const defineOutput = function (rootPath: string, env?: string): Output {
     // Should the chunks be hashed based on content (for prod) or by builds (for dev)
     if (env) {
         return {

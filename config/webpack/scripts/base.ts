@@ -18,10 +18,10 @@ interface BaseConfig extends Configuration {
 }
 
 // Allows imports without specifying file-endings and aliases to minify long relative imports.
-let resolve: Resolve = defineResolves(rootPath);
+const resolve: Resolve = defineResolves(rootPath);
 
 // Export the baseline config for environment specific overrides or extensions.
-let baseConfig: BaseConfig = {
+const baseConfig: BaseConfig = {
     module: defineBaseRules(),
     resolve: resolve,
     plugins: defineBasePlugins(),
