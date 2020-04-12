@@ -1,19 +1,20 @@
 import { Options } from "webpack";
 
-// Splits npm packages to a chunk vendor.
 const optimization: Options.Optimization = {
-    // Split node_modules to seperate bundle.
+    runtimeChunk: "single",
     splitChunks: {
+        chunks: "all",
+        maxInitialRequests: Infinity,
+        minSize: 0,
         cacheGroups: {
             vendor: {
                 test: /[\\/]node_modules[\\/]/,
-                name: "vendors",
-                chunks: "all",
+                name(module) {
+                    return module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+                },
             },
         },
     },
-    // Prevent vendor bundle refresh due to module id changes.
-    moduleIds: "hashed",
 };
 
 export { optimization };

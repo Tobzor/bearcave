@@ -3,12 +3,14 @@ import React, { useRef } from "react";
 import { render } from "react-dom";
 // Locals
 import AppWrapper from "./AppWrapper";
+import { createBearcave } from "@utils";
 
 // will initialize the wrapper that renders each app.
 const start = async () => {
+    // TODO: handle authentication if necessary.
     const Root = () => {
         const overlay = useRef(null);
-        const bearcaveContext = {};
+        const bearcaveContext = createBearcave({ overlay });
 
         return (
             <>
@@ -25,4 +27,4 @@ const start = async () => {
 
 start()
     .then(() => console.log("Bearcave started successfully!"))
-    .catch(e => console.error(e));
+    .catch((e) => console.error(e));

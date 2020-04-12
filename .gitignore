@@ -24,4 +24,4 @@ yarn-error.log*
 # specific files
 app.css
 app.min.css
-/src/react-app-env.d.ts
+*.less.d.ts

@@ -1,20 +1,28 @@
-// Deps
-import { Configuration } from "webpack";
-import HtmlWebpackPlugin from "html-webpack-plugin";
-// Locals
-import { devServerOptions } from "../server";
-import baseConfig from "./base.config";
+import { defineOutput } from "./../output";
+import { defineDevServer } from "../../server/devServer";
 
+import { Configuration } from "webpack";
+import Dotenv from "dotenv-webpack";
+
+import { rootPath } from "../root";
+import { EnvPaths } from "../../environments/environmentPaths";
+
+import baseConfig from "./base";
 /**
  * Define other dev-related webpack stuff here
  */
-const hot = new HtmlWebpackPlugin({ title: "Hot Module Replacement" });
+
+const environmentPlugin = new Dotenv({
+    path: EnvPaths.test,
+});
 
 let config: Configuration = {
     ...baseConfig,
-    mode: "development",
-    plugins: [...baseConfig.plugins, hot],
-    devServer: devServerOptions,
-    devtool: "eval-source-map",
+    module: baseConfig.module,
+    resolve: baseConfig.resolve,
+    plugins: [...baseConfig.plugins, environmentPlugin],
+    devServer: defineDevServer(),
+    devtool: "source-map",
+    output: defineOutput(rootPath),
 };
 export default config;
