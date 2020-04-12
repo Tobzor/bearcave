@@ -6,7 +6,10 @@ const transpiler: RuleSetRule = {
     test: /\.(js|jsx|tsx|ts)$/,
     exclude: [/node_modules/, /build/],
     use: {
-        loader: "babel-loader?cacheDirectory",
+        loader: "babel-loader",
+        options: {
+            cacheDirectory: true,
+        },
     },
 };
 
