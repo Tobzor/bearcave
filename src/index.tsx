@@ -6,9 +6,9 @@ import AppWrapper from "./AppWrapper";
 import { createBearcave } from "@utils";
 
 // will initialize the wrapper that renders each app.
-const start = async () => {
+const start = async (): Promise<void> => {
     // TODO: handle authentication if necessary.
-    const Root = () => {
+    const Root = (): JSX.Element => {
         const overlay = useRef(null);
         const bearcaveContext = createBearcave({ overlay });
 

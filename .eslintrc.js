@@ -4,11 +4,24 @@
 
 module.exports = {
     parser: "@typescript-eslint/parser",
-    extends: ["plugin:react/recommended", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
-    plugins: ["@react", "@typescript-eslint", "prettier"],
+    extends: [
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier/@typescript-eslint",
+        "plugin:prettier/recommended",
+    ],
+    parserOptions: {
+        excmaVersion: 2018,
+        sourceType: "module",
+    },
     globals: {
         localStorage: true,
         fetch: true,
+    },
+    settings: {
+        react: {
+            version: "detect",
+        },
     },
     env: { browser: true },
     rules: {
