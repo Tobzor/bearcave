@@ -18,11 +18,10 @@ const environmentPlugin = new Dotenv({
 
 const config: Configuration = {
     ...baseConfig,
-    module: baseConfig.module,
-    resolve: baseConfig.resolve,
     plugins: [...baseConfig.plugins, environmentPlugin],
     devServer: defineDevServer(),
     devtool: "source-map",
     output: defineOutput(rootPath),
 };
+
 export default config;

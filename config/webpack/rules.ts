@@ -5,9 +5,8 @@ import { rootPath } from "./root";
 const transpiler: RuleSetRule = {
     test: /\.(js|jsx|tsx|ts)$/,
     exclude: [/node_modules/, /build/],
-    loader: "babel-loader",
-    query: {
-        cacheDirectory: true,
+    use: {
+        loader: "babel-loader?cacheDirectory",
     },
 };
 
@@ -45,7 +44,7 @@ const css: RuleSetRule = {
 
 const images: RuleSetRule = {
     test: /\.(png|jpg|gif|jpeg)$/,
-    include: [join(rootPath, "/resources/images"), join(rootPath, "/node_modules/semantic-ui-css")],
+    include: [join(rootPath, "/resources/images")],
     use: [
         {
             loader: "cache-loader",
@@ -92,7 +91,8 @@ const fonts: RuleSetRule = {
 };
 
 export const defineBaseRules = function (): Module {
-    return { rules: [transpiler, html, moduledLess, less, css, images, icons, fonts] };
+    const baserules = { rules: [transpiler, html, moduledLess, less, css, images, icons, fonts] };
+    return baserules;
 };
 /**
  * Export as module

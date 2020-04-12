@@ -1,4 +1,4 @@
-import { copyServer } from "../plugins";
+// import { copyServer } from "../plugins";
 import { optimization } from "../optimization";
 
 import { Configuration } from "webpack";
@@ -16,10 +16,8 @@ const environmentPlugin = new Dotenv({
 // Export environment settings
 const config: Configuration = {
     ...baseConfig,
-    module: baseConfig.module,
-    resolve: baseConfig.resolve,
-    plugins: [...baseConfig.plugins, environmentPlugin, copyServer],
-    optimization: optimization,
+    plugins: [...baseConfig.plugins, environmentPlugin /*, copyServer*/],
+    optimization,
     devtool: "eval-source-map",
 };
 

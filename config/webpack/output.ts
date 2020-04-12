@@ -18,7 +18,7 @@ export const defineOutput = function (rootPath: string, env?: string): Output {
         return {
             path: path.join(rootPath, "build"),
             publicPath: "/",
-            filename: "[name].[hash].js",
+            filename: "[name].[fullhash].js",
         };
     }
 };

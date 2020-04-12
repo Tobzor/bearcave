@@ -9,8 +9,9 @@ const optimization: Options.Optimization = {
         cacheGroups: {
             vendor: {
                 test: /[\\/]node_modules[\\/]/,
-                name(module) {
-                    return module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+                name(module): string {
+                    const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+                    return `npm.${packageName.replace("@", "")}`;
                 },
             },
         },

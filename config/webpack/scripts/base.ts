@@ -26,6 +26,9 @@ const baseConfig: BaseConfig = {
     resolve: resolve,
     plugins: defineBasePlugins(),
     output: defineOutput(rootPath, "base"),
+    watchOptions: {
+        ignored: ["less.d.ts", "node_modules/**"],
+    },
 };
 
 // Webpack requires config exports to be defaulted.

@@ -1,4 +1,4 @@
-import { uglify, copyServer } from "../plugins";
+import { uglify /*,copyServer*/ } from "../plugins";
 import { optimization } from "../optimization";
 
 import { Configuration } from "webpack";
@@ -17,10 +17,8 @@ const environmentPlugin = new Dotenv({
 // Export environment settings
 const config: Configuration = {
     ...baseConfig,
-    module: baseConfig.module,
-    resolve: baseConfig.resolve,
-    plugins: [...baseConfig.plugins, environmentPlugin, copyServer, uglify],
-    optimization: optimization,
+    plugins: [...baseConfig.plugins, environmentPlugin /*, copyServer*/, uglify],
+    optimization,
 };
 
 export default config;
