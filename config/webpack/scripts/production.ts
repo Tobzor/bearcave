@@ -17,8 +17,6 @@ const environmentPlugin = new Dotenv({
 // Export environment settings
 const config: Configuration = {
     ...baseConfig,
-    module: baseConfig.module,
-    resolve: baseConfig.resolve,
     plugins: [...baseConfig.plugins, environmentPlugin, copyServer, uglify],
     optimization: optimization,
 };
