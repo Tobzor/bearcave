@@ -1,6 +1,7 @@
 import { createContext, useContext, MutableRefObject } from "react";
 
 type ExternalRefs = {
+    root: MutableRefObject<HTMLDivElement | null>;
     overlay: MutableRefObject<HTMLDivElement | null>;
 };
 type Refs = ExternalRefs;
