@@ -47,7 +47,7 @@
         "allowUnusedLabels": true,
 
         // paths to sub projects
-        "baseUrl": "./",
+        "baseUrl": ".",
         "paths": {
             "@utils": ["src/bearcave/utils"],
             "@components": ["src/bearcave/components"],

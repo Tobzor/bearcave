@@ -28,7 +28,8 @@ module.exports = {
     },
     env: { browser: true, node: true, es6: true },
     rules: {
-        "@typescript-eslint/explicit-function-return-type": "off"
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "react/prop-types": "off",
     },
     overrides: [
         {
