@@ -8,3 +8,8 @@ export {
     useBearcave,
     Bearcave,
 } from "./core/BearcaveContext";
+
+/**
+ * UTILS
+ */
+export { default as JSON } from "./utils/JSON";
