@@ -14,12 +14,14 @@
 
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "javascript.preferences.quoteStyle": "double",
     "[javascript]": {
         "editor.formatOnSave": false
     },
     "[javascriptreact]": {
         "editor.formatOnSave": false
     },
+    "typescript.preferences.quoteStyle": "double",
     "[typescript]": {
         "editor.formatOnSave": false
     },
