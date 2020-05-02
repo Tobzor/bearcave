@@ -1,7 +1,5 @@
 // deps
 import uuid from "uuid";
-import { EventEmitter } from "events";
-
 // locals
 import {
     Notification,
@@ -13,9 +11,38 @@ import {
     NotificationResponse,
     NotificationType,
 } from "@types";
+import { ReliableCache, LocalStorageProvider } from "@utils";
 
-class NotificationCenter extends EventEmitter {
+type NotificationCache = {
+    notifications: Notification[];
+};
+
+enum NotificationCacheKeys {
+    notifications = "notifications",
+}
+
+type NotificationEvent = (notification: NotificationRequest) => void;
+type NotificationEvents = {
+    presented: NotificationEvent;
+    dismissed: NotificationEvent;
+    confirmed: NotificationEvent;
+    cancelled: NotificationEvent;
+    finished: NotificationEvent;
+};
+
+export default class NotificationCenter extends ReliableCache<
+    NotificationCache,
+    NotificationEvents
+> {
     constructor() {
-        super();
+        super(
+            new LocalStorageProvider("BEARCAVE_NOTIFICATION_CENTER", {
+                notifications: [],
+            }),
+        );
     }
+
+    sendAsync(): void {}
+
+    registerPresenter(): void {}
 }

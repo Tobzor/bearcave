@@ -1,13 +1,21 @@
 /**
  * CACHE
  */
-export type { ReliableDictionary } from "./cache/ReliableDictionary";
+export type {
+    ReliableStorage,
+    StorageDictionary,
+} from "./cache/ReliableDictionary";
 export type { Dictionary, LocalCache } from "./cache/CacheTypes";
 
 /**
  * ERROR
  */
 export { ParseError } from "./error/ParseError";
+
+/**
+ * EVENTS
+ */
+export type { Events, EventHandlerParameter } from "./events/Events";
 
 /**
  * NOTIFICATION
