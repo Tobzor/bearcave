@@ -6,8 +6,8 @@ import styles from "./styles.less";
 const Nav: React.FC = () => {
     return (
         <nav className={styles.container}>
-            Shiny nav menu should collapse to mobile, use context for dynamic
-            content and be possible to hide.
+            <div>home</div>
+            <div>about</div>
         </nav>
     );
 };

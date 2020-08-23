@@ -1,3 +1,17 @@
 .container {
     grid-area: nav;
+    background-color: var(--color-primary);
+
+    display: flex;
+    flex-flow: row nowrap;
+
+    > * {
+        width: max-content;
+        height: 100%;
+        padding: 0 var(--padding-small);
+        &:hover {
+            cursor: pointer;
+            background-color: var(--color-primary-hover);
+        }
+    }
 }

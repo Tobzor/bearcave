@@ -33,33 +33,56 @@
 }
 
 :root {
-    --color-primary: #6200ee;
-    --color-primary-light: #9c47ff;
-    --color-primary-dark: #0000ba;
-
-    --color-secondary: #03dac6;
-    --color-secondary-light: #66fff9;
-    --color-secondary-dark: #00a896;
-
-    --color-background: #ffffff;
-    --color-surface: #ffffff;
-    --color-error: #b00020;
+    /*
+     * State
+     */
+    --state-disabled-opacity: 0.38;
+    --state-primary-hover: 0.08;
 
     /*
-    * This category of colors is called “on” colors,
-    * referring to the fact that they color elements that appear “on” top of 
-    * surfaces that use the following colors
-    */
-    --color-on-primary: #ffffff;
-    --color-on-secondary: #000000;
-    --color-on-background: #000000;
-    --color-on-surface: #000000;
-    --color-on-error: #ffffff;
+     * Paddings, margins ++
+     */
+
+    --padding-small: 0.5rem;
+    --padding-medium: 1rem;
+    --padding-large: 1.5rem;
+    --margin-small: 0.5rem;
+    --margin-medium: 1rem;
+    --margin-large: 1.5rem;
+
+    /*
+      * Colors
+      */
+    --color-white: #ffffff;
+    --color-white-rgb: 255, 255, 255;
+    --color-black: #000000;
+    --color-black-rgb: 0, 0, 0;
+
+    // primary
+    --color-primary: #6200ee;
+    --color-primary-hover: rgba(
+        var(--color-white-rgb),
+        var(--state-primary-hover)
+    );
+
+    // secondary
+    --color-secondary: #03dac6;
+
+    // general
+    --color-background: var(--color-white);
+    --color-surface: var(--color-white);
+    --color-error: #b00020;
+
+    // on-colors
+    --color-on-primary: var(--color-white);
+    --color-on-secondary: var(--color-black);
+    --color-on-background: var(--color-black);
+    --color-on-surface: var(--color-black);
+    --color-on-error: var(--color-white);
 }
 
 :root.dark {
-    --color-bg: #000;
-    --color-test: hotpink;
+    // TODO: override default colors with shiny dark themed?
 }
 
 body {
