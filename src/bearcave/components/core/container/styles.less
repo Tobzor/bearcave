@@ -1,3 +1,11 @@
 .container {
-    grid-area: content;
+    display: grid;
+    grid-template-areas: "nav" "content" "footer";
+
+    --nav-height: 2rem;
+
+    grid-template-rows:
+        var(--nav-height)
+        calc(100vh - var(--nav-height))
+        auto;
 }

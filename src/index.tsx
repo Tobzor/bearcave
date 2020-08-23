@@ -2,9 +2,15 @@
 import React, { useRef } from "react";
 import { render } from "react-dom";
 // Locals
-import AppWrapper from "./AppWrapper";
-import { BearcaveRoot, BearcaveContent, BearcaveNav } from "@components";
+import App from "./App";
 import { BearcaveContext, createBearcave } from "@utils";
+
+import {
+    BearcaveRoot,
+    BearcaveNav,
+    BearcaveContent,
+    BearcaveFooter,
+} from "@components";
 
 // will initialize the wrapper that renders each app.
 const start = async (): Promise<void> => {
@@ -19,8 +25,9 @@ const start = async (): Promise<void> => {
                 <BearcaveRoot root={root} overlay={overlay}>
                     <BearcaveNav />
                     <BearcaveContent>
-                        <AppWrapper />
+                        <App />
                     </BearcaveContent>
+                    <BearcaveFooter />
                 </BearcaveRoot>
             </BearcaveContext.Provider>
         );

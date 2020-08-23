@@ -4,7 +4,7 @@ import type {
     ReliableStorage,
     StorageDictionary,
 } from "@types";
-import { EventEmitter } from "@utils";
+import EventEmitter from "../event/EventEmitter";
 
 type ReliableStorageProviderEvents<TCacheType> = {
     change: (storageProvider: TCacheType) => void;

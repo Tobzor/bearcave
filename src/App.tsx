@@ -1,7 +1,12 @@
+// deps
 import React from "react";
+// locals
+import { Home } from "@apps";
 
 const AppWrapper: React.FC = () => {
-    return <div>This is the shiny appwrapper</div>;
+    // TODO: routing
+
+    return <Home />;
 };
 
 export default AppWrapper;

@@ -16,6 +16,7 @@ export const defineResolves = function (rootPath: string): Resolve {
             "@utils": join(rootPath, "/src/bearcave/utils"),
             "@components": join(rootPath, "/src/bearcave/components"),
             "@types": join(rootPath, "/src/bearcave/types"),
+            "@apps": join(rootPath, "/src/apps"),
             "@mediaqueries": join(
                 rootPath,
                 "/src/bearcave/styles/mediaqueries.less",

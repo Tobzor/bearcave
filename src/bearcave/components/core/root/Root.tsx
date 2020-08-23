@@ -1,5 +1,5 @@
 // deps
-import React from "react";
+import React, { useEffect } from "react";
 // locals
 import styles from "./styles.less";
 import BearcaveContainer from "../container/Container";
@@ -8,6 +8,7 @@ type RootProps = {
     overlay: React.MutableRefObject<HTMLDivElement | null>;
     root: React.MutableRefObject<HTMLDivElement | null>;
 };
+
 const Root: React.FC<RootProps> = ({ children, root, overlay }) => {
     return (
         <div className={styles.root}>

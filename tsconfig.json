@@ -51,7 +51,8 @@
         "paths": {
             "@utils": ["src/bearcave/utils"],
             "@components": ["src/bearcave/components"],
-            "@types": ["src/bearcave/types"]
+            "@types": ["src/bearcave/types"],
+            "@apps": ["src/apps"]
         }
     },
 

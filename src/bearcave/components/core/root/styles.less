@@ -1,5 +1,68 @@
+.root,
+.overlay {
+    width: 100%;
+    height: 100%;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: #ef5350; /* fallback */
+        color: var(--color-primary);
+    }
+
+    a {
+        color: #0c969b; /* fallback */
+        color: var(--color-secondary);
+    }
+}
+
 .root {
+    // bearcave things
+    background: #f0f0f0; /* fallback */
+    background: var(--color-bg);
+    color: #994cc3;
+    color: var(--color-text);
+    transition: background 0.8s, color 0.8s;
 }
 
 .overlay {
+    width: 100%;
+}
+
+:root {
+    --color-primary: #6200ee;
+    --color-primary-light: #9c47ff;
+    --color-primary-dark: #0000ba;
+
+    --color-secondary: #03dac6;
+    --color-secondary-light: #66fff9;
+    --color-secondary-dark: #00a896;
+
+    --color-background: #ffffff;
+    --color-surface: #ffffff;
+    --color-error: #b00020;
+
+    /*
+    * This category of colors is called “on” colors,
+    * referring to the fact that they color elements that appear “on” top of 
+    * surfaces that use the following colors
+    */
+    --color-on-primary: #ffffff;
+    --color-on-secondary: #000000;
+    --color-on-background: #000000;
+    --color-on-surface: #000000;
+    --color-on-error: #ffffff;
+}
+
+:root.dark {
+    --color-bg: #000;
+    --color-test: hotpink;
+}
+
+body {
+    // default browser shit
+    margin: 0;
 }

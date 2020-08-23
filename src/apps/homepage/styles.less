@@ -1,0 +1,10 @@
+.container {
+    height: 100%;
+
+    display: grid;
+    grid-template-areas: "header" "content";
+    --header-height: 40%;
+    grid-template-rows: var(--header-height) auto;
+
+    border: 1px solid hotpink;
+}
