@@ -35,10 +35,7 @@ const moduledLess: RuleSetRule = {
 
 const images: RuleSetRule = {
     test: /\.(png|jpg|gif|jpeg)$/,
-    include: [
-        join(rootPath, "/resources/images"),
-        join(rootPath, "/node_modules/semantic-ui-css"),
-    ],
+    include: [join(rootPath, "/resources/images")],
     use: [
         {
             loader: "cache-loader",

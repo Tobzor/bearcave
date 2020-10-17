@@ -1,11 +1,11 @@
 .container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+
     display: grid;
-    grid-template-areas: "nav" "content" "footer";
+    grid-template-areas: "nav" "main" "footer";
 
     --nav-height: 2rem;
-
-    grid-template-rows:
-        var(--nav-height)
-        calc(100vh - var(--nav-height))
-        auto;
+    --footer-height: 10rem;
 }

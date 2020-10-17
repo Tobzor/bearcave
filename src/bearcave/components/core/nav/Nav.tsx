@@ -3,11 +3,14 @@ import React from "react";
 // locals
 import styles from "./styles.less";
 
+import NavItem from "./NavItem";
+
 const Nav: React.FC = () => {
+    // return <div style={{ backgroundColor: "var(--color-primary)" }} />;
     return (
         <nav className={styles.container}>
-            <div>home</div>
-            <div>about</div>
+            <NavItem>home</NavItem>
+            <NavItem>about</NavItem>
         </nav>
     );
 };

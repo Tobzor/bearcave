@@ -21,10 +21,8 @@
 
 .root {
     // bearcave things
-    background: #f0f0f0; /* fallback */
-    background: var(--color-bg);
-    color: #994cc3;
-    color: var(--color-text);
+    background: var(--color-content-background);
+    color: var(--color-content-on-background);
     transition: background 0.8s, color 0.8s;
 }
 
@@ -51,6 +49,13 @@
     --margin-large: 1.5rem;
 
     /*
+     * Z-indexes
+     */
+    --overlay-z-index: 9991;
+    --snack-z-index: 9992;
+    --dialog-z-index: 9993;
+
+    /*
       * Colors
       */
     --color-white: #ffffff;
@@ -58,34 +63,37 @@
     --color-black: #000000;
     --color-black-rgb: 0, 0, 0;
 
-    // primary
-    --color-primary: #6200ee;
-    --color-primary-hover: rgba(
-        var(--color-white-rgb),
-        var(--state-primary-hover)
-    );
+    // dark palettes
+    --color-primary: #222831;
+    --color-secondary: #393e46;
+    --color-tertiary: #00adb5;
+    --color-quaternary: #eeeeee;
 
-    // secondary
-    --color-secondary: #03dac6;
+    // nav
+    --color-nav-background: var(--color-secondary);
+    --color-nav-on-background: var(--color-quaternary);
+
+    // content
+    --color-content-background: var(--color-secondary);
+    --color-content-on-background: var(--color-quaternary);
+
+    // footer
+    --color-footer-background: var(--color-tertiary);
+    --color-footer-on-background: var(--color-quaternary);
 
     // general
-    --color-background: var(--color-white);
-    --color-surface: var(--color-white);
     --color-error: #b00020;
 
-    // on-colors
-    --color-on-primary: var(--color-white);
-    --color-on-secondary: var(--color-black);
-    --color-on-background: var(--color-black);
-    --color-on-surface: var(--color-black);
-    --color-on-error: var(--color-white);
+    // fallback /defaults
+    background: #222831; /* fallback */
+    color: #eeeeee;
 }
 
-:root.dark {
-    // TODO: override default colors with shiny dark themed?
+:root.light {
+    // TODO: override default colors with shiny light themed?
 }
 
 body {
-    // default browser shit
+    // overriding default browser shit
     margin: 0;
 }

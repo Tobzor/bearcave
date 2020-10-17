@@ -1,5 +1,20 @@
 .container {
-    grid-area: header;
+    height: calc(100vh - var(--nav-height));
 
-    background-color: darkgrey;
+    background-color: var(--color-primary);
+
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+.bannerImage {
+    background-position: center;
+    background-repeat: no-repeat;
+
+    width: 10%;
+    min-width: 150px;
+    max-width: 350px;
+
+    color: white;
 }

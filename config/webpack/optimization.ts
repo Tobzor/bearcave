@@ -9,8 +9,10 @@ const optimization: Options.Optimization = {
         cacheGroups: {
             vendor: {
                 test: /[\\/]node_modules[\\/]/,
-                name(module) {
-                    return module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+                name(module): string {
+                    return module.context.match(
+                        /[\\/]node_modules[\\/](.*?)([\\/]|$)/,
+                    )[1];
                 },
             },
         },
