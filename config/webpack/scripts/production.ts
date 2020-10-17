@@ -8,7 +8,7 @@ import { EnvPaths } from "../../environments/environmentPaths";
 import baseConfig from "./base";
 
 /**
- * Define other test-related webpack options here
+ * Define other prod-related webpack options here
  */
 const environmentPlugin = new Dotenv({
     path: EnvPaths.prod,
