@@ -16,7 +16,7 @@ const environmentPlugin = new Dotenv({
 // Export environment settings
 const config: Configuration = {
     ...baseConfig,
-    plugins: [...baseConfig.plugins, environmentPlugin /*, copyServer*/],
+    plugins: [...baseConfig.plugins, environmentPlugin],
     optimization,
     devtool: "eval-source-map",
 };

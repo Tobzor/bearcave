@@ -2,22 +2,33 @@
 import React, { useRef } from "react";
 import { render } from "react-dom";
 // Locals
-import AppWrapper from "./AppWrapper";
+import App from "./App";
 import { BearcaveContext, createBearcave } from "@utils";
+
+import {
+    BearcaveRoot,
+    BearcaveNav,
+    BearcaveContent,
+    BearcaveFooter,
+} from "@components";
 
 // will initialize the wrapper that renders each app.
 const start = async (): Promise<void> => {
     // TODO: handle authentication if necessary.
     const Root = (): JSX.Element => {
         const overlay = useRef(null);
-        const bearcaveContext = createBearcave({ overlay });
+        const root = useRef(null);
+        const bearcaveContext = createBearcave({ root, overlay });
 
         return (
             <BearcaveContext.Provider value={bearcaveContext}>
-                <AppWrapper />
-                <div id="overlay-root" ref={overlay}>
-                    {/* overlays, modals, notifications, tooltips and popovers */}
-                </div>
+                <BearcaveRoot root={root} overlay={overlay}>
+                    <BearcaveNav />
+                    <BearcaveContent>
+                        <App />
+                    </BearcaveContent>
+                    <BearcaveFooter />
+                </BearcaveRoot>
             </BearcaveContext.Provider>
         );
     };

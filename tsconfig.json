@@ -47,14 +47,17 @@
         "allowUnusedLabels": true,
 
         // paths to sub projects
-        "baseUrl": "./",
+        "baseUrl": ".",
         "paths": {
             "@utils": ["src/bearcave/utils"],
             "@components": ["src/bearcave/components"],
-            "@types": ["src/bearcave/types"]
+            "@types": ["src/bearcave/types"],
+            "@apps": ["src/apps"],
+            "@images": ["resources/images"],
+            "@locales": ["resources/locales"]
         }
     },
 
-    "include": ["src/**/*", "config/**/*"],
+    "include": ["external.d.ts", "src/**/*", "config/**/*"],
     "exclude": ["config/server/express.js", "config/server/pm2.js"]
 }

@@ -1,0 +1,24 @@
+.container {
+    grid-area: nav;
+    height: var(--nav-height);
+    z-index: 2;
+
+    background-color: var(--color-nav-background);
+    color: var(--color-nav-on-background);
+
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.item {
+    padding: 0 var(--padding-small);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &:hover {
+        cursor: pointer;
+        background-color: var(--color-primary-hover);
+    }
+}

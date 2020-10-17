@@ -8,16 +8,24 @@ import { Resolve } from "webpack";
 export const defineResolves = function (rootPath: string): Resolve {
     if (!rootPath) return {};
     return {
-        extensions: [".js", ".jsx", ".ts", ".tsx", ".css", ".less"],
+        extensions: [".js", ".jsx", ".ts", ".tsx", ".css", ".less", ".png"],
         alias: {
             "@icons": join(rootPath, "/resources/icons"),
             "@images": join(rootPath, "/resources/images"),
             "@fonts": join(rootPath, "/resources/fonts"),
+            "@locales": join(rootPath, "/resources/locales"),
             "@utils": join(rootPath, "/src/bearcave/utils"),
             "@components": join(rootPath, "/src/bearcave/components"),
             "@types": join(rootPath, "/src/bearcave/types"),
-            "@mediaqueries": join(rootPath, "/src/bearcave/styles/mediaqueries.less"),
-            "@less-variables": join(rootPath, "/src/bearcave/styles/variables.less"),
+            "@apps": join(rootPath, "/src/apps"),
+            "@mediaqueries": join(
+                rootPath,
+                "/src/bearcave/styles/mediaqueries.less",
+            ),
+            "@less-variables": join(
+                rootPath,
+                "/src/bearcave/styles/variables.less",
+            ),
         },
     };
 };

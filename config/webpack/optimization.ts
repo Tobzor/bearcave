@@ -10,7 +10,9 @@ const optimization: Options.Optimization = {
             vendor: {
                 test: /[\\/]node_modules[\\/]/,
                 name(module): string {
-                    const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+                    const packageName = module.context.match(
+                        /[\\/]node_modules[\\/](.*?)([\\/]|$)/,
+                    )[1];
                     return `npm.${packageName.replace("@", "")}`;
                 },
             },
