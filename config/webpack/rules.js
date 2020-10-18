@@ -1,8 +1,6 @@
-import { RuleSetRule, Module } from "webpack";
-import { join } from "path";
-import { rootPath } from "./root";
+const { rootPath, join } = require("./root");
 
-const transpiler: RuleSetRule = {
+const transpiler = {
     test: /\.(js|jsx|tsx|ts)$/,
     exclude: [/node_modules/, /build/],
     use: {
@@ -13,13 +11,13 @@ const transpiler: RuleSetRule = {
     },
 };
 
-const html: RuleSetRule = {
+const html = {
     test: /\.html$/,
     use: [{ loader: "html-loader" }],
 };
 
-const moduledLess: RuleSetRule = {
-    test: /\.(less)$/,
+const styles = {
+    test: /\.(css)$/,
     include: [join(rootPath, "/src")],
     use: [
         { loader: "style-loader" },
@@ -31,11 +29,10 @@ const moduledLess: RuleSetRule = {
             },
         },
         { loader: "css-loader", options: { modules: true } },
-        { loader: "less-loader", options: { rewriteUrls: "local" } },
     ],
 };
 
-const images: RuleSetRule = {
+const images = {
     test: /\.(png|jpg|gif|jpeg)$/,
     include: [join(rootPath, "/resources/images")],
     use: [
@@ -52,7 +49,7 @@ const images: RuleSetRule = {
     ],
 };
 
-const icons: RuleSetRule = {
+const icons = {
     test: /\.svg$/,
     use: [
         {
@@ -65,7 +62,7 @@ const icons: RuleSetRule = {
     ],
 };
 
-const fonts: RuleSetRule = {
+const fonts = {
     test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
     include: [
         join(rootPath, "/resources/fonts"),
@@ -83,22 +80,17 @@ const fonts: RuleSetRule = {
     ],
 };
 
-export const defineBaseRules = function (): Module {
-    const baserules = {
-        rules: [transpiler, html, moduledLess, images, icons, fonts],
-    };
-    return baserules;
+module.exports = {
+    fonts,
+    icons,
+    images,
+    styles,
+    html,
+    transpiler,
+    defineBaseRules: function () {
+        const baserules = {
+            rules: [transpiler, html, styles, images, icons, fonts],
+        };
+        return baserules;
+    },
 };
-/**
- * Export as module
- */
-
-/**
- * Export individual rules
- */
-export { transpiler };
-export { html };
-export { moduledLess };
-export { images };
-export { icons };
-export { fonts };

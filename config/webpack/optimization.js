@@ -1,6 +1,4 @@
-import { Options } from "webpack";
-
-const optimization: Options.Optimization = {
+const optimization = {
     runtimeChunk: "single",
     splitChunks: {
         chunks: "all",
@@ -9,7 +7,7 @@ const optimization: Options.Optimization = {
         cacheGroups: {
             vendor: {
                 test: /[\\/]node_modules[\\/]/,
-                name(module): string {
+                name(module) {
                     const packageName = module.context.match(
                         /[\\/]node_modules[\\/](.*?)([\\/]|$)/,
                     )[1];
@@ -20,4 +18,4 @@ const optimization: Options.Optimization = {
     },
 };
 
-export { optimization };
+module.exports = optimization;

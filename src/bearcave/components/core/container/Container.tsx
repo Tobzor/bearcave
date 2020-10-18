@@ -1,7 +1,7 @@
 // deps
 import React from "react";
 // locals
-import styles from "./styles.less";
+import styles from "./styles.css";
 
 type ContainerProps = {};
 const Container = React.forwardRef<

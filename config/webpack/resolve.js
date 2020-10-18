@@ -1,14 +1,13 @@
-import { join } from "path";
-import { Resolve } from "webpack";
+const { join } = require("./root");
 
 /**
  * Defines default resolved extensions and aliases, both used in ESM imports.
  * @param rootPath - The root of the webserver.
  */
-export const defineResolves = function (rootPath: string): Resolve {
+module.exports = function defineResolves(rootPath) {
     if (!rootPath) return {};
     return {
-        extensions: [".js", ".jsx", ".ts", ".tsx", ".css", ".less", ".png"],
+        extensions: [".js", ".jsx", ".ts", ".tsx", ".css", ".png"],
         alias: {
             "@icons": join(rootPath, "/resources/icons"),
             "@images": join(rootPath, "/resources/images"),
@@ -18,14 +17,7 @@ export const defineResolves = function (rootPath: string): Resolve {
             "@components": join(rootPath, "/src/bearcave/components"),
             "@types": join(rootPath, "/src/bearcave/types"),
             "@apps": join(rootPath, "/src/apps"),
-            "@mediaqueries": join(
-                rootPath,
-                "/src/bearcave/styles/mediaqueries.less",
-            ),
-            "@less-variables": join(
-                rootPath,
-                "/src/bearcave/styles/variables.less",
-            ),
+            "@css": join(rootPath, "/src/bearcave/styles/variables.css"),
         },
     };
 };

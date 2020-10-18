@@ -1,11 +1,10 @@
 import { uglify, bundleAnalyzer } from "../plugins";
 import { optimization } from "../optimization";
 
-import { Configuration } from "webpack";
-import Dotenv from "dotenv-webpack";
+const Dotenv = require("dotenv-webpack");
 
-import { EnvPaths } from "../../environments/environmentPaths";
-import baseConfig from "./base";
+const EnvPaths = require("../../environments/environmentPaths");
+const baseConfig = require("./base");
 /**
  * Define other test-related webpack options here
  */
@@ -14,7 +13,7 @@ const environmentPlugin = new Dotenv({
 });
 
 // Export environment settings
-const config: Configuration = {
+const config = {
     ...baseConfig,
     module: baseConfig.module,
     resolve: baseConfig.resolve,
@@ -22,4 +21,4 @@ const config: Configuration = {
     optimization: optimization,
 };
 
-export default config;
+module.exports = config;

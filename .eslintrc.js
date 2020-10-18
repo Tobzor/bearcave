@@ -4,22 +4,13 @@
 
 module.exports = {
     parser: "@typescript-eslint/parser",
-    extends: [
-        "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended",
-        "prettier/@typescript-eslint",
-        "plugin:prettier/recommended",
-    ],
+    extends: ["eslint:recommended", "plugin:prettier/recommended"],
     parserOptions: {
         ecmaVersion: 2018,
         sourceType: "module",
         ecmaFeatures: {
-            jsx: true
-        }
-    },
-    globals: {
-        localStorage: true,
-        fetch: true,
+            jsx: true,
+        },
     },
     settings: {
         react: {
@@ -27,16 +18,17 @@ module.exports = {
         },
     },
     env: { browser: true, node: true, es6: true },
-    rules: {
-        "@typescript-eslint/explicit-function-return-type": "off",
-        "react/prop-types": "off",
-    },
     overrides: [
         {
-            "files": ["*.ts", "*.tsx"],
-            "rules": {
-                "@typescript-eslint/explicit-function-return-type": ["warn"]
-            }
-        }
-    ]
+            files: ["*.ts", "*.tsx"],
+            excludedFiles: ["*.js", "*.jsx"],
+            plugins: ["@typescript-eslint"],
+            extends: [
+                "plugin:@typescript-eslint/eslint-recommended",
+                "plugin:@typescript-eslint/recommended",
+                "prettier/@typescript-eslint",
+                "plugin:react/recommended",
+            ],
+        },
+    ],
 };

@@ -2,25 +2,25 @@
 .overlay {
     width: 100%;
     height: 100%;
+}
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        color: #ef5350; /* fallback */
-        color: var(--color-primary);
-    }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #ef5350; /* fallback */
+    color: var(--color-primary);
+}
 
-    a {
-        color: #0c969b; /* fallback */
-        color: var(--color-secondary);
-    }
+a {
+    color: #0c969b; /* fallback */
+    color: var(--color-secondary);
 }
 
 .root {
-    // bearcave things
+    /* bearcave things*/
     background: var(--color-content-background);
     color: var(--color-content-on-background);
     transition: background 0.8s, color 0.8s;
@@ -63,37 +63,37 @@
     --color-black: #000000;
     --color-black-rgb: 0, 0, 0;
 
-    // dark palettes
+    /* dark palettes*/
     --color-primary: #222831;
     --color-secondary: #393e46;
     --color-tertiary: #00adb5;
     --color-quaternary: #eeeeee;
 
-    // nav
+    /* nav*/
     --color-nav-background: var(--color-secondary);
     --color-nav-on-background: var(--color-quaternary);
 
-    // content
+    /* content*/
     --color-content-background: var(--color-secondary);
     --color-content-on-background: var(--color-quaternary);
 
-    // footer
+    /* footer*/
     --color-footer-background: var(--color-tertiary);
     --color-footer-on-background: var(--color-quaternary);
 
-    // general
+    /* general*/
     --color-error: #b00020;
 
-    // fallback /defaults
+    /* fallback /defaults */
     background: #222831; /* fallback */
     color: #eeeeee;
 }
 
 :root.light {
-    // TODO: override default colors with shiny light themed?
+    /* TODO: override default colors with shiny light themed? */
 }
 
 body {
-    // overriding default browser shit
+    /* overriding default browser shit */
     margin: 0;
 }

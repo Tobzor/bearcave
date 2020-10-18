@@ -1,7 +1,7 @@
 // deps
 import React, { useEffect } from "react";
 // locals
-import styles from "./styles.less";
+import styles from "./styles.css";
 import BearcaveContainer from "../container/Container";
 
 type RootProps = {
