@@ -1,7 +1,6 @@
 // deps
 import { createContext, useContext, MutableRefObject } from "react";
 // locals
-import locales from "@locales";
 
 type ExternalRefs = {
     root: MutableRefObject<HTMLDivElement | null>;
@@ -9,26 +8,14 @@ type ExternalRefs = {
 };
 type Refs = ExternalRefs;
 
-type Locales = {
-    [key: string]: any;
-};
-
-function getLocales(): any {
-    return locales.no;
-}
-
 interface Bearcave {
     refs: Refs;
-    locales: Locales;
 }
 
 const BearcaveContext = createContext({} as Bearcave);
 const createBearcave = (refs: Refs): Bearcave => {
-    const locales = getLocales();
-
     return {
         refs,
-        locales,
     };
 };
 
