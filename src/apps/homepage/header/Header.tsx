@@ -2,7 +2,7 @@
 import React from "react";
 // locals
 import styles from "./styles.css";
-import { bearsplash } from "@images";
+import bearsplash from "@images/bearsplash.png";
 import text from "@locales";
 
 const Header: React.FC = () => {

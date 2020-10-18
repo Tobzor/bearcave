@@ -6,7 +6,6 @@ const { join } = require("./root");
  * @param env - the stringified environment name.
  */
 module.exports = function defineOutput(rootPath) {
-    // Should the chunks be hashed based on content (for prod) or by builds (for dev)
     return {
         path: join(rootPath, "build"),
         publicPath: "/",

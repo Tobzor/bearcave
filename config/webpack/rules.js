@@ -20,7 +20,7 @@ const styles = {
     test: /\.(css)$/,
     include: [join(rootPath, "/src")],
     use: [
-        { loader: "style-loader" },
+        "style-loader",
         {
             loader: "@teamsupercell/typings-for-css-modules-loader",
             options: {
@@ -33,63 +33,20 @@ const styles = {
 };
 
 const images = {
-    test: /\.(png|jpg|gif|jpeg)$/,
-    include: [join(rootPath, "/resources/images")],
-    use: [
-        {
-            loader: "cache-loader",
-        },
-        {
-            loader: "file-loader",
-            options: {
-                name: "[name].[ext]",
-                outputPath: "./resources/images/",
-            },
-        },
-    ],
-};
-
-const icons = {
-    test: /\.svg$/,
-    use: [
-        {
-            loader: "@svgr/webpack",
-            options: {
-                native: false,
-            },
-        },
-        { loader: "url-loader" },
-    ],
-};
-
-const fonts = {
-    test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-    include: [
-        join(rootPath, "/resources/fonts"),
-        join(rootPath, "/node_modules/css-loader"),
-        join(rootPath, "/node_modules/less-loader"),
-    ],
-    use: [
-        {
-            loader: "file-loader",
-            options: {
-                outputPath: "resources/fonts/",
-                name: "[name].[ext]",
-            },
-        },
-    ],
+    test: /\.(png|svg|jpg|gif|jpeg)$/,
+    use: ["file-loader"],
 };
 
 module.exports = {
-    fonts,
-    icons,
+    // fonts,
+    // icons,
     images,
     styles,
     html,
     transpiler,
     defineBaseRules: function () {
         const baserules = {
-            rules: [transpiler, html, styles, images, icons, fonts],
+            rules: [transpiler, html, styles, images],
         };
         return baserules;
     },
