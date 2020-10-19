@@ -14,6 +14,7 @@ const WebpackBar = require("webpackbar");
 const htmlWebPackPlugin = new HtmlWebPackPlugin({
     template: "./config/templates/index.html",
     filename: "./index.html",
+    favicon: "./resources/favicon_io/favicon.ico",
 });
 
 const cleanBuildPlugin = new CleanWebpackPlugin();
