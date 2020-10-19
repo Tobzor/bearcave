@@ -13,7 +13,7 @@ const transpiler = {
 
 const html = {
     test: /\.html$/,
-    use: [{ loader: "html-loader" }],
+    use: ["html-loader"],
 };
 
 const styles = {
