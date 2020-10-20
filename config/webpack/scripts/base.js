@@ -11,7 +11,7 @@ const resolve = defineResolves(rootPath);
 // Export the baseline config for environment specific overrides or extensions.
 const baseConfig = {
     module: defineBaseRules(),
-    resolve: resolve,
+    resolve,
     plugins: defineBasePlugins(),
     output: defineOutput(rootPath, "base"),
     watchOptions: {
