@@ -9,6 +9,7 @@ module.exports = function defineResolves(rootPath) {
     return {
         extensions: [".js", ".jsx", ".ts", ".tsx", ".css", ".png"],
         alias: {
+            "@resources": join(rootPath, "/resources"),
             "@icons": join(rootPath, "/resources/icons"),
             "@images": join(rootPath, "/resources/images"),
             "@fonts": join(rootPath, "/resources/fonts"),
