@@ -1,19 +1,30 @@
 // Webpack third party plugins
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 // minification
 const TerserPlugin = require("terser-webpack-plugin");
 const { WatchIgnorePlugin } = require("webpack");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const WebpackBar = require("webpackbar");
+const { rootPath, join } = require("./root");
 
 // Webpack first party plugins
 
 // Utils
 /** Handles the templating of index.html */
-const htmlWebPackPlugin = new HtmlWebPackPlugin({
+const htmlWebPackPlugin = new HtmlWebpackPlugin({
     template: "./config/templates/index.html",
     filename: "./index.html",
+});
+
+const copyWebpackPlugin = new CopyWebpackPlugin({
+    patterns: [
+        {
+            from: join(rootPath, "/resources/favicon_io"),
+            to: join(rootPath, "/build"),
+        },
+    ],
 });
 
 const cleanBuildPlugin = new CleanWebpackPlugin();
@@ -38,10 +49,16 @@ const progressReport = new WebpackBar({
 // Export all plugins which are used in all environments.
 module.exports = {
     htmlWebPackPlugin,
+    copyWebpackPlugin,
     ignoreTypings,
     uglify,
     bundleAnalyzer,
     defineBasePlugins: function () {
-        return [cleanBuildPlugin, htmlWebPackPlugin, progressReport];
+        return [
+            cleanBuildPlugin,
+            copyWebpackPlugin,
+            htmlWebPackPlugin,
+            progressReport,
+        ];
     },
 };

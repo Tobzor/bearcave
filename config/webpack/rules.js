@@ -13,7 +13,7 @@ const transpiler = {
 
 const html = {
     test: /\.html$/,
-    use: [{ loader: "html-loader" }],
+    use: ["html-loader"],
 };
 
 const styles = {
@@ -32,21 +32,21 @@ const styles = {
     ],
 };
 
-const images = {
-    test: /\.(png|svg|jpg|gif|jpeg)$/,
+const resources = {
+    test: /\.(png|svg|jpg|gif|jpeg|ico)$/,
     use: ["file-loader"],
 };
 
 module.exports = {
     // fonts,
     // icons,
-    images,
+    resources,
     styles,
     html,
     transpiler,
     defineBaseRules: function () {
         const baserules = {
-            rules: [transpiler, html, styles, images],
+            rules: [transpiler, html, styles, resources],
         };
         return baserules;
     },
