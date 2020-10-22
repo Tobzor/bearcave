@@ -21,6 +21,18 @@ export {
 export { default as EventEmitter } from "./event/EventEmitter";
 
 /**
+ * MANAGER
+ */
+
+// contextManager
+export type { AppManifest } from "./manager/ContextManager";
+export {
+    default as ContextManager,
+    registerCaveApp,
+    useCurrentApp,
+} from "./manager/ContextManager";
+
+/**
  * UTILS
  */
 export { default as JSON } from "./utils/JSON";

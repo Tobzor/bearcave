@@ -1,6 +1,7 @@
 // deps
 import React from "react";
 // locals
+import { registerCaveApp } from "@utils";
 import styles from "./styles.css";
 
 import Header from "./header/Header";
@@ -15,4 +16,9 @@ const Home: React.FC = () => {
     );
 };
 
-export default Home;
+export default function register(): void {
+    registerCaveApp({
+        name: "Home",
+        render: Home,
+    });
+}

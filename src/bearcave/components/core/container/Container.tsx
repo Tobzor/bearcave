@@ -3,7 +3,7 @@ import React from "react";
 // locals
 import styles from "./styles.css";
 
-type ContainerProps = {};
+type ContainerProps = unknown;
 const Container = React.forwardRef<
     HTMLDivElement,
     React.PropsWithChildren<ContainerProps>
