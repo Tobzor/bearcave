@@ -2,6 +2,7 @@ const { rootPath } = require("../root");
 // Configuration definitions
 const defineOutput = require("../output");
 const defineResolves = require("../resolve");
+// const defineEntry = require("../entry");
 const { defineBaseRules } = require("../rules");
 const { defineBasePlugins } = require("../plugins");
 
@@ -10,7 +11,10 @@ const resolve = defineResolves(rootPath);
 
 // Export the baseline config for environment specific overrides or extensions.
 const baseConfig = {
-    module: defineBaseRules(),
+    // entry: defineEntry(),
+    module: {
+        rules: defineBaseRules(),
+    },
     resolve,
     plugins: defineBasePlugins(),
     output: defineOutput(rootPath, "base"),

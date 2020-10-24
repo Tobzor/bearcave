@@ -1,3 +1,5 @@
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 const { rootPath, join } = require("./root");
 
 const transpiler = {
@@ -16,7 +18,7 @@ const html = {
     use: ["html-loader"],
 };
 
-const styles = {
+const devStyles = {
     test: /\.(css)$/,
     include: [join(rootPath, "/src")],
     use: [
@@ -32,6 +34,14 @@ const styles = {
     ],
 };
 
+const prodStyles = {
+    test: /\.(css)$/,
+    use: [
+        MiniCssExtractPlugin.loader,
+        { loader: "css-loader", options: { modules: true } },
+    ],
+};
+
 const resources = {
     test: /\.(png|svg|jpg|gif|jpeg|ico)$/,
     use: ["file-loader"],
@@ -41,13 +51,11 @@ module.exports = {
     // fonts,
     // icons,
     resources,
-    styles,
+    devStyles,
+    prodStyles,
     html,
     transpiler,
     defineBaseRules: function () {
-        const baserules = {
-            rules: [transpiler, html, styles, resources],
-        };
-        return baserules;
+        return [transpiler, html, resources];
     },
 };

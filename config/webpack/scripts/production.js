@@ -1,5 +1,6 @@
 const Dotenv = require("dotenv-webpack");
-const { uglify } = require("../plugins");
+const { miniCssExtractPlugin } = require("../plugins");
+const { prodStyles } = require("../rules");
 const optimization = require("../optimization");
 const EnvPaths = require("../../environments/environmentPaths");
 const baseConfig = require("./base");
@@ -13,7 +14,16 @@ const environmentPlugin = new Dotenv({
 // Export environment settings
 const config = {
     ...baseConfig,
-    plugins: [...baseConfig.plugins, environmentPlugin, uglify],
+    module: {
+        ...baseConfig.module,
+        rules: [...baseConfig.module.rules, prodStyles],
+    },
+    plugins: [
+        ...baseConfig.plugins,
+        environmentPlugin,
+        // extracts styles into css files.
+        miniCssExtractPlugin,
+    ],
     optimization,
 };
 
