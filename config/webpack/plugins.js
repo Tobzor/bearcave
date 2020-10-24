@@ -29,7 +29,10 @@ const copyWebpackPlugin = new CopyWebpackPlugin({
 const cleanBuildPlugin = new CleanWebpackPlugin();
 
 // extracts modules into css files instead of injecting as style
-const miniCssExtractPlugin = new MiniCssExtractPlugin();
+const miniCssExtractPlugin = new MiniCssExtractPlugin({
+    filename: "[name].[contenthash].css",
+    chunkFilename: "[id].[contenthash].css",
+});
 
 const bundleAnalyzer = new BundleAnalyzerPlugin();
 
