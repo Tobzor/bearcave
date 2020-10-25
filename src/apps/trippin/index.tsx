@@ -7,9 +7,8 @@ const Trippin: React.FC = () => {
     return <div>tripping</div>;
 };
 
-export default function register(): void {
-    registerCaveApp({
-        name: "Trippin",
-        render: Trippin,
-    });
-}
+registerCaveApp({
+    key: "trippin",
+    name: "Trippin",
+    render: Trippin,
+});

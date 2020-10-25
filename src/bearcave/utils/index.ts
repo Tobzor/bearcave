@@ -25,12 +25,8 @@ export { default as EventEmitter } from "./event/EventEmitter";
  */
 
 // contextManager
-export type { AppManifest } from "./manager/ContextManager";
-export {
-    default as ContextManager,
-    registerCaveApp,
-    useCurrentApp,
-} from "./manager/ContextManager";
+export type { AppManifest } from "./app/AppContainer";
+export { default as ContextManager, registerCaveApp } from "./app/AppContainer";
 
 /**
  * UTILS

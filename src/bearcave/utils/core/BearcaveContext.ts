@@ -1,8 +1,11 @@
 // deps
-import { createBrowserHistory } from "history";
 import { createContext, useContext, MutableRefObject } from "react";
+import { createBrowserHistory, History } from "history";
 // locals
-import ContextManager from "../manager/ContextManager";
+import AppContainer, {
+    appContainerFactory,
+    CreateAppContainer,
+} from "../app/AppContainer";
 
 type ExternalRefs = {
     root: MutableRefObject<HTMLDivElement | null>;
@@ -10,25 +13,28 @@ type ExternalRefs = {
 };
 type Refs = ExternalRefs;
 
-type Managers = {
-    context: ContextManager;
+type App = {
+    container: AppContainer;
 };
 
 interface Bearcave {
+    history: History;
     refs: Refs;
-    managers: Managers;
+    app: App;
 }
 
 const BearcaveContext = createContext({} as Bearcave);
 const createBearcave = (refs: Refs): Bearcave => {
     const history = createBrowserHistory();
 
-    const context = new ContextManager({ history });
+    const appContainer = new AppContainer();
+    appContainerFactory(appContainer);
 
     return {
+        history,
         refs,
-        managers: {
-            context,
+        app: {
+            container: appContainer,
         },
     };
 };

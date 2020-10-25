@@ -1,31 +1,33 @@
 // Deps
 import React, { useRef } from "react";
+import { Router } from "react-router";
 import { render } from "react-dom";
 // Locals
 import { BearcaveContext, createBearcave } from "@utils";
-
 import { BearcaveRoot } from "@components";
-import BearcaveApps from "@apps";
+import AppRenderer from "./AppRenderer";
 
 // will initialize the wrapper that renders each app.
-const start = async (): Promise<void> => {
+async function start(): Promise<void> {
     // TODO: handle authentication if necessary.
-    const Root = (): JSX.Element => {
+    function Root(): JSX.Element {
         const overlay = useRef(null);
         const root = useRef(null);
         const bearcaveContext = createBearcave({ root, overlay });
 
         return (
-            <BearcaveContext.Provider value={bearcaveContext}>
-                <BearcaveRoot root={root} overlay={overlay}>
-                    <BearcaveApps />
-                </BearcaveRoot>
-            </BearcaveContext.Provider>
+            <Router history={bearcaveContext.history}>
+                <BearcaveContext.Provider value={bearcaveContext}>
+                    <BearcaveRoot root={root} overlay={overlay}>
+                        <AppRenderer />
+                    </BearcaveRoot>
+                </BearcaveContext.Provider>
+            </Router>
         );
-    };
+    }
 
     render(<Root />, document.getElementById("root"));
-};
+}
 
 start()
     .then(() => console.log("Bearcave started successfully!"))

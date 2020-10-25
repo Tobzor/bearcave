@@ -16,9 +16,8 @@ const Home: React.FC = () => {
     );
 };
 
-export default function register(): void {
-    registerCaveApp({
-        name: "Home",
-        render: Home,
-    });
-}
+registerCaveApp({
+    key: "home",
+    name: "Home",
+    render: Home,
+});
