@@ -22,7 +22,7 @@ function useCurrentApp(): AppManifest | null {
     return app;
 }
 
-const BearcaveApps: React.FC = () => {
+function BearcaveApps(): JSX.Element {
     const app = useCurrentApp();
 
     const AppComponent = useMemo(() => {
@@ -33,6 +33,10 @@ const BearcaveApps: React.FC = () => {
         return () => null;
     }, [app]);
 
+    // TODO: render router with scoped history for apps
+    // TODO: make nav + footer opt in?
+    // TODO: add possibility for apps to use their own settings. (auto scoped ++)
+
     return (
         <>
             <BearcaveNav />
@@ -42,6 +46,6 @@ const BearcaveApps: React.FC = () => {
             <BearcaveFooter />
         </>
     );
-};
+}
 
 export default BearcaveApps;

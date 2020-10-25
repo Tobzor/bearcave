@@ -7,14 +7,14 @@ import styles from "./styles.css";
 import Header from "./header/Header";
 import Content from "./content/Content";
 
-const Home: React.FC = () => {
+function Home(): JSX.Element {
     return (
         <div className={styles.container}>
             <Header />
             <Content />
         </div>
     );
-};
+}
 
 registerCaveApp({
     key: "home",
