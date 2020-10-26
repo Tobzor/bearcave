@@ -1,11 +1,12 @@
 // deps
 import React, { useEffect, useMemo, useState } from "react";
-import { Route, Routes } from "react-router";
+import { Route, Routes, useParams } from "react-router";
 // locals
 import { AppManifest, useBearcave } from "@utils";
 import Home from "./homepage";
+import { useLocation } from "react-router";
 
-function useCurrentApp(): AppManifest | null {
+function useCurrentApp(appKey: string): AppManifest | null {
     const {
         app: { container },
     } = useBearcave();
@@ -13,18 +14,29 @@ function useCurrentApp(): AppManifest | null {
     const [app, setApp] = useState<AppManifest | null>(null);
 
     useEffect(() => {
-        const currapp = container.getCurrentApp();
-
+        console.log("effect with appkey changes?");
+        const currapp = container.getCurrentApp(appKey);
         if (app?.key !== currapp?.key) {
             setApp(currapp);
         }
-    }, [window.location.pathname]);
+    }, [appKey]);
 
     return app;
 }
 
 function BearcaveApps(): JSX.Element {
-    const app = useCurrentApp();
+    return (
+        <Routes>
+            <Route path="/" element={<AppBrowser />} />
+            <Route path=":appKey/*" element={<SingleAppRenderer />} />
+        </Routes>
+    );
+}
+
+function SingleAppRenderer() {
+    const { appKey } = useParams();
+
+    const app = useCurrentApp(appKey);
 
     const AppComponent = useMemo(() => {
         if (app) {
@@ -34,21 +46,11 @@ function BearcaveApps(): JSX.Element {
         return () => null;
     }, [app]);
 
-    // TODO: render router with scoped history for apps
-    // TODO: make nav + footer opt in?
-    // TODO: add possibility for apps to use their own settings. (auto scoped ++)
+    if (!app) {
+        return <AppNotFound />;
+    }
 
-    return (
-        <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="apps/*">
-                <Route path="/" element={<AppBrowser />} />
-                <Route path={app?.key + "/*"} element={<AppComponent />} />
-                <Route path="*" element={<AppNotFound />} />
-            </Route>
-            <Route path="*" element={<PageNotFound />} />
-        </Routes>
-    );
+    return <AppComponent />;
 }
 
 function AppBrowser() {
@@ -57,10 +59,6 @@ function AppBrowser() {
 
 function AppNotFound() {
     return <div>Could not find the app for this url.</div>;
-}
-
-function PageNotFound() {
-    return <div>Could not find the requested page.</div>;
 }
 
 export default BearcaveApps;

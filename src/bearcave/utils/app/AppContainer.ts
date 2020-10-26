@@ -14,16 +14,8 @@ class AppContainer {
         console.log("new app container");
     }
 
-    getCurrentApp(): AppManifest | null {
-        const path = window.location.pathname;
-
-        switch (path) {
-            case "/apps/trippin":
-                return this.findApp("trippin");
-
-            default:
-                return this.findApp("home");
-        }
+    getCurrentApp(appKey: string): AppManifest | null {
+        return this.findApp(appKey);
     }
 
     registerApp(app: AppManifest): void {

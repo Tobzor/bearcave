@@ -1,11 +1,12 @@
 // Deps
 import React, { useRef } from "react";
 import { render } from "react-dom";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 // Locals
 import { BearcaveContext, createBearcave } from "@utils";
 import { Bearcave } from "@components";
 import AppRenderer from "./AppRenderer";
+import Home from "./homepage";
 
 function Root(): JSX.Element {
     const overlay = useRef(null);
@@ -16,11 +17,19 @@ function Root(): JSX.Element {
         <BrowserRouter>
             <BearcaveContext.Provider value={bearcaveContext}>
                 <Bearcave root={root} overlay={overlay}>
-                    <AppRenderer />
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="apps/*" element={<AppRenderer />} />
+                        <Route path="*" element={<PageNotFound />} />
+                    </Routes>
                 </Bearcave>
             </BearcaveContext.Provider>
         </BrowserRouter>
     );
+}
+
+function PageNotFound() {
+    return <div>Could not find the requested page.</div>;
 }
 
 async function start(): Promise<void> {
