@@ -1,4 +1,9 @@
 /**
+ * APP
+ */
+export { default as AppRenderer } from "./app/AppRenderer";
+
+/**
  * CORE
  */
 export { default as Bearcave } from "./core/cave/Bearcave";

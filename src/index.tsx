@@ -4,8 +4,7 @@ import { render } from "react-dom";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // Locals
 import { BearcaveContext, createBearcave } from "@utils";
-import { Bearcave } from "@components";
-import AppRenderer from "./AppRenderer";
+import { Bearcave, AppRenderer } from "@components";
 import Home from "./homepage";
 
 function Root(): JSX.Element {

@@ -3,8 +3,6 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Route, Routes, useParams } from "react-router";
 // locals
 import { AppManifest, useBearcave } from "@utils";
-import Home from "./homepage";
-import { useLocation } from "react-router";
 
 function useCurrentApp(appKey: string): AppManifest | null {
     const {
@@ -24,7 +22,7 @@ function useCurrentApp(appKey: string): AppManifest | null {
     return app;
 }
 
-function BearcaveApps(): JSX.Element {
+function AppRenderer(): JSX.Element {
     return (
         <Routes>
             <Route path="/" element={<AppBrowser />} />
@@ -61,4 +59,4 @@ function AppNotFound() {
     return <div>Could not find the app for this url.</div>;
 }
 
-export default BearcaveApps;
+export default AppRenderer;
