@@ -12,7 +12,7 @@ jobs:
             - uses: actions/checkout@v2
             - uses: borales/actions-yarn@v2.0.0
               with:
-                  cmd: install
+                  cmd: ci
             - uses: borales/actions-yarn@v2.0.0
               with:
                   cmd: build
