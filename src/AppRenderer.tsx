@@ -38,10 +38,6 @@ function BearcaveApps(): JSX.Element {
     // TODO: make nav + footer opt in?
     // TODO: add possibility for apps to use their own settings. (auto scoped ++)
 
-    if (!app) {
-        return <div>loading...?</div>;
-    }
-
     return (
         <Routes>
             <Route path="/" element={<Home />} />
@@ -50,6 +46,7 @@ function BearcaveApps(): JSX.Element {
                 <Route path={app?.key + "/*"} element={<AppComponent />} />
                 <Route path="*" element={<AppNotFound />} />
             </Route>
+            <Route path="*" element={<PageNotFound />} />
         </Routes>
     );
 }
@@ -60,6 +57,10 @@ function AppBrowser() {
 
 function AppNotFound() {
     return <div>Could not find the app for this url.</div>;
+}
+
+function PageNotFound() {
+    return <div>Could not find the requested page.</div>;
 }
 
 export default BearcaveApps;
