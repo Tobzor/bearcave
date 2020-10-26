@@ -3,7 +3,7 @@ const { rootPath, join } = require("./root");
 
 function defineEntry() {
     return {
-        core: [
+        main: [
             join(rootPath, "/src/index.tsx"),
             ...glob.sync(join(rootPath, "/src/apps/**/index.tsx")),
         ],
