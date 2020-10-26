@@ -1,15 +1,16 @@
 // deps
-import React, { useEffect } from "react";
+import React from "react";
 // locals
 import styles from "./styles.css";
 import BearcaveContainer from "../container/Container";
+import { WithChildren } from "@types";
 
-type RootProps = {
+export type RootProps = WithChildren<{
     overlay: React.MutableRefObject<HTMLDivElement | null>;
     root: React.MutableRefObject<HTMLDivElement | null>;
-};
+}>;
 
-const Root: React.FC<RootProps> = ({ children, root, overlay }) => {
+function Root({ children, root, overlay }: RootProps): JSX.Element {
     return (
         <div className={styles.root}>
             <BearcaveContainer ref={root}>{children}</BearcaveContainer>
@@ -18,6 +19,6 @@ const Root: React.FC<RootProps> = ({ children, root, overlay }) => {
             </div>
         </div>
     );
-};
+}
 
 export default Root;

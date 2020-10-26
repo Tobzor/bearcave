@@ -5,14 +5,16 @@ import styles from "./styles.css";
 
 import NavItem from "./NavItem";
 
-const Nav: React.FC = () => {
+const Header: React.FC = () => {
     // return <div style={{ backgroundColor: "var(--color-primary)" }} />;
     return (
-        <nav className={styles.container}>
-            <NavItem>home</NavItem>
-            <NavItem>about</NavItem>
-        </nav>
+        <header className={styles.container}>
+            <nav className={styles.navContainer}>
+                <NavItem>home</NavItem>
+                <NavItem>about</NavItem>
+            </nav>
+        </header>
     );
 };
 
-export default Nav;
+export default Header;

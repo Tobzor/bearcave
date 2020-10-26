@@ -1,10 +1,10 @@
 // Deps
 import React, { useRef } from "react";
-import { Router } from "react-router";
 import { render } from "react-dom";
+import { BrowserRouter } from "react-router-dom";
 // Locals
 import { BearcaveContext, createBearcave } from "@utils";
-import { BearcaveRoot } from "@components";
+import { Bearcave } from "@components";
 import AppRenderer from "./AppRenderer";
 
 function Root(): JSX.Element {
@@ -13,13 +13,13 @@ function Root(): JSX.Element {
     const bearcaveContext = createBearcave({ root, overlay });
 
     return (
-        <Router history={bearcaveContext.history}>
+        <BrowserRouter>
             <BearcaveContext.Provider value={bearcaveContext}>
-                <BearcaveRoot root={root} overlay={overlay}>
+                <Bearcave root={root} overlay={overlay}>
                     <AppRenderer />
-                </BearcaveRoot>
+                </Bearcave>
             </BearcaveContext.Provider>
-        </Router>
+        </BrowserRouter>
     );
 }
 

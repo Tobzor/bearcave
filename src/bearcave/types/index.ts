@@ -8,6 +8,12 @@ export type {
 export type { Dictionary, LocalCache } from "./cache/CacheTypes";
 
 /**
+ * COMPONENT
+ */
+
+export type { WithChildren } from "./component/children";
+
+/**
  * ERROR
  */
 export { ParseError } from "./error/ParseError";

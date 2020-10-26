@@ -32,3 +32,4 @@ export { default as ContextManager, registerCaveApp } from "./app/AppContainer";
  * UTILS
  */
 export { default as JSON } from "./utils/JSON";
+export { combineUrls, sanitizedUrl, trimTrailingSlash } from "./utils/url";

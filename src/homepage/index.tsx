@@ -1,7 +1,6 @@
 // deps
 import React from "react";
 // locals
-import { registerCaveApp } from "@utils";
 import styles from "./styles.css";
 
 import Header from "./header/Header";
@@ -16,8 +15,4 @@ function Home(): JSX.Element {
     );
 }
 
-registerCaveApp({
-    key: "home",
-    name: "Home",
-    render: Home,
-});
+export default Home;

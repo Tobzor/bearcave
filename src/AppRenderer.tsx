@@ -1,8 +1,9 @@
 // deps
 import React, { useEffect, useMemo, useState } from "react";
+import { Route, Routes } from "react-router";
 // locals
-import { BearcaveContent, BearcaveFooter, BearcaveNav } from "@components";
 import { AppManifest, useBearcave } from "@utils";
+import Home from "./homepage";
 
 function useCurrentApp(): AppManifest | null {
     const {
@@ -37,15 +38,28 @@ function BearcaveApps(): JSX.Element {
     // TODO: make nav + footer opt in?
     // TODO: add possibility for apps to use their own settings. (auto scoped ++)
 
+    if (!app) {
+        return <div>loading...?</div>;
+    }
+
     return (
-        <>
-            <BearcaveNav />
-            <BearcaveContent>
-                <AppComponent />
-            </BearcaveContent>
-            <BearcaveFooter />
-        </>
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="apps/*">
+                <Route path="/" element={<AppBrowser />} />
+                <Route path={app?.key + "/*"} element={<AppComponent />} />
+                <Route path="*" element={<AppNotFound />} />
+            </Route>
+        </Routes>
     );
+}
+
+function AppBrowser() {
+    return <div>This is for browsing apps</div>;
+}
+
+function AppNotFound() {
+    return <div>Could not find the app for this url.</div>;
 }
 
 export default BearcaveApps;
