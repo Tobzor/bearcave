@@ -7,6 +7,7 @@ module.exports = function defineDevServer() {
         hot: true,
         historyApiFallback: {
             disableDotRule: true,
+            index: "/",
         },
         stats: "errors-only",
         noInfo: true,
