@@ -17,7 +17,6 @@ module.exports = function defineResolves(rootPath) {
             "@utils": join(rootPath, "/src/bearcave/utils"),
             "@components": join(rootPath, "/src/bearcave/components"),
             "@types": join(rootPath, "/src/bearcave/types"),
-            "@apps": join(rootPath, "/src/apps"),
             "@css": join(rootPath, "/src/bearcave/styles/variables.css"),
         },
     };

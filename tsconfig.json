@@ -52,7 +52,6 @@
             "@utils": ["src/bearcave/utils"],
             "@components": ["src/bearcave/components"],
             "@types": ["src/bearcave/types"],
-            "@apps": ["src/apps"],
             "@images": ["resources/images"],
             "@locales": ["resources/locales"]
         }
