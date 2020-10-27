@@ -30,8 +30,7 @@ const cleanBuildPlugin = new CleanWebpackPlugin();
 
 // extracts modules into css files instead of injecting as style
 const miniCssExtractPlugin = new MiniCssExtractPlugin({
-    filename: "[name].[contenthash].css",
-    chunkFilename: "[id].[contenthash].css",
+    filename: "css/[name].[contenthash].css",
 });
 
 const bundleAnalyzer = new BundleAnalyzerPlugin();

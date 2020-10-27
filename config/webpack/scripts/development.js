@@ -2,6 +2,7 @@ const Dotenv = require("dotenv-webpack");
 const { rootPath } = require("../root");
 const defineOutput = require("../output");
 const defineDevServer = require("../../server/devServer");
+const optimization = require("../optimization");
 const EnvPaths = require("../../environments/environmentPaths");
 const baseConfig = require("./base");
 const { devStyles } = require("../rules");
@@ -16,6 +17,7 @@ const environmentPlugin = new Dotenv({
 
 const config = {
     ...baseConfig,
+    mode: "development",
     module: {
         ...baseConfig.module,
         rules: [...baseConfig.module.rules, devStyles],
@@ -24,6 +26,7 @@ const config = {
     devServer: defineDevServer(),
     devtool: "source-map",
     output: defineOutput(rootPath),
+    optimization,
 };
 
 module.exports = config;

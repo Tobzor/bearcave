@@ -1,5 +1,3 @@
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-
 const optimization = {
     runtimeChunk: "single",
     splitChunks: {
@@ -7,19 +5,22 @@ const optimization = {
         maxInitialRequests: Infinity,
         minSize: 0,
         cacheGroups: {
-            vendor: {
+            defaultVendors: {
                 test: /[\\/]node_modules[\\/]/,
                 name(module) {
                     const packageName = module.context.match(
                         /[\\/]node_modules[\\/](.*?)([\\/]|$)/,
                     )[1];
-                    return `npm.${packageName.replace("@", "")}`;
+                    return `${packageName.replace("@", "")}`;
                 },
+            },
+            bearcave: {
+                test: /[\\/]src[\\/]bearcave[\\/]/,
+                reuseExistingChunk: true,
+                name: "bearcave",
             },
         },
     },
-    minimize: true,
-    minimizer: ["...", new CssMinimizerPlugin()],
 };
 
 module.exports = optimization;

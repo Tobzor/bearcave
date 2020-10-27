@@ -7,6 +7,8 @@ const baseConfig = require("./base");
 /**
  * Define other prod-related webpack options here
  */
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+
 const environmentPlugin = new Dotenv({
     path: EnvPaths.prod,
 });
@@ -14,6 +16,7 @@ const environmentPlugin = new Dotenv({
 // Export environment settings
 const config = {
     ...baseConfig,
+    mode: "production",
     module: {
         ...baseConfig.module,
         rules: [...baseConfig.module.rules, prodStyles],
@@ -24,7 +27,11 @@ const config = {
         // extracts styles into css files.
         miniCssExtractPlugin,
     ],
-    optimization,
+    optimization: {
+        ...optimization,
+        minimize: true,
+        minimizer: ["...", new CssMinimizerPlugin()],
+    },
 };
 
 module.exports = config;
