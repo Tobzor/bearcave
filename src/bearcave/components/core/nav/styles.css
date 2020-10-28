@@ -3,8 +3,10 @@
     height: var(--nav-height);
     z-index: 2;
 
-    background-color: var(--color-nav-background);
-    color: var(--color-nav-on-background);
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
 }
 
 .navContainer {
@@ -15,13 +17,35 @@
 }
 
 .item {
+    cursor: pointer;
+
     padding: 0 var(--padding-small);
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
+.item a {
+    text-decoration: none;
+    color: inherit;
+}
 
 .item:hover {
-    cursor: pointer;
-    background-color: var(--color-primary-hover);
+    background-color: var(--color-on-primary-hover);
+}
+
+.item:active {
+    background-color: var(--color-on-primary-active);
+}
+
+/*
+** Overrides some default styling of nav item
+*/
+
+.navLogo {
+    composes: item;
+}
+
+.navLogo:hover,
+.navLogo:active {
+    background-color: transparent;
 }

@@ -8,6 +8,7 @@ type AppManifest = {
 };
 
 class AppContainer {
+    public appsOverviewUrl = "/apps";
     private apps: AppManifest[] = [];
 
     constructor() {

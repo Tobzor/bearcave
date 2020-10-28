@@ -2,20 +2,19 @@
 import React from "react";
 // locals
 import styles from "./styles.css";
-import BearcaveContainer from "../container/Container";
 import { WithChildren } from "@types";
 
 export type RootProps = WithChildren<{
-    overlay: React.MutableRefObject<HTMLDivElement | null>;
+    dialog: React.MutableRefObject<HTMLDivElement | null>;
     root: React.MutableRefObject<HTMLDivElement | null>;
 }>;
 
-function Root({ children, root, overlay }: RootProps): JSX.Element {
+function Root({ children, root, dialog }: RootProps): JSX.Element {
     return (
         <div className={styles.root}>
-            <BearcaveContainer ref={root}>{children}</BearcaveContainer>
-            <div id="overlay-root" className={styles.overlay} ref={overlay}>
-                {/* overlays, modals, notifications, tooltips and popovers */}
+            <div ref={root}>{children}</div>
+            <div id="dialog-root" className={styles.dialog} ref={dialog}>
+                {/* modals, notifications */}
             </div>
         </div>
     );

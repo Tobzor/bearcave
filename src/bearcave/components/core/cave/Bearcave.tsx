@@ -1,22 +1,18 @@
 // deps
 import React from "react";
 // locals
-import {
-    BearcaveNav,
-    BearcaveContent,
-    BearcaveFooter,
-    BearcaveRoot,
-} from "@components";
+import { BearcaveFooter, BearcaveRoot } from "@components";
 import { RootProps } from "../root/Root";
 import { WithChildren } from "@types";
 
+import styles from "./styles.css";
+
 type BearcaveProps = WithChildren<RootProps>;
 
-function Bearcave({ overlay, root, children }: BearcaveProps): JSX.Element {
+function Bearcave({ dialog, root, children }: BearcaveProps): JSX.Element {
     return (
-        <BearcaveRoot overlay={overlay} root={root}>
-            <BearcaveNav />
-            <BearcaveContent>{children}</BearcaveContent>
+        <BearcaveRoot dialog={dialog} root={root}>
+            <main className={styles.content}>{children}</main>
             <BearcaveFooter />
         </BearcaveRoot>
     );

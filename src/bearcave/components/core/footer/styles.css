@@ -2,6 +2,7 @@
     grid-area: footer;
     height: var(--footer-height);
 
-    background-color: var(--color-footer-background);
-    color: var(--color-footer-on-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

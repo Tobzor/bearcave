@@ -3,19 +3,23 @@ import React, { useRef } from "react";
 import { render } from "react-dom";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // Locals
+
+// default bearcave css variables
+import "@css/variables";
+
 import { BearcaveContext, createBearcave } from "@utils";
 import { Bearcave, AppRenderer } from "@components";
 import Home from "./homepage";
 
 function Root(): JSX.Element {
-    const overlay = useRef(null);
+    const dialog = useRef(null);
     const root = useRef(null);
-    const bearcaveContext = createBearcave({ root, overlay });
+    const bearcaveContext = createBearcave({ root, dialog });
 
     return (
         <BrowserRouter>
             <BearcaveContext.Provider value={bearcaveContext}>
-                <Bearcave root={root} overlay={overlay}>
+                <Bearcave root={root} dialog={dialog}>
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="apps/*" element={<AppRenderer />} />

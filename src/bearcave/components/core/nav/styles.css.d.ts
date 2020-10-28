@@ -4,6 +4,7 @@ declare namespace StylesCssNamespace {
         container: string;
         item: string;
         navContainer: string;
+        navLogo: string;
     }
 }
 

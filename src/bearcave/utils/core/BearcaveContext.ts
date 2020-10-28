@@ -5,7 +5,7 @@ import AppContainer, { appContainerFactory } from "../app/AppContainer";
 
 type ExternalRefs = {
     root: MutableRefObject<HTMLDivElement | null>;
-    overlay: MutableRefObject<HTMLDivElement | null>;
+    dialog: MutableRefObject<HTMLDivElement | null>;
 };
 type Refs = ExternalRefs;
 
