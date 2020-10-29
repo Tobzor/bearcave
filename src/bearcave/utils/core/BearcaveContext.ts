@@ -3,11 +3,10 @@ import { createContext, useContext, MutableRefObject } from "react";
 // locals
 import AppContainer, { appContainerFactory } from "../app/AppContainer";
 
-type ExternalRefs = {
+type Refs = {
     root: MutableRefObject<HTMLDivElement | null>;
     dialog: MutableRefObject<HTMLDivElement | null>;
 };
-type Refs = ExternalRefs;
 
 type App = {
     container: AppContainer;

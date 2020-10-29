@@ -4,6 +4,12 @@
 export { default as AppRenderer } from "./app/AppRenderer";
 
 /**
+ * COMMON
+ */
+// export {} from "./common/feedback";
+export { default as Modal } from "./common/modal/Modal";
+
+/**
  * CORE
  */
 export { default as Bearcave } from "./core/cave/Bearcave";

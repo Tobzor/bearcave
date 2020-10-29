@@ -4,8 +4,16 @@ import React from "react";
 import styles from "./styles.css";
 import { WithChildren } from "@types";
 
-function NavItem({ children }: WithChildren): JSX.Element {
-    return <div className={styles.item}>{children}</div>;
+type NavItemProps = WithChildren<{
+    onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+}>;
+
+function NavItem({ onClick, children }: NavItemProps): JSX.Element {
+    return (
+        <div className={styles.item} onClick={onClick}>
+            {children}
+        </div>
+    );
 }
 
 export default NavItem;
