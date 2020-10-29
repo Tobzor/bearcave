@@ -12,6 +12,7 @@ type BearcaveProps = WithChildren<RootProps>;
 function Bearcave({ dialog, root, children }: BearcaveProps): JSX.Element {
     return (
         <BearcaveRoot dialog={dialog} root={root}>
+            {/* TODO: add navigation breadcrumbs... */}
             <main className={styles.content}>{children}</main>
             <BearcaveFooter />
         </BearcaveRoot>

@@ -42,7 +42,7 @@
 }
 
 :global(:root.dark) {
-    --color-primary: #000025;
+    --color-primary: #00001d;
     --color-on-primary-active: #0297fd;
     --color-on-primary-hover: #ff009b;
 

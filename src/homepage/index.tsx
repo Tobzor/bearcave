@@ -1,17 +1,18 @@
 // deps
 import React from "react";
 // locals
-import styles from "./styles.css";
-
-import Header from "./header/Header";
-import Content from "./content/Content";
 import { BearcaveNav } from "@components";
+
+import styles from "./styles.css";
+import Education from "./education/Education";
+import PastProjects from "./projects/Projects";
 
 function Home(): JSX.Element {
     return (
         <div className={styles.container}>
-            <span>🧸</span>
-            <p>Working on it...</p>
+            <BearcaveNav />
+            <Education />
+            <PastProjects />
         </div>
     );
 }

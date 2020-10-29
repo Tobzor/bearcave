@@ -1,0 +1,8 @@
+/* Small (altho this is the default it might be useful. */
+@value small: (max-width: 599px);
+/* notsmall is for any device larger than mobile */
+@value notsmall: (min-width: 600px);
+/* medium is specific for tablets ish */
+@value medium: (min-width: 600px) and (max-width: 959px);
+/* large is anything larger than tablet breakpoints */
+@value large: (min-width: 960px);

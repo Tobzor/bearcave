@@ -1,3 +1,5 @@
+@value notsmall from "~@css/breakpoints.css";
+
 .root,
 .dialog {
 }
@@ -8,6 +10,14 @@ body {
     /* TODO: add transition when toggling dark theme?? Ruins first load at the moment */
     /* transition: background 0.8s, color 0.8s; */
     font-size: var(--font-size);
+
+    border-top: 1px solid hotpink;
+}
+
+@media notsmall {
+    body {
+        border-width: 5px;
+    }
 }
 
 .root {
