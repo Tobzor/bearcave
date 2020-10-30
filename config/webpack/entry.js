@@ -10,7 +10,6 @@ function defineEntry() {
                 const appName = parse(app).dir.split("/").pop();
                 acc["apps/" + appName] = app;
 
-                console.log(acc, app);
                 return acc;
             }, {}),
     };
