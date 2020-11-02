@@ -23,6 +23,10 @@ const copyWebpackPlugin = new CopyWebpackPlugin({
             from: join(rootPath, "/resources/favicon_io"),
             to: join(rootPath, "/build"),
         },
+        {
+            from: join(rootPath, "/resources/pwa"),
+            to: join(rootPath, "/build"),
+        },
     ],
 });
 

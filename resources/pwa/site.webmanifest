@@ -2,7 +2,7 @@
     "name": "Bearcave",
     "short_name": "bearcave",
     "display": "standalone",
-    "start_url": "index.html",
+    "start_url": "/",
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
     "icons": [
