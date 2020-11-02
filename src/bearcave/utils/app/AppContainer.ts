@@ -1,19 +1,8 @@
-type AppManifest = {
-    key: string;
-    name: string; // "Home"
-    shortName?: string;
-    description?: string;
-    icon?: string;
-    render: React.ComponentType; // top level component.
-};
+import { AppManifest } from "@types";
 
 class AppContainer {
     public appsOverviewUrl = "/apps";
     private apps: AppManifest[] = [];
-
-    constructor() {
-        console.log("new app container");
-    }
 
     getCurrentApp(appKey: string): AppManifest | null {
         return this.findApp(appKey);

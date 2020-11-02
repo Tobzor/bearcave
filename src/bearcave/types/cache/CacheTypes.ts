@@ -1,2 +1,2 @@
-export type Dictionary = { [key: string]: any };
+export type Dictionary = Record<string, unknown>;
 export type LocalCache = Dictionary;
