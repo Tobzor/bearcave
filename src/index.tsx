@@ -1,5 +1,5 @@
 // Deps
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { render } from "react-dom";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // Locals
