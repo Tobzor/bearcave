@@ -41,3 +41,4 @@ export { default as EventEmitter } from "./event/EventEmitter";
  */
 export { default as JSON } from "./utils/JSON";
 export { combineUrls, sanitizedUrl, trimTrailingSlash } from "./utils/url";
+export { classnames } from "./utils/string";

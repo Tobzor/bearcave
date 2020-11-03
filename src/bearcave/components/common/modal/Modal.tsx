@@ -3,17 +3,19 @@ import React from "react";
 import { createPortal } from "react-dom";
 // locals
 import { WithChildren } from "@types";
-import { useBearcave } from "@utils";
+import { classnames, useBearcave } from "@utils";
 import styles from "./styles.css";
 
 type ModalProps = WithChildren<{
     show?: boolean;
+    className?: string;
     close: () => void;
 }>;
 
 function Modal({
     show,
     close,
+    className,
     children,
 }: ModalProps): React.ReactPortal | null {
     const {
@@ -24,8 +26,14 @@ function Modal({
         return null;
     }
 
+    const contentClass = classnames(styles.content, className);
+
     return createPortal(
-        <div className={styles.container}>{children}</div>,
+        <div className={styles.container} onClick={close}>
+            <div className={contentClass} onClick={(e) => e.stopPropagation()}>
+                {children}
+            </div>
+        </div>,
         dialog.current,
     );
 }

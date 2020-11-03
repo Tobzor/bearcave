@@ -24,7 +24,7 @@ function Header(): JSX.Element {
                 <div>this is modal</div>
             </Modal>
             <nav className={styles.navContainer}>
-                <NavItem onClick={() => setShow(true)}>Modal</NavItem>
+                {/* <NavItem onClick={() => setShow(true)}>Modal</NavItem> */}
                 <NavItem>
                     <Link to={container.appsOverviewUrl}>Apps</Link>
                 </NavItem>

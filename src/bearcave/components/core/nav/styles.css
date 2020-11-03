@@ -1,5 +1,7 @@
 .container {
     min-height: 3rem;
+    width: 100%;
+    max-width: 50rem;
 
     display: flex;
     flex-direction: row;
