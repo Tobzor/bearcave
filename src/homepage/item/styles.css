@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.container > img {
+    border-radius: 50%;
+    max-width: 150px;
+    min-width: 75px;
+}
+
+.itemgroup {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+}
