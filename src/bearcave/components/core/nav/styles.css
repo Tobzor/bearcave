@@ -3,64 +3,66 @@
     width: 100%;
     max-width: 50rem;
 
+    margin: var(--margin-medium) 0;
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: stretch;
+    align-items: center;
 }
 
 .navContainer {
     display: flex;
-    flex-direction: row;
-    align-items: stretch;
+    flex-flow: row nowrap;
 }
 
-.item {
+.headerItem {
     cursor: pointer;
+    text-decoration: none;
+    color: inherit;
 
-    padding: 0 var(--padding-small);
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.item a {
-    text-decoration: none;
-    color: inherit;
+
+.navItem {
+    composes: headerItem;
+    padding: var(--padding-medium);
 }
 
-.item:hover {
+.navItem:hover {
     background-color: var(--color-on-primary-hover);
+    color: var(--color-on-primary-hover-text);
 }
 
-.item:active {
+.activeNavItem,
+.navItem:active {
     background-color: var(--color-on-primary-active);
+    color: var(--color-on-primary-hover-text);
 }
 
 /*
-** Overrides some default styling of nav item
-*/
+ * LOGO SECTION
+ */
 
 .navLogo {
-    composes: item;
-}
+    composes: headerItem;
 
-.navLogo a {
-    display: flex;
-    flex-flow: row nowrap;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
 .navLogo img {
-    width: 20%;
-    max-width: 400px;
+    width: 50px;
+    height: 50px;
 }
 
-.navLogo span {
+.navLogo h3 {
     font-size: 24px;
     font-style: italic;
-}
-
-.navLogo:hover,
-.navLogo:active {
-    background-color: transparent;
+    color: var(--color-link);
+    margin: 0;
 }

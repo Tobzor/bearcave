@@ -25,7 +25,6 @@ function useCurrentApp(appKey: string): AppManifest | null {
 function AppRenderer(): JSX.Element {
     return (
         <Routes>
-            <Route path="/" element={<AppBrowser />} />
             <Route path=":appKey/*" element={<SingleAppRenderer />} />
         </Routes>
     );
@@ -51,12 +50,8 @@ function SingleAppRenderer() {
     return <AppComponent />;
 }
 
-function AppBrowser() {
-    return <div>This is for browsing apps</div>;
-}
-
 function AppNotFound() {
-    return <div>Could not find the app for this url.</div>;
+    return <div>This is not the app you are looking for...</div>;
 }
 
 export default AppRenderer;

@@ -1,16 +1,16 @@
 // deps
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 // locals
 import { useBearcave } from "@utils";
-import { Modal } from "@components";
 import styles from "./styles.css";
 import NavItem from "./NavItem";
 import NavLogo from "./NavLogo";
 
-function Header(): JSX.Element {
-    const [show, setShow] = useState(false);
+type HeaderProps = {
+    children: typeof NavItem | typeof NavItem[];
+};
 
+function Header({ children }: HeaderProps): JSX.Element {
     const {
         app: { container },
     } = useBearcave();
@@ -19,16 +19,7 @@ function Header(): JSX.Element {
         <header className={styles.container}>
             <NavLogo />
 
-            {/* Should be collapsed into one menu icon and open drawer/modal on mobiles */}
-            <Modal show={show} close={() => setShow(false)}>
-                <div>this is modal</div>
-            </Modal>
-            <nav className={styles.navContainer}>
-                {/* <NavItem onClick={() => setShow(true)}>Modal</NavItem> */}
-                <NavItem>
-                    <Link to={container.appsOverviewUrl}>Apps</Link>
-                </NavItem>
-            </nav>
+            <nav className={styles.navContainer}>{children}</nav>
         </header>
     );
 }

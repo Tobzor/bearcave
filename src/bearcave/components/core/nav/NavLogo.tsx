@@ -7,12 +7,10 @@ import styles from "./styles.css";
 
 function NavLogo(): JSX.Element {
     return (
-        <div className={styles.navLogo}>
-            <Link to="/">
-                <img src={bearsplash} alt="logo" />
-                <span>bearcave</span>
-            </Link>
-        </div>
+        <Link to="/" className={styles.navLogo}>
+            <img src={bearsplash} alt="logo" />
+            <h3>bearcave</h3>
+        </Link>
     );
 }
 

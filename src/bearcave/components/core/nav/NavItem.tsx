@@ -1,16 +1,31 @@
 // deps
 import React from "react";
+import { NavLink } from "react-router-dom";
 // locals
 import styles from "./styles.css";
 import { WithChildren } from "@types";
 
 type NavItemProps = WithChildren<{
-    onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+    linkTo?: string;
+    onClick?: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
 }>;
 
-function NavItem({ onClick, children }: NavItemProps): JSX.Element {
+function NavItem({ onClick, linkTo, children }: NavItemProps): JSX.Element {
+    if (linkTo) {
+        return (
+            <NavLink
+                className={styles.navItem}
+                activeClassName={styles.activeNavItem}
+                to={linkTo}
+                onClick={onClick}
+            >
+                {children}
+            </NavLink>
+        );
+    }
+
     return (
-        <div className={styles.item} onClick={onClick}>
+        <div className={styles.navItem} onClick={onClick}>
             {children}
         </div>
     );

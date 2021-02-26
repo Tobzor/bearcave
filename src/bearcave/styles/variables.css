@@ -46,10 +46,14 @@
     --color-on-primary-active: #97cace;
 
     /* TODO: make hover into mixin based on alpha? */
-    --color-on-primary-hover: #ff009b;
+    /* --color-on-primary-hover: #ff009b; */
+    --color-on-primary-hover: hotpink;
+    --color-on-primary-hover-text: #243746;
 
     --color-primary-disabled: #9ca6ac;
-    --color-text: #ffffff;
+
+    --color-text: #eeeeee;
+    --color-link: hotpink;
 }
 
 :global(:root.light) {

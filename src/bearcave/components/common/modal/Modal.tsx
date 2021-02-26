@@ -7,15 +7,17 @@ import { classnames, useBearcave } from "@utils";
 import styles from "./styles.css";
 
 type ModalProps = WithChildren<{
-    show?: boolean;
-    className?: string;
+    show: boolean;
     close: () => void;
+    className?: string;
+    closeOnOutsideClick?: boolean;
 }>;
 
 function Modal({
     show,
     close,
     className,
+    closeOnOutsideClick,
     children,
 }: ModalProps): React.ReactPortal | null {
     const {
@@ -26,10 +28,14 @@ function Modal({
         return null;
     }
 
+    function handleClickOutside() {
+        closeOnOutsideClick && close();
+    }
+
     const contentClass = classnames(styles.content, className);
 
     return createPortal(
-        <div className={styles.container} onClick={close}>
+        <div className={styles.container} onClick={handleClickOutside}>
             <div className={contentClass} onClick={(e) => e.stopPropagation()}>
                 {children}
             </div>

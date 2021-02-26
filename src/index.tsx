@@ -17,17 +17,17 @@ function Root(): JSX.Element {
     const bearcaveContext = createBearcave({ root, dialog });
 
     return (
-        <BrowserRouter>
-            <BearcaveContext.Provider value={bearcaveContext}>
+        <BearcaveContext.Provider value={bearcaveContext}>
+            <BrowserRouter>
                 <Bearcave root={root} dialog={dialog}>
                     <Routes>
-                        <Route path="/" element={<Home />} />
+                        <Route path="/*" element={<Home />} />
                         <Route path="apps/*" element={<AppRenderer />} />
                         <Route path="*" element={<PageNotFound />} />
                     </Routes>
                 </Bearcave>
-            </BearcaveContext.Provider>
-        </BrowserRouter>
+            </BrowserRouter>
+        </BearcaveContext.Provider>
     );
 }
 
