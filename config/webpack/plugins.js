@@ -15,6 +15,7 @@ const { rootPath, join } = require("./root");
 const htmlWebPackPlugin = new HtmlWebpackPlugin({
     template: "./config/templates/index.html",
     filename: "./index.html",
+    title: "Bearcave",
 });
 
 const copyWebpackPlugin = new CopyWebpackPlugin({
