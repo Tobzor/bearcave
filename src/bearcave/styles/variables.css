@@ -5,6 +5,13 @@
     --color-white: #ffffff;
     --color-black: #000000;
     --color-error: #b00020;
+
+    --color-dark-blue: #132634;
+    --color-darker-blue: #243746;
+    --color-dark-white: #eeeeee;
+    --color-blue-ice: #97cace;
+    --color-hot-pink: hotpink;
+    --color-disabled-grey: #9ca6ac;
 }
 
 /* 
@@ -12,24 +19,25 @@
  * Uses colors variables
  * Dark theme? Change colors here.
  */
-:global(:root.concepts) {
+:global(:root.light) {
 }
 
 :global(:root.dark) {
-    --color-primary: #132634;
-    --color-on-primary: #243746;
-    --color-on-primary-active: #97cace;
+    --color-primary: var(--color-dark-blue);
+    --color-on-primary: var(--color-dark-white);
+    --color-on-primary-active: var(--color-blue-ice);
     /* TODO: make hover into mixin based on alpha? */
     /* --color-on-primary-hover: #ff009b; */
-    --color-on-primary-hover: hotpink;
-    --color-on-primary-hover-text: #243746;
-    --color-primary-disabled: #9ca6ac;
-    --color-text: #eeeeee;
-    --color-link: hotpink;
+    --color-on-primary-hover: var(--color-hot-pink);
+    --color-on-primary-hover-text: var(--color-darker-blue);
+    --color-primary-disabled: var(--color-disabled-grey);
 }
 
 /* 
  * Specific border/text etc colors based on concepts
+ * The only variables to be used by components.
  */
 :global(:root.entities) {
+    --color-text: var(--color-on-primary);
+    --color-link: var(--color-on-primary-hover);
 }
