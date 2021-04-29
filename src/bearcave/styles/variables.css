@@ -16,13 +16,10 @@
 
 /* 
  * General color for primary, secondary etc.
- * Uses colors variables
+ * Uses colors as variables
  * Dark theme? Change colors here.
  */
-:global(:root.light) {
-}
-
-:global(:root.dark) {
+:global(:root.theme) {
     --color-primary: var(--color-dark-blue);
     --color-on-primary: var(--color-dark-white);
     --color-on-primary-active: var(--color-blue-ice);
@@ -31,6 +28,8 @@
     --color-on-primary-hover: var(--color-hot-pink);
     --color-on-primary-hover-text: var(--color-darker-blue);
     --color-primary-disabled: var(--color-disabled-grey);
+}
+:global(:root.light) {
 }
 
 /* 
