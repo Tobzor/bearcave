@@ -29,6 +29,7 @@
     --color-on-primary-hover-text: var(--color-darker-blue);
     --color-primary-disabled: var(--color-disabled-grey);
 }
+
 :global(:root.light) {
 }
 
