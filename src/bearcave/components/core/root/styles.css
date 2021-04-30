@@ -5,23 +5,22 @@
 }
 
 body {
-    background: var(--color-primary);
-    color: var(--color-text);
-    /* TODO: add transition when toggling dark theme?? Ruins first load at the moment */
-    /* transition: background 0.8s, color 0.8s; */
-    font-size: var(--font-size);
-
-    border-top: 1px solid hotpink;
-}
-
-@media notsmall {
-    body {
-        border-width: 5px;
-    }
+    background: var(--main-background);
+    color: var(--main-text);
 }
 
 .root {
     position: relative;
+    /* TODO: add transition when toggling dark theme?? Ruins first load at the moment */
+    /* transition: background 0.8s, color 0.8s; */
+    font-size: var(--font-size);
+    border-top: 2px solid hotpink;
+}
+
+@media notsmall {
+    .root {
+        border-width: 5px;
+    }
 }
 
 .dialog {

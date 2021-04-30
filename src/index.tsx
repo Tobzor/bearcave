@@ -3,9 +3,7 @@ import { useRef } from "react";
 import { render } from "react-dom";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // Locals
-
-// default bearcave css variables
-import "@css/variables";
+import "@css/variables.css";
 
 import { BearcaveContext, createBearcave } from "@utils";
 import { Bearcave, AppRenderer } from "@components";

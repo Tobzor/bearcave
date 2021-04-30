@@ -3,7 +3,8 @@
     width: 100%;
     max-width: 50rem;
 
-    margin: var(--margin-medium) 0;
+    margin: var(--base-space) 0;
+    padding: 0 var(--base-space);
 
     display: flex;
     flex-direction: row;
@@ -28,18 +29,18 @@
 
 .navItem {
     composes: headerItem;
-    padding: var(--padding-medium);
+    padding: var(--medium-space);
 }
 
 .navItem:hover {
-    background-color: var(--color-on-primary-hover);
-    color: var(--color-on-primary-hover-text);
+    background-color: var(--nav-item-hover-background);
+    color: var(--nav-item-hover-text);
 }
 
 .activeNavItem,
 .navItem:active {
-    background-color: var(--color-on-primary-active);
-    color: var(--color-on-primary-hover-text);
+    background-color: var(--nav-item-active-background);
+    color: var(--nav-item-active-color);
 }
 
 /*
@@ -63,6 +64,6 @@
 .navLogo h3 {
     font-size: 24px;
     font-style: italic;
-    color: var(--color-link);
+    color: var(--nav-logo-color);
     margin: 0;
 }

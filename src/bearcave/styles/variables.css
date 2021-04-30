@@ -1,3 +1,20 @@
+/*
+ * Variables and things?
+ */
+:global(:root.variables) {
+    /* spacing */
+    --small-space: 0.5rem;
+    --base-space: 1rem;
+    --medium-space: 2rem;
+    --large-space: 3rem;
+    /* font things */
+    --font-size: 16px;
+
+    --overlay-z-index: 9991;
+    --toast-z-index: 9992;
+    --dialog-z-index: 9993;
+}
+
 /* 
  * All available and used colors
  */
@@ -5,9 +22,8 @@
     --color-white: #ffffff;
     --color-black: #000000;
     --color-error: #b00020;
-
-    --color-dark-blue: #132634;
-    --color-darker-blue: #243746;
+    --color-dark-blue: #243746;
+    --color-darker-blue: #132634;
     --color-dark-white: #eeeeee;
     --color-blue-ice: #97cace;
     --color-hot-pink: hotpink;
@@ -17,20 +33,22 @@
 /* 
  * General color for primary, secondary etc.
  * Uses colors as variables
- * Dark theme? Change colors here.
+ * Dark theme default -- themes can be added here.
  */
-:global(:root.theme) {
-    --color-primary: var(--color-dark-blue);
-    --color-on-primary: var(--color-dark-white);
-    --color-on-primary-active: var(--color-blue-ice);
-    /* TODO: make hover into mixin based on alpha? */
-    /* --color-on-primary-hover: #ff009b; */
-    --color-on-primary-hover: var(--color-hot-pink);
-    --color-on-primary-hover-text: var(--color-darker-blue);
-    --color-primary-disabled: var(--color-disabled-grey);
+:global(:root.dark-theme) {
+    /* PRIMARY */
+    --theme-primary: var(--color-dark-blue);
+    --theme-on-primary: var(--color-dark-white);
+    --theme-on-primary-active: var(--color-blue-ice);
+    --theme-on-primary-hover: var(--color-hot-pink);
+    --theme-on-primary-hover-text: var(--color-darker-blue);
+    /* SECONDARY */
+    /* TERTIARY */
+    /* GENERAL STATES ETC. ++*/
+    --theme-disabled: var(--color-disabled-grey);
 }
 
-:global(:root.light) {
+:global(:root.light-theme) {
 }
 
 /* 
@@ -38,6 +56,13 @@
  * The only variables to be used by components.
  */
 :global(:root.entities) {
-    --color-text: var(--color-on-primary);
-    --color-link: var(--color-on-primary-hover);
+    /* MAIN */
+    --main-background: var(--theme-primary);
+    --main-text: var(--theme-on-primary);
+    /* NAV MENU */
+    --nav-logo-color: var(--theme-on-primary-hover);
+    --nav-item-active-background: var(--theme-on-primary-active);
+    --nav-item-active-text: var(--theme-on-primary-hover-text);
+    --nav-item-hover-background: var(--theme-on-primary-hover);
+    --nav-item-hover-text: var(--theme-on-primary-hover-text);
 }
