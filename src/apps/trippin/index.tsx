@@ -14,7 +14,9 @@ function Trippin(): JSX.Element {
             </nav>
 
             <Routes>
-                <Route path="somewhere" element={<h2>Trippin' somewhere</h2>} />
+                <Route path="somewhere">
+                    <h2>{"Trippin'"} somewhere</h2>
+                </Route>
             </Routes>
         </div>
     );
@@ -23,5 +25,5 @@ function Trippin(): JSX.Element {
 registerCaveApp({
     key: "trippin",
     name: "Trippin",
-    app: Trippin,
+    render: Trippin,
 });

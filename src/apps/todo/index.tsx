@@ -14,7 +14,9 @@ function Todo(): JSX.Element {
             </nav>
 
             <Routes>
-                <Route path="somewhere" element={<h2>TODO' somewhere</h2>} />
+                <Route path="somewhere">
+                    <h2>{"TODO'"} somewhere</h2>
+                </Route>
             </Routes>
         </div>
     );
@@ -23,5 +25,5 @@ function Todo(): JSX.Element {
 registerCaveApp({
     key: "todo",
     name: "Todo",
-    app: Todo,
+    render: Todo,
 });

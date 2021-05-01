@@ -1,26 +1,8 @@
 // deps
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import { Route, Routes, useParams } from "react-router";
 // locals
-import { AppManifest, useBearcave } from "@utils";
-
-function useCurrentApp(appKey: string): AppManifest | null {
-    const {
-        app: { container },
-    } = useBearcave();
-
-    const [app, setApp] = useState<AppManifest | null>(null);
-
-    useEffect(() => {
-        console.log("effect with appkey changes?");
-        const currapp = container.getCurrentApp(appKey);
-        if (app?.key !== currapp?.key) {
-            setApp(currapp);
-        }
-    }, [appKey]);
-
-    return app;
-}
+import { useCurrentApp } from "@utils";
 
 function AppRenderer(): JSX.Element {
     return (
@@ -44,7 +26,7 @@ function SingleAppRenderer() {
 
     const AppComponent = useMemo(() => {
         if (app) {
-            return app.app;
+            return app.render;
         }
 
         return () => null;

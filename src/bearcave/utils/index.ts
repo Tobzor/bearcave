@@ -9,6 +9,8 @@ export {
     AppManifest,
 } from "./app/AppContainer";
 
+export { useCurrentApp } from "./app/useCurrentApp";
+
 /**
  * CACHE
  */
