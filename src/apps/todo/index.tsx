@@ -23,5 +23,5 @@ function Todo(): JSX.Element {
 registerCaveApp({
     key: "todo",
     name: "Todo",
-    render: Todo,
+    app: Todo,
 });

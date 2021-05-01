@@ -23,5 +23,5 @@ function Trippin(): JSX.Element {
 registerCaveApp({
     key: "trippin",
     name: "Trippin",
-    render: Trippin,
+    app: Trippin,
 });
