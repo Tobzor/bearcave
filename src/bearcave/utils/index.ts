@@ -6,7 +6,6 @@ export {
     default as AppContainer,
     appContainerFactory,
     registerCaveApp,
-    AppManifest,
 } from "./app/AppContainer";
 
 export { useCurrentApp } from "./app/useCurrentApp";

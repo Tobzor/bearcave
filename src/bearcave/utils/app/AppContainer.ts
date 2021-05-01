@@ -1,4 +1,4 @@
-import { AppManifest } from "@types";
+import type { AppManifest } from "@types";
 
 class AppContainer {
     public appsOverviewUrl = "/apps";
