@@ -6,7 +6,7 @@
     --item-width-multiplier: 3;
     display: grid;
     grid-template-columns: repeat(var(--itemgroup-repeat), 1fr);
-    gap: 5rem;
+    gap: var(--large-space);
 }
 
 .item {
