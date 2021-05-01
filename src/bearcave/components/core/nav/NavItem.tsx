@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import styles from "./styles.css";
 import { WithChildren } from "@types";
 
-type NavItemProps = WithChildren<{
+export type NavItemProps = WithChildren<{
     linkTo?: string;
     onClick?: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
 }>;

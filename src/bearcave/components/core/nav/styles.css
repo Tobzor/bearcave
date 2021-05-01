@@ -1,10 +1,8 @@
 .container {
+    align-self: stretch;
     min-height: 3rem;
-    width: 100%;
     max-width: 50rem;
-
-    margin: var(--base-space) 0;
-    padding: 0 var(--base-space);
+    margin: var(--base-space);
 
     display: flex;
     flex-direction: row;
@@ -32,6 +30,13 @@
     padding: var(--medium-space);
 }
 
+.navItem:hover,
+.activeNavItem,
+.navItem:active {
+    color: var(--nav-item-hover-background);
+}
+
+/* 
 .navItem:hover {
     background-color: var(--nav-item-hover-background);
     color: var(--nav-item-hover-text);
@@ -41,7 +46,7 @@
 .navItem:active {
     background-color: var(--nav-item-active-background);
     color: var(--nav-item-active-color);
-}
+} */
 
 /*
  * LOGO SECTION

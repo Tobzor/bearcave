@@ -25,9 +25,16 @@ function useCurrentApp(appKey: string): AppManifest | null {
 function AppRenderer(): JSX.Element {
     return (
         <Routes>
-            <Route path=":appKey/*" element={<SingleAppRenderer />} />
+            <Route path="/">
+                <AppBrowser />
+            </Route>
+            <Route path="/:appKey/*" element={<SingleAppRenderer />} />
         </Routes>
     );
+}
+
+function AppBrowser() {
+    return <div>all them apps</div>;
 }
 
 function SingleAppRenderer() {

@@ -3,11 +3,11 @@ import React from "react";
 // locals
 import { useBearcave } from "@utils";
 import styles from "./styles.css";
-import NavItem from "./NavItem";
+import NavItem, { NavItemProps } from "./NavItem";
 import NavLogo from "./NavLogo";
 
 type HeaderProps = {
-    children: typeof NavItem | typeof NavItem[];
+    children: JSX.Element | JSX.Element[];
 };
 
 function Header({ children }: HeaderProps): JSX.Element {
@@ -19,7 +19,10 @@ function Header({ children }: HeaderProps): JSX.Element {
         <header className={styles.container}>
             <NavLogo />
 
-            <nav className={styles.navContainer}>{children}</nav>
+            <nav className={styles.navContainer}>
+                {/* TODO: Add app context menu as a dropdown?  */}
+                {children}
+            </nav>
         </header>
     );
 }

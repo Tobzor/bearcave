@@ -13,25 +13,16 @@ function Home(): JSX.Element {
     return (
         <div className={styles.container}>
             <BearcaveNav>
-                <NavItem linkTo="/about">About</NavItem>
+                <NavItem linkTo="/apps">Apps</NavItem>
             </BearcaveNav>
 
-            <Routes>
-                <Route path="/" element={<AppBrowser />} />
-                <Route path="about">
-                    <div>
-                        <Work />
-                        <Education />
-                        <PastProjects />
-                    </div>
-                </Route>
-            </Routes>
+            <div>
+                <Work />
+                <Education />
+                <PastProjects />
+            </div>
         </div>
     );
-}
-
-function AppBrowser() {
-    return <div>all them apps</div>;
 }
 
 export default Home;
