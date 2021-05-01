@@ -44,7 +44,7 @@ function SingleAppRenderer() {
 
     const AppComponent = useMemo(() => {
         if (app) {
-            return app.render;
+            return app.app;
         }
 
         return () => null;
