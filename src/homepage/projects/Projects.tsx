@@ -1,9 +1,8 @@
 import Item from "../item/Item";
-import ItemGroup from "../item/ItemGroup";
 
 function PastProjects(): JSX.Element {
     return (
-        <ItemGroup>
+        <>
             <Item
                 src={""}
                 title={"Handsy computer vision"}
@@ -28,7 +27,7 @@ function PastProjects(): JSX.Element {
                 title={"Photo Viewer"}
                 description={"School group project for teamwork stuffsies"}
             />
-        </ItemGroup>
+        </>
     );
 }
 

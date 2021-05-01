@@ -1,8 +1,7 @@
 .container {
-    align-self: stretch;
     min-height: 3rem;
-    max-width: 50rem;
-    margin: var(--base-space);
+    margin: var(--base-space) 0;
+    padding: 0 var(--base-space);
 
     display: flex;
     flex-direction: row;

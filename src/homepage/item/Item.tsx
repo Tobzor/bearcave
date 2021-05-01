@@ -8,10 +8,12 @@ type ItemProps = {
 
 function Item({ src, title, description }: ItemProps): JSX.Element {
     return (
-        <div className={styles.container}>
+        <div className={styles.item}>
             <img src={src} alt={"Logo for " + title} />
-            <h3>{title}</h3>
-            <p>{description}</p>
+            <span>
+                <h3 style={{ margin: "0" }}>{title}</h3>
+                <p style={{ margin: "0" }}>{description}</p>
+            </span>
         </div>
     );
 }

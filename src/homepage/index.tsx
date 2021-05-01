@@ -1,27 +1,27 @@
 // deps
 import React from "react";
-import { Route, Routes } from "react-router";
 // locals
 import { BearcaveNav, NavItem } from "@components";
-
 import styles from "./styles.css";
+import ItemGroup from "./item/ItemGroup";
 import Work from "./work/Work";
 import Education from "./education/Education";
 import PastProjects from "./projects/Projects";
 
 function Home(): JSX.Element {
     return (
-        <div className={styles.container}>
+        <>
             <BearcaveNav>
                 <NavItem linkTo="/apps">Apps</NavItem>
             </BearcaveNav>
-
-            <div>
-                <Work />
-                <Education />
-                <PastProjects />
+            <div className={styles.container}>
+                <ItemGroup>
+                    <Work />
+                    <Education />
+                    <PastProjects />
+                </ItemGroup>
             </div>
-        </div>
+        </>
     );
 }
 

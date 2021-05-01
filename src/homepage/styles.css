@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
 
-    padding: var(--padding-small);
+    padding: var(--base-space);
 }
 
 .container > p {

@@ -1,19 +1,56 @@
-.container {
+@value notsmall from "~@css/breakpoints.css";
+@value large from "~@css/breakpoints.css";
+
+.itemgroup {
+    --itemgroup-repeat: 1;
+    --item-width-multiplier: 3;
+    display: grid;
+    grid-template-columns: repeat(var(--itemgroup-repeat), 1fr);
+    gap: 5rem;
+}
+
+.item {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
 }
 
-.container > img {
-    border-radius: 50%;
-    max-width: 150px;
-    min-width: 75px;
+.item > span {
+    margin-top: var(--base-space);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.itemgroup {
-    display: grid;
+.item > img {
+    border-radius: 50%;
+    min-width: 50px;
+    max-width: calc(50px * var(--item-width-multiplier));
+}
 
-    grid-template-columns: repeat(2, 1fr);
-    gap: 5rem;
+@media notsmall {
+    .itemgroup {
+        --itemgroup-repeat: 2;
+        --item-width-multiplier: 2;
+    }
+}
+
+@media large {
+    .itemgroup {
+        --itemgroup-repeat: 3;
+        --item-width-multiplier: 1;
+    }
+
+    .item {
+        flex-flow: row nowrap;
+    }
+
+    .item > img {
+        margin: var(--base-space);
+    }
+
+    .item > span {
+        margin-top: 0;
+        align-items: flex-start;
+    }
 }
