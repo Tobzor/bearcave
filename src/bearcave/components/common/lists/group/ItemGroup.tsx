@@ -1,10 +1,17 @@
 import { WithChildren } from "@types";
 import styles from "./styles.css";
 
-type ItemGroupProps = WithChildren<Record<string, unknown>>;
+type ItemGroupProps = WithChildren<{
+    title?: string;
+}>;
 
-function ItemGroup({ children }: ItemGroupProps): JSX.Element {
-    return <section className={styles.itemgroup}>{children}</section>;
+function ItemGroup({ title, children }: ItemGroupProps): JSX.Element {
+    return (
+        <>
+            {title && <h2>{title}</h2>}
+            <section className={styles.itemgroup}>{children}</section>
+        </>
+    );
 }
 
 export default ItemGroup;

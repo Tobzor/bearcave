@@ -9,6 +9,10 @@
     align-items: center;
 }
 
+.onlyLogo {
+    justify-content: center;
+}
+
 .navContainer {
     display: flex;
     flex-flow: row nowrap;

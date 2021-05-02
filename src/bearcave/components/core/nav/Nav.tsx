@@ -1,28 +1,29 @@
 // deps
 import React from "react";
 // locals
-import { useBearcave } from "@utils";
+import { classnames, useBearcave } from "@utils";
 import styles from "./styles.css";
 import NavItem, { NavItemProps } from "./NavItem";
 import NavLogo from "./NavLogo";
+import { WithChildren } from "@types";
 
-type HeaderProps = {
-    children: JSX.Element | JSX.Element[];
-};
+type HeaderProps = WithChildren<unknown>;
 
 function Header({ children }: HeaderProps): JSX.Element {
-    const {
-        app: { container },
-    } = useBearcave();
+    const headerContainer = classnames(styles.container, {
+        [styles.onlyLogo]: !children,
+    });
 
     return (
-        <header className={styles.container}>
+        <header className={headerContainer}>
             <NavLogo />
 
-            <nav className={styles.navContainer}>
-                {/* TODO: Add app context menu as a dropdown?  */}
-                {children}
-            </nav>
+            {children && (
+                <nav className={styles.navContainer}>
+                    {/* TODO: Add app context menu as a dropdown?  */}
+                    {children}
+                </nav>
+            )}
         </header>
     );
 }

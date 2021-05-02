@@ -11,12 +11,15 @@ function Home(): JSX.Element {
     return (
         <>
             <BearcaveNav>
-                <NavItem linkTo="/apps">Apps</NavItem>
+                {/* Removed apps from homepage until it can be fine tuned/styled */}
+                {/* <NavItem linkTo="/apps">Apps</NavItem> */}
             </BearcaveNav>
             <div className={styles.container}>
-                <ItemGroup>
+                <ItemGroup title="Work and Education">
                     <Work />
                     <Education />
+                </ItemGroup>
+                <ItemGroup title="Projects">
                     <PastProjects />
                 </ItemGroup>
             </div>
