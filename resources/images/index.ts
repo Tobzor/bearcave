@@ -1,3 +1,5 @@
+// TODO: lazy load specific images?
+// bearcave
 export { default as bearsplash } from "./bearsplash.png";
 
 // work

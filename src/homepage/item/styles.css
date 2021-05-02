@@ -22,7 +22,7 @@
     align-items: center;
 }
 
-.item > img {
+.item > .itemImage {
     border-radius: 50%;
     min-width: 50px;
     max-width: calc(50px * var(--item-width-multiplier));
@@ -45,7 +45,7 @@
         flex-flow: row nowrap;
     }
 
-    .item > img {
+    .item > .itemImage {
         margin: var(--base-space);
     }
 

@@ -2,6 +2,7 @@
 declare namespace StylesCssNamespace {
     export interface IStylesCss {
         item: string;
+        itemImage: string;
         itemgroup: string;
         large: string;
         mappings: string;

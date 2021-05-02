@@ -9,15 +9,15 @@ module.exports = function defineResolves(rootPath) {
     return {
         extensions: [".js", ".jsx", ".ts", ".tsx", ".css", ".png"],
         alias: {
-            "@resources": join(rootPath, "/resources"),
-            "@icons": join(rootPath, "/resources/icons"),
-            "@images": join(rootPath, "/resources/images"),
-            "@fonts": join(rootPath, "/resources/fonts"),
-            "@locales": join(rootPath, "/resources/locales"),
             "@utils": join(rootPath, "/src/bearcave/utils"),
             "@components": join(rootPath, "/src/bearcave/components"),
-            "@types": join(rootPath, "/src/bearcave/types"),
             "@css": join(rootPath, "/src/bearcave/styles"),
+            "@types": join(rootPath, "/src/bearcave/types"),
+            "@images": join(rootPath, "/resources/images"),
+            "@icons": join(rootPath, "/resources/icons"),
+            "@locales": join(rootPath, "/resources/locales"),
+            "@resources": join(rootPath, "/resources"),
+            "@fonts": join(rootPath, "/resources/fonts"),
         },
     };
 };
