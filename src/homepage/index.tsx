@@ -15,13 +15,13 @@ function Home(): JSX.Element {
                 {/* <NavItem linkTo="/apps">Apps</NavItem> */}
             </BearcaveNav>
             <div className={styles.container}>
-                <ItemGroup title="Work and Education">
+                <ItemGroup title="Experience">
                     <Work />
                     <Education />
                 </ItemGroup>
-                <ItemGroup title="Projects">
+                {/* <ItemGroup title={"Projects"}>
                     <PastProjects />
-                </ItemGroup>
+                </ItemGroup> */}
             </div>
         </>
     );
