@@ -1,4 +1,4 @@
-import Item from "../item/Item";
+import { Item } from "@components";
 import { uio, uis } from "@images";
 
 function Education(): JSX.Element {

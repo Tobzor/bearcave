@@ -9,6 +9,7 @@ export {
 } from "./app/AppContainer";
 
 export { useCurrentApp } from "./app/useCurrentApp";
+export { useRegisteredApps } from "./app/useRegisteredApps";
 
 /**
  * CACHE

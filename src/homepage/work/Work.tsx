@@ -1,4 +1,4 @@
-import Item from "../item/Item";
+import { Item } from "@components";
 
 import { idean, capgemini } from "@images";
 

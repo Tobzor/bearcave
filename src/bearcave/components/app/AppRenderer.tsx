@@ -4,6 +4,9 @@ import { Route, Routes, useParams } from "react-router";
 // locals
 import { useCurrentApp } from "@utils";
 
+import AppNotFound from "./AppNotFound";
+import AppBrowser from "./AppBrowser";
+
 function AppRenderer(): JSX.Element {
     return (
         <Routes>
@@ -13,10 +16,6 @@ function AppRenderer(): JSX.Element {
             <Route path="/:appKey/*" element={<SingleAppRenderer />} />
         </Routes>
     );
-}
-
-function AppBrowser() {
-    return <div>all them apps</div>;
 }
 
 function SingleAppRenderer() {
@@ -37,10 +36,6 @@ function SingleAppRenderer() {
     }
 
     return <AppComponent />;
-}
-
-function AppNotFound() {
-    return <div>This is not the app you are looking for...</div>;
 }
 
 export default AppRenderer;

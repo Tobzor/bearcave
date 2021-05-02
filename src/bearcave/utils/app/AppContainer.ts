@@ -1,8 +1,11 @@
 import type { AppManifest } from "@types";
-
 class AppContainer {
     public appsOverviewUrl = "/apps";
     private apps: AppManifest[] = [];
+
+    getAllApps(): AppManifest[] {
+        return this.apps;
+    }
 
     getCurrentApp(appKey: string): AppManifest | null {
         return this.findApp(appKey);

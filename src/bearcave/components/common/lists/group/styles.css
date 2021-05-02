@@ -22,7 +22,7 @@
     align-items: center;
 }
 
-.item > .itemImage {
+.itemImage {
     border-radius: 50%;
     min-width: 50px;
     max-width: calc(50px * var(--item-width-multiplier));
@@ -45,12 +45,12 @@
         flex-flow: row nowrap;
     }
 
-    .item > .itemImage {
-        margin: var(--base-space);
-    }
-
     .item > span {
         margin-top: 0;
         align-items: flex-start;
+    }
+
+    .itemImage {
+        margin: var(--base-space);
     }
 }

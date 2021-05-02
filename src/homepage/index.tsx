@@ -1,9 +1,8 @@
 // deps
 import React from "react";
 // locals
-import { BearcaveNav, NavItem } from "@components";
+import { BearcaveNav, NavItem, ItemGroup } from "@components";
 import styles from "./styles.css";
-import ItemGroup from "./item/ItemGroup";
 import Work from "./work/Work";
 import Education from "./education/Education";
 import PastProjects from "./projects/Projects";

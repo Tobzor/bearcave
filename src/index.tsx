@@ -1,7 +1,7 @@
 // Deps
 import { useRef } from "react";
 import { render } from "react-dom";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // Locals
 import "@css/variables.css";
 
@@ -16,7 +16,7 @@ function Root(): JSX.Element {
 
     return (
         <BearcaveContext.Provider value={bearcaveContext}>
-            <BrowserRouter>
+            <Router>
                 <Bearcave root={root} dialog={dialog}>
                     <Routes>
                         <Route path="/*" element={<Home />} />
@@ -24,7 +24,7 @@ function Root(): JSX.Element {
                         <Route path="*" element={<PageNotFound />} />
                     </Routes>
                 </Bearcave>
-            </BrowserRouter>
+            </Router>
         </BearcaveContext.Provider>
     );
 }

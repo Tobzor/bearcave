@@ -1,4 +1,4 @@
-import Item from "../item/Item";
+import { Item } from "@components";
 
 function PastProjects(): JSX.Element {
     return (

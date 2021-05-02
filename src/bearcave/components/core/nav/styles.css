@@ -1,5 +1,5 @@
 .container {
-    min-height: 3rem;
+    min-height: var(--large-space);
     margin: var(--base-space) 0;
     padding: 0 var(--base-space);
 
