@@ -6,16 +6,14 @@ const defineEntry = require("../entry");
 const { defineBaseRules } = require("../rules");
 const { defineBasePlugins } = require("../plugins");
 
-// Allows imports without specifying file-endings and aliases to minify long relative imports.
-const resolve = defineResolves(rootPath);
-
 // Export the baseline config for environment specific overrides or extensions.
 const baseConfig = {
     entry: defineEntry(),
     module: {
         rules: defineBaseRules(),
     },
-    resolve,
+    // Allows imports without specifying file-endings and aliases to minify long relative imports.
+    resolve: defineResolves(rootPath),
     plugins: defineBasePlugins(),
     output: defineOutput(rootPath, "base"),
     watchOptions: {
