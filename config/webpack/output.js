@@ -1,8 +1,8 @@
-const { join } = require("./root");
+const { join, rootPath } = require("./root");
 
-module.exports = function defineOutput(rootPath) {
+module.exports = function defineOutput(path = rootPath) {
     return {
-        path: join(rootPath, "build"),
+        path: join(path, "build"),
         publicPath: "/",
         filename: function (data) {
             if (data.chunk.name === "main") {

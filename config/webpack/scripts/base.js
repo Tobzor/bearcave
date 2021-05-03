@@ -15,7 +15,7 @@ const baseConfig = {
     // Allows imports without specifying file-endings and aliases to minify long relative imports.
     resolve: defineResolves(rootPath),
     plugins: defineBasePlugins(),
-    output: defineOutput(rootPath, "base"),
+    output: defineOutput(),
     watchOptions: {
         ignored: ["css.d.ts", "node_modules/**"],
     },

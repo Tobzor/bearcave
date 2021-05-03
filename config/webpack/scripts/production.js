@@ -1,4 +1,3 @@
-const { rootPath } = require("../root");
 const baseConfig = require("./base");
 const { prodStyles } = require("../rules");
 const { miniCssExtractPlugin } = require("../plugins");
@@ -25,9 +24,12 @@ const config = {
         rules: [...baseConfig.module.rules, prodStyles],
     },
     plugins: [...baseConfig.plugins, environmentPlugin, miniCssExtractPlugin],
-    output: defineOutput(rootPath),
+    output: defineOutput(),
     optimization: {
         ...optimization,
+        splitChunks: {
+            chunks: "all",
+        },
         minimize: true,
         minimizer: [new CssMinimizerPlugin(), "..."],
     },

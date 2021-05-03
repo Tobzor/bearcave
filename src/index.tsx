@@ -1,13 +1,13 @@
 // Deps
-import { useRef } from "react";
+import React, { Suspense, useRef } from "react";
 import { render } from "react-dom";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // Locals
 import "@css/variables.css";
-
 import { BearcaveContext, createBearcave } from "@utils";
 import { Bearcave, AppRenderer } from "@components";
-import Home from "./homepage";
+
+const Home = React.lazy(() => import("./homepage"));
 
 function Root(): JSX.Element {
     const dialog = useRef(null);
@@ -16,15 +16,17 @@ function Root(): JSX.Element {
 
     return (
         <BearcaveContext.Provider value={bearcaveContext}>
-            <Router>
-                <Bearcave root={root} dialog={dialog}>
-                    <Routes>
-                        <Route path="/*" element={<Home />} />
-                        <Route path="apps/*" element={<AppRenderer />} />
-                        <Route path="*" element={<PageNotFound />} />
-                    </Routes>
-                </Bearcave>
-            </Router>
+            <Suspense fallback={<div>Loading...</div>}>
+                <Router>
+                    <Bearcave root={root} dialog={dialog}>
+                        <Routes>
+                            <Route path="/*" element={<Home />} />
+                            <Route path="apps/*" element={<AppRenderer />} />
+                            <Route path="*" element={<PageNotFound />} />
+                        </Routes>
+                    </Bearcave>
+                </Router>
+            </Suspense>
         </BearcaveContext.Provider>
     );
 }
