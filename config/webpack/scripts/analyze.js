@@ -1,24 +1,10 @@
-import { uglify, bundleAnalyzer } from "../plugins";
-import { optimization } from "../optimization";
-
-const Dotenv = require("dotenv-webpack");
-
-const EnvPaths = require("../../environments/environmentPaths");
-const baseConfig = require("./base");
-/**
- * Define other test-related webpack options here
- */
-const environmentPlugin = new Dotenv({
-    path: EnvPaths.prod,
-});
+const { bundleAnalyzer } = require("../plugins");
+const prodConfig = require("./production");
 
 // Export environment settings
 const config = {
-    ...baseConfig,
-    module: baseConfig.module,
-    resolve: baseConfig.resolve,
-    plugins: [...baseConfig.plugins, environmentPlugin, uglify, bundleAnalyzer],
-    optimization: optimization,
+    ...prodConfig,
+    plugins: [...prodConfig.plugins, bundleAnalyzer],
 };
 
 module.exports = config;
