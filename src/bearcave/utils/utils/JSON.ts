@@ -1,4 +1,4 @@
-import { ParseError } from "@types";
+import { ParseError } from "@utils";
 
 function parse<T>(stringified: string): T {
     try {

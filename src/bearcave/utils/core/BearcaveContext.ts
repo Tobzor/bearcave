@@ -1,22 +1,8 @@
 // deps
-import { createContext, useContext, MutableRefObject } from "react";
+import { createContext, useContext } from "react";
 // locals
+import { Bearcave, Refs } from "@types";
 import AppContainer, { appContainerFactory } from "../app/AppContainer";
-
-type ExternalRefs = {
-    root: MutableRefObject<HTMLDivElement | null>;
-    dialog: MutableRefObject<HTMLDivElement | null>;
-};
-type Refs = ExternalRefs;
-
-type App = {
-    container: AppContainer;
-};
-
-interface Bearcave {
-    refs: Refs;
-    app: App;
-}
 
 const BearcaveContext = createContext({} as Bearcave);
 const createBearcave = (refs: Refs): Bearcave => {
@@ -33,5 +19,5 @@ const createBearcave = (refs: Refs): Bearcave => {
 
 const useBearcave: () => Bearcave = () => useContext(BearcaveContext);
 
-export { createBearcave, useBearcave, Bearcave };
+export { createBearcave, useBearcave };
 export default BearcaveContext;

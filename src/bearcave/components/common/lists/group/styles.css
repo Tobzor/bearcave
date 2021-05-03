@@ -1,0 +1,56 @@
+@value notsmall from "~@css/breakpoints.css";
+@value large from "~@css/breakpoints.css";
+
+.itemgroup {
+    --itemgroup-repeat: 1;
+    --item-width-multiplier: 3;
+    display: grid;
+    grid-template-columns: repeat(var(--itemgroup-repeat), 1fr);
+    gap: var(--large-space);
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item > span {
+    margin-top: var(--base-space);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.itemImage {
+    border-radius: 50%;
+    min-width: 50px;
+    max-width: calc(50px * var(--item-width-multiplier));
+}
+
+@media notsmall {
+    .itemgroup {
+        --itemgroup-repeat: 2;
+        --item-width-multiplier: 2;
+    }
+}
+
+@media large {
+    .itemgroup {
+        --itemgroup-repeat: 3;
+        --item-width-multiplier: 1;
+    }
+
+    .item {
+        flex-flow: row nowrap;
+    }
+
+    .item > span {
+        margin-top: 0;
+        align-items: flex-start;
+    }
+
+    .itemImage {
+        margin: var(--base-space);
+    }
+}

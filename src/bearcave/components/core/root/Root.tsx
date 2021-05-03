@@ -1,8 +1,9 @@
 // deps
 import React from "react";
 // locals
-import styles from "./styles.css";
 import { WithChildren } from "@types";
+
+import styles from "./styles.css";
 
 export type RootProps = WithChildren<{
     dialog: React.MutableRefObject<HTMLDivElement | null>;

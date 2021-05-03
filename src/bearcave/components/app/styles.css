@@ -1,7 +1,6 @@
-.container {
-    height: 100%;
-
+.appBrowserContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: var(--base-space);
 }

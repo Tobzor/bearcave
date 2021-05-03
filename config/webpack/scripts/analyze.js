@@ -1,13 +1,16 @@
-import { uglify, bundleAnalyzer } from "../plugins";
-import { optimization } from "../optimization";
+const baseConfig = require("./base");
+const { prodStyles } = require("../rules");
+const { miniCssExtractPlugin, bundleAnalyzer } = require("../plugins");
+const defineOutput = require("../output");
+const optimization = require("../optimization");
 
-const Dotenv = require("dotenv-webpack");
+/**
+ * Define other prod-related webpack options here
+ */
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 const EnvPaths = require("../../environments/environmentPaths");
-const baseConfig = require("./base");
-/**
- * Define other test-related webpack options here
- */
+const Dotenv = require("dotenv-webpack");
 const environmentPlugin = new Dotenv({
     path: EnvPaths.prod,
 });
@@ -15,10 +18,26 @@ const environmentPlugin = new Dotenv({
 // Export environment settings
 const config = {
     ...baseConfig,
-    module: baseConfig.module,
-    resolve: baseConfig.resolve,
-    plugins: [...baseConfig.plugins, environmentPlugin, uglify, bundleAnalyzer],
-    optimization: optimization,
+    mode: "production",
+    module: {
+        ...baseConfig.module,
+        rules: [...baseConfig.module.rules, prodStyles],
+    },
+    plugins: [
+        ...baseConfig.plugins,
+        environmentPlugin,
+        miniCssExtractPlugin,
+        bundleAnalyzer,
+    ],
+    output: defineOutput(),
+    optimization: {
+        ...optimization,
+        splitChunks: {
+            chunks: "all",
+        },
+        minimize: true,
+        minimizer: [new CssMinimizerPlugin(), "..."],
+    },
 };
 
 module.exports = config;

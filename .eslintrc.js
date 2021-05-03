@@ -26,9 +26,13 @@ module.exports = {
             extends: [
                 "plugin:@typescript-eslint/eslint-recommended",
                 "plugin:@typescript-eslint/recommended",
-                "prettier/@typescript-eslint",
+                // "prettier/@typescript-eslint",
                 "plugin:react/recommended",
             ],
+            rules: {
+                "react/jsx-uses-react": "off",
+                "react/react-in-jsx-scope": "off",
+            },
         },
     ],
 };

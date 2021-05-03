@@ -1,4 +1,9 @@
 /**
+ * APP
+ */
+export type { AppManifest } from "./app/AppManifest";
+
+/**
  * CACHE
  */
 export type {
@@ -14,9 +19,10 @@ export type { Dictionary, LocalCache } from "./cache/CacheTypes";
 export type { WithChildren } from "./component/children";
 
 /**
- * ERROR
+ * CORE
  */
-export { ParseError } from "./error/ParseError";
+
+export type { Bearcave, App, Refs } from "./core/Bearcave";
 
 /**
  * EVENTS

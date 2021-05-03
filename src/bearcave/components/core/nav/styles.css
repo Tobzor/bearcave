@@ -1,51 +1,77 @@
 .container {
-    grid-area: nav;
-    height: var(--nav-height);
-    z-index: 2;
+    min-height: var(--large-space);
+    margin: var(--base-space) 0;
+    padding: 0 var(--base-space);
 
     display: flex;
     flex-direction: row;
-    align-items: stretch;
     justify-content: space-between;
+    align-items: center;
+}
+
+.onlyLogo {
+    justify-content: center;
 }
 
 .navContainer {
-    height: 100%;
     display: flex;
-    flex-direction: row;
-    align-items: stretch;
+    flex-flow: row nowrap;
 }
 
-.item {
+.headerItem {
     cursor: pointer;
+    text-decoration: none;
+    color: inherit;
 
-    padding: 0 var(--padding-small);
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.item a {
-    text-decoration: none;
-    color: inherit;
+
+.navItem {
+    composes: headerItem;
+    padding: var(--medium-space);
 }
 
-.item:hover {
-    background-color: var(--color-on-primary-hover);
+.navItem:hover,
+.activeNavItem,
+.navItem:active {
+    color: var(--nav-item-hover-background);
 }
 
-.item:active {
-    background-color: var(--color-on-primary-active);
+/* 
+.navItem:hover {
+    background-color: var(--nav-item-hover-background);
+    color: var(--nav-item-hover-text);
 }
+
+.activeNavItem,
+.navItem:active {
+    background-color: var(--nav-item-active-background);
+    color: var(--nav-item-active-color);
+} */
 
 /*
-** Overrides some default styling of nav item
-*/
+ * LOGO SECTION
+ */
 
 .navLogo {
-    composes: item;
+    composes: headerItem;
+
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.navLogo:hover,
-.navLogo:active {
-    background-color: transparent;
+.navLogo img {
+    width: 50px;
+    height: 50px;
+}
+
+.navLogo h3 {
+    font-size: 24px;
+    font-style: italic;
+    color: var(--nav-logo-color);
+    margin: 0;
 }

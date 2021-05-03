@@ -1,14 +1,16 @@
-const Dotenv = require("dotenv-webpack");
-const { miniCssExtractPlugin } = require("../plugins");
-const { prodStyles } = require("../rules");
-const optimization = require("../optimization");
-const EnvPaths = require("../../environments/environmentPaths");
 const baseConfig = require("./base");
+const { prodStyles } = require("../rules");
+const { miniCssExtractPlugin } = require("../plugins");
+const defineOutput = require("../output");
+const optimization = require("../optimization");
+
 /**
  * Define other prod-related webpack options here
  */
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
+const EnvPaths = require("../../environments/environmentPaths");
+const Dotenv = require("dotenv-webpack");
 const environmentPlugin = new Dotenv({
     path: EnvPaths.prod,
 });
@@ -21,16 +23,15 @@ const config = {
         ...baseConfig.module,
         rules: [...baseConfig.module.rules, prodStyles],
     },
-    plugins: [
-        ...baseConfig.plugins,
-        environmentPlugin,
-        // extracts styles into css files.
-        miniCssExtractPlugin,
-    ],
+    plugins: [...baseConfig.plugins, environmentPlugin, miniCssExtractPlugin],
+    output: defineOutput(),
     optimization: {
         ...optimization,
+        splitChunks: {
+            chunks: "all",
+        },
         minimize: true,
-        minimizer: ["...", new CssMinimizerPlugin()],
+        minimizer: [new CssMinimizerPlugin(), "..."],
     },
 };
 

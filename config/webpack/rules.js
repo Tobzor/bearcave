@@ -43,19 +43,32 @@ const prodStyles = {
 };
 
 const resources = {
-    test: /\.(png|svg|jpg|gif|jpeg|ico)$/,
+    test: /\.(png|jpg|gif|jpeg|ico)$/,
     use: ["file-loader"],
+};
+
+const icons = {
+    test: /\.(svg)$/,
+    use: [
+        { loader: "babel-loader" },
+        {
+            loader: "react-svg-loader",
+            options: {
+                jsx: true,
+            },
+        },
+    ],
 };
 
 module.exports = {
     // fonts,
-    // icons,
     resources,
+    icons,
     devStyles,
     prodStyles,
     html,
     transpiler,
     defineBaseRules: function () {
-        return [transpiler, html, resources];
+        return [transpiler, html, resources, icons];
     },
 };

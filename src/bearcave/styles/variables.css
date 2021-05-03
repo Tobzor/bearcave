@@ -1,56 +1,68 @@
-:root {
-    /*
-     * State - could be used for alpha values for different states (hover ++)
-     */
-
-    /*
-     * Paddings, margins ++
-     */
-
-    --padding-small: 0.5rem;
-    --padding-medium: 1rem;
-    --padding-large: 1.5rem;
-    --margin-small: 0.5rem;
-    --margin-medium: 1rem;
-    --margin-large: 1.5rem;
-
-    --nav-height: 2rem;
-    --footer-height: 3rem;
-
-    /*
-     * Fonting
-     */
+/*
+ * Variables and things?
+ */
+:global(:root.variables) {
+    /* spacing */
+    --small-space: 0.5rem;
+    --base-space: 1rem;
+    --medium-space: 2rem;
+    --large-space: 3rem;
+    /* font things */
     --font-size: 16px;
-
-    /*
-     * Z-indexes
-     */
+    /* overlay things */
     --overlay-z-index: 9991;
-    --snack-z-index: 9992;
+    --toast-z-index: 9992;
     --dialog-z-index: 9993;
+}
 
-    /*
-      * Colors
-      */
+/* 
+ * All available and used colors
+ */
+:global(:root.colors) {
     --color-white: #ffffff;
-    --color-white-rgb: 255, 255, 255;
     --color-black: #000000;
-    --color-black-rgb: 0, 0, 0;
-
-    /* general*/
     --color-error: #b00020;
+    --color-dark-blue: #243746;
+    --color-darker-blue: #132634;
+    --color-dark-white: #eeeeee;
+    --color-blue-ice: #97cace;
+    --color-hot-pink: hotpink;
+    --color-disabled-grey: #9ca6ac;
 }
 
-:global(:root.dark) {
-    --color-primary: #000025;
-    --color-on-primary-active: #0297fd;
-    --color-on-primary-hover: #ff009b;
-
-    --color-text: #eeeeee;
+/* 
+ * General color for primary, secondary etc.
+ * Uses colors as variables
+ * Dark theme default -- themes can be added here.
+ */
+:global(:root.dark-theme) {
+    /* PRIMARY */
+    --theme-primary: var(--color-dark-blue);
+    --theme-on-primary: var(--color-dark-white);
+    --theme-on-primary-active: var(--color-blue-ice);
+    --theme-on-primary-hover: var(--color-hot-pink);
+    --theme-on-primary-hover-text: var(--color-darker-blue);
+    /* SECONDARY */
+    /* TERTIARY */
+    /* GENERAL STATES ETC. ++*/
+    --theme-disabled: var(--color-disabled-grey);
 }
 
-:global(:root.light) {
-    --color-primary: #eeeeee;
-    --color-on-primary-active: #e4e4e4;
-    --color-on-primary-hover: #91848c;
+:global(:root.light-theme) {
+}
+
+/* 
+ * Specific border/text etc colors based on concepts
+ * The only variables to be used by components.
+ */
+:global(:root.entities) {
+    /* MAIN */
+    --main-background: var(--theme-primary);
+    --main-text: var(--theme-on-primary);
+    /* NAV MENU */
+    --nav-logo-color: var(--theme-on-primary-hover);
+    --nav-item-active-background: var(--theme-on-primary-active);
+    --nav-item-active-text: var(--theme-on-primary-hover-text);
+    --nav-item-hover-background: var(--theme-on-primary-hover);
+    --nav-item-hover-text: var(--theme-on-primary-hover-text);
 }
