@@ -7,15 +7,15 @@ jobs:
     build_and_preview:
         runs-on: ubuntu-latest
         steps:
-            - name: "Checkout"
+            - name: Checkout
                 uses: actions/checkout@v2
-            - name: "Setup node"
+            - name: Setup node
                 uses: actions/setup-node@v2
                 with:
                     node-version: '14.x'
-            - name: "Install dependencies"
+            - name: Install dependencies
                 run: yarn ci && yarn build
-            - name: "Deploy to firebase"
+            - name: Deploy to firebase
                 uses: FirebaseExtended/action-hosting-deploy@v0
                 with:
                     repoToken: "${{ secrets.GITHUB_TOKEN }}"
