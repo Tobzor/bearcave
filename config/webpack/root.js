@@ -1,6 +1,7 @@
-const { resolve, join, parse } = require("path");
+import { resolve, join, parse } from "path";
 
 // The absolute path to the root of project.
 const rootPath = resolve(__dirname, "../../");
+const appsPath = join(rootPath, "/src/apps/**/index.tsx");
 
-module.exports = { rootPath, join, parse };
+export { rootPath, appsPath, join, parse };

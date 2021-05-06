@@ -1,8 +1,19 @@
-const { join, rootPath } = require("./root");
+// locals
+import "../docs/docs";
+import { join } from "./root";
 
-module.exports = function defineOutput(path = rootPath) {
+/**
+ * Defines how webpack outputs bundles files.
+ * @param {string} rootPath The root path of the webserver.
+ * @returns {WebpackOutput} Defined webpack output.
+ * @throws Will throw an error if argument is undefined.
+ */
+export function defineOutput(rootPath) {
+    if (!rootPath) {
+        throw new Error("No rootpath provided in defineOutput.");
+    }
     return {
-        path: join(path, "build"),
+        path: join(rootPath, "build"),
         publicPath: "/",
         filename: function (data) {
             if (data.chunk.name === "main") {
@@ -20,4 +31,4 @@ module.exports = function defineOutput(path = rootPath) {
             return "vendor/[name].[contenthash].js";
         },
     };
-};
+}

@@ -5,13 +5,7 @@ declare namespace StylesCssNamespace {
         itemImage: string;
         itemgroup: string;
         large: string;
-        mappings: string;
-        names: string;
         notsmall: string;
-        sourceRoot: string;
-        sources: string;
-        sourcesContent: string;
-        version: string;
     }
 }
 

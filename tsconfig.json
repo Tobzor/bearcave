@@ -6,12 +6,13 @@
 {
     "compilerOptions": {
         // Basic options
-        "module": "CommonJS",
+        "module": "ESNext",
         "rootDir": "src",
-        "target": "es2017",
+        "target": "ESNext",
 
         // for reexporting types
-        "isolatedModules": false,
+        "isolatedModules": true,
+        "importsNotUsedAsValues": "remove",
 
         "sourceMap": true,
         "importHelpers": true,
@@ -59,6 +60,6 @@
         }
     },
 
-    "include": ["custom.d.ts", "src/**/*"],
-    "exclude": ["config/**/*"]
+    "include": ["custom.d.ts", "src/**/*", "config/**/*"]
+    // "exclude": ["config/**/*"]
 }

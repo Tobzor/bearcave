@@ -1,7 +1,10 @@
+import "../docs/docs";
+
 /**
  * Defines options for the webpack dev server middleware.
+ * @returns {WebpackDevServer} Dev server config object.
  */
-module.exports = function defineDevServer() {
+export function defineDevServer() {
     return {
         port: 1337,
         hot: true,
@@ -12,4 +15,4 @@ module.exports = function defineDevServer() {
         stats: "errors-only",
         noInfo: true,
     };
-};
+}
