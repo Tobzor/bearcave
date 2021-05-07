@@ -17,21 +17,27 @@ export function defineOptimization(env) {
         runtimeChunk: "single",
         splitChunks: {
             chunks: "all",
-            // FIXME: is this needed?
+            maxInitialRequests: Infinity,
+            minSize: 0,
             cacheGroups: {
-                defaultVendors: {
+                vendors: {
                     test: /[\\/]node_modules[\\/]/,
                     name(module) {
                         const packageName = module.context.match(
                             /[\\/]node_modules[\\/](.*?)([\\/]|$)/,
                         )[1];
-                        return `${packageName.replace("@", "")}`;
+                        return `npm.${packageName.replace("@", "")}`;
                     },
                 },
                 bearcave: {
                     test: /[\\/]src[\\/]bearcave[\\/]/,
-                    reuseExistingChunk: true,
-                    name: "bearcave",
+                    name(module) {
+                        const packageName = module.context.match(
+                            /[\\/]src[\\/]bearcave[\\/](.*?)([\\/]|$)/,
+                        )[1];
+
+                        return `bearcave/${packageName.replace("@", "")}`;
+                    },
                 },
             },
         },

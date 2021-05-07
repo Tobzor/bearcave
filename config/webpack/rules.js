@@ -91,6 +91,7 @@ function defineStyles(env) {
 function defineImages(env) {
     return {
         test: /\.(png|jpg|gif|jpeg)$/,
+        include: [join(rootPath, "/resources/images")],
         use: [
             {
                 loader: "file-loader",
@@ -111,6 +112,7 @@ function defineImages(env) {
 function defineIcons(env) {
     return {
         test: /\.(svg)$/,
+        include: [join(rootPath, "/resources/icons")],
         use: [
             { loader: "babel-loader" },
             {

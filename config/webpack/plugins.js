@@ -10,7 +10,7 @@ import { rootPath, join } from "./root";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 const htmlWebPackPlugin = new HtmlWebpackPlugin({
     template: "./config/templates/index.html",
-    filename: "./index.html",
+    filename: "index.html",
 });
 
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
@@ -22,10 +22,7 @@ import CopyWebpackPlugin from "copy-webpack-plugin";
 const copyWebpackPlugin = new CopyWebpackPlugin({
     patterns: [
         {
-            from: join(rootPath, "/resources/favicon_io"),
-            to: join(rootPath, "/build"),
-        },
-        {
+            // manifest.json moved to build
             from: join(rootPath, "/resources/pwa"),
             to: join(rootPath, "/build"),
         },
