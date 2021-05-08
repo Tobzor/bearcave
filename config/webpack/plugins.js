@@ -31,17 +31,14 @@ const pwaManifestPlugin = new WebpackPWAManifest({
         {
             src: join(rootPath, "/resources/favicon/favicon.png"),
             // multiple sizes
-            sizes: [96, 256, 512],
+            sizes: [192, 512],
         },
     ],
 });
 
 import WorkboxPlugin from "workbox-webpack-plugin";
-const workboxSWPlugin = new WorkboxPlugin.GenerateSW({
-    // these options encourage the ServiceWorkers to get in there fast
-    // and not allow any straggling "old" SWs to hang around
-    clientsClaim: true,
-    skipWaiting: true,
+const workboxSWPlugin = new WorkboxPlugin.InjectManifest({
+    swSrc: join(rootPath, "/config/templates/service-worker.js"),
 });
 
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";

@@ -40,6 +40,13 @@ export { ParseError } from "./error/ParseError";
 export { default as EventEmitter } from "./event/EventEmitter";
 
 /**
+ * HOOKS
+ */
+export { useEffectAsync } from "./hooks/useEffectAsync";
+export { useEvent } from "./hooks/useEvent";
+export { usePWA } from "./hooks/usePWA";
+
+/**
  * UTILS
  */
 export { default as JSON } from "./utils/JSON";

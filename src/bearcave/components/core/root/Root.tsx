@@ -2,6 +2,7 @@
 import React from "react";
 // locals
 import { WithChildren } from "@types";
+import { usePWA } from "@utils";
 
 import "@css/variables.css";
 import "@css/mixins.css";
@@ -13,6 +14,8 @@ export type RootProps = WithChildren<{
 }>;
 
 function Root({ children, root, dialog }: RootProps): JSX.Element {
+    usePWA();
+
     return (
         <div className={styles.root}>
             <div ref={root}>{children}</div>
