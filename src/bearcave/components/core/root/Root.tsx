@@ -3,6 +3,8 @@ import React from "react";
 // locals
 import { WithChildren } from "@types";
 
+import "@css/variables.css";
+import "@css/mixins.css";
 import styles from "./styles.css";
 
 export type RootProps = WithChildren<{

@@ -1,4 +1,4 @@
-const { join } = require("../webpack/root");
+import { join } from "../webpack/root";
 
 const basePath = join(__dirname + "/.env");
 const devEnv = basePath + ".development";
@@ -10,4 +10,4 @@ const EnvPaths = {
     test: testEnv,
 };
 
-module.exports = EnvPaths;
+export default EnvPaths;

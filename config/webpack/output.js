@@ -15,21 +15,21 @@ export function defineOutput(rootPath) {
     return {
         path: join(rootPath, "build"),
         filename: function (data) {
-            if (["main", "homepage"].includes(data.chunk.name)) {
-                return "bundle/[name].[contenthash].js";
-            }
-
             if (data.chunk.name) {
-                if (data.chunk.name.includes("bearcave")) {
-                    return "bundle/" + data.chunk.name + ".[contenthash].js";
+                if (
+                    ["main", "bearcave", "apps"].some((str) =>
+                        data.chunk.name.includes(str),
+                    )
+                ) {
+                    return "bundle/[name].[contenthash].js";
                 }
 
-                if (data.chunk.name.includes("apps")) {
-                    return "bundle/" + data.chunk.name + ".[contenthash].js";
+                if (data.chunk.name.includes("npm")) {
+                    return "vendor/[name].[contenthash].js";
                 }
             }
 
-            return "vendor/[name].[contenthash].js";
+            return "common/[name].[contenthash].js";
         },
     };
 }

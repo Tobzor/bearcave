@@ -64,12 +64,10 @@ function defineMarkup(env) {
  */
 function defineStyles(env) {
     return {
-        test: /\.(css)$/,
+        test: /\.(css)$/i,
         include: [join(rootPath, "/src")],
         use: [
-            env === "dev"
-                ? { loader: "style-loader" }
-                : { loader: MiniCssExtractPlugin.loader },
+            { loader: MiniCssExtractPlugin.loader },
             {
                 loader: "@teamsupercell/typings-for-css-modules-loader",
                 options: {

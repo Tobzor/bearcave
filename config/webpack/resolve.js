@@ -20,7 +20,7 @@ export function defineResolve(rootPath) {
         alias: {
             "@utils": join(rootPath, "/src/bearcave/utils"),
             "@components": join(rootPath, "/src/bearcave/components"),
-            "@css": join(rootPath, "/src/bearcave/styles"),
+            "@css": join(rootPath, "/src/bearcave/components/core/styles"),
             "@types": join(rootPath, "/src/bearcave/types"),
             "@images": join(rootPath, "/resources/images"),
             "@icons": join(rootPath, "/resources/icons"),

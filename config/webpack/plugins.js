@@ -5,8 +5,9 @@ import "../docs/docs";
 import EnvPaths from "../environments/environmentPaths";
 import { rootPath, join } from "./root";
 
-// Utils
-/** Handles the templating of index.html */
+import { CleanWebpackPlugin } from "clean-webpack-plugin";
+const cleanWebpackPlugin = new CleanWebpackPlugin();
+
 import HtmlWebpackPlugin from "html-webpack-plugin";
 const htmlWebPackPlugin = new HtmlWebpackPlugin({
     template: "./config/templates/index.html",
@@ -28,9 +29,6 @@ const copyWebpackPlugin = new CopyWebpackPlugin({
         },
     ],
 });
-
-import { CleanWebpackPlugin } from "clean-webpack-plugin";
-const cleanBuildPlugin = new CleanWebpackPlugin();
 
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 const bundleAnalyzer = new BundleAnalyzerPlugin();
@@ -54,11 +52,12 @@ const progressReport = new WebpackBar({
  */
 export function defineBasePlugins() {
     return [
-        cleanBuildPlugin,
+        cleanWebpackPlugin,
         copyWebpackPlugin,
         htmlWebPackPlugin,
         ignoreTypings,
         progressReport,
+        miniCssExtractPlugin,
     ];
 }
 
@@ -87,14 +86,12 @@ export function definePlugins(env) {
             return [
                 ...defineBasePlugins(),
                 new Dotenv({ path: EnvPaths.prod }),
-                miniCssExtractPlugin,
                 bundleAnalyzer,
             ];
         case "prod":
             return [
                 ...defineBasePlugins(),
                 new Dotenv({ path: EnvPaths.prod }),
-                miniCssExtractPlugin,
             ];
         default:
             throw new Error("No matching ENV found in define plugins: ", env);

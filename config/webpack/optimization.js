@@ -17,8 +17,6 @@ export function defineOptimization(env) {
         runtimeChunk: "single",
         splitChunks: {
             chunks: "all",
-            maxInitialRequests: Infinity,
-            minSize: 0,
             cacheGroups: {
                 vendors: {
                     test: /[\\/]node_modules[\\/]/,
@@ -31,6 +29,7 @@ export function defineOptimization(env) {
                 },
                 bearcave: {
                     test: /[\\/]src[\\/]bearcave[\\/]/,
+                    minSize: 0,
                     name(module) {
                         const packageName = module.context.match(
                             /[\\/]src[\\/]bearcave[\\/](.*?)([\\/]|$)/,

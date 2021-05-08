@@ -52,7 +52,7 @@
         "paths": {
             "@utils": ["src/bearcave/utils"],
             "@components": ["src/bearcave/components"],
-            "@css": ["src/bearcave/styles"],
+            "@css": ["src/bearcave/components/core/styles"],
             "@types": ["src/bearcave/types"],
             "@images": ["resources/images"],
             "@icons": ["resources/icons"],
@@ -60,6 +60,6 @@
         }
     },
 
-    "include": ["custom.d.ts", "src/**/*", "config/**/*"]
-    // "exclude": ["config/**/*"]
+    "include": ["custom.d.ts", "src/**/*"],
+    "exclude": ["config/**/*"]
 }

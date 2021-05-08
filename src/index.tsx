@@ -3,11 +3,10 @@ import React, { Suspense, useRef } from "react";
 import { render } from "react-dom";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // Locals
-import "@css/variables.css";
 import { BearcaveContext, createBearcave } from "@utils";
 import { Bearcave, AppRenderer } from "@components";
 
-const Home = React.lazy(() => import("./homepage"));
+import Home from "./homepage";
 
 function Root(): JSX.Element {
     const dialog = useRef(null);

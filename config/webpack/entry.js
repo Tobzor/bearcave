@@ -20,7 +20,6 @@ export function defineEntry(rootPath, appsPath) {
 
     return {
         main: join(rootPath, "/src/index.tsx"),
-        homepage: join(rootPath, "/src/homepage/index.tsx"),
         ...glob.sync(join(rootPath, appsPath)).reduce(function (acc, app) {
             const appName = parse(app).dir.split("/").pop();
             acc["apps/" + appName] = app;
