@@ -9,7 +9,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 const htmlWebPackPlugin = new HtmlWebpackPlugin({
     template: "./config/templates/index.html",
     filename: "index.html",
-    favicon: join(rootPath, "/resources/favicon/favicon.ico"),
+    favicon: join(rootPath, "/resources/favicon/favicon.png"),
 });
 
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
@@ -29,7 +29,7 @@ const pwaManifestPlugin = new WebpackPWAManifest({
     background_color: "#ffffff",
     icons: [
         {
-            src: join(rootPath, "/resources/favicon/favicon.ico"),
+            src: join(rootPath, "/resources/favicon/favicon.png"),
             // multiple sizes
             sizes: [96, 256, 512],
         },
