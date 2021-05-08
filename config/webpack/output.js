@@ -31,5 +31,6 @@ export function defineOutput(rootPath) {
 
             return "common/[name].[contenthash].js";
         },
+        clean: true,
     };
 }

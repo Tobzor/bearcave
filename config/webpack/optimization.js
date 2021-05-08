@@ -15,11 +15,13 @@ export function defineOptimization(env) {
 
     return {
         runtimeChunk: "single",
+        moduleIds: "deterministic",
         splitChunks: {
             chunks: "all",
             cacheGroups: {
                 vendors: {
                     test: /[\\/]node_modules[\\/]/,
+                    minSize: 0,
                     name(module) {
                         const packageName = module.context.match(
                             /[\\/]node_modules[\\/](.*?)([\\/]|$)/,

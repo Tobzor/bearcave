@@ -65,7 +65,9 @@
         "webpack-bundle-analyzer": "^4.4.1",
         "webpack-cli": "^4.6.0",
         "webpack-dev-server": "^3.11.2",
-        "webpackbar": "^5.0.0-3"
+        "webpack-pwa-manifest": "^4.3.0",
+        "webpackbar": "^5.0.0-3",
+        "workbox-webpack-plugin": "^6.1.5"
     },
     "keywords": [],
     "author": "Torbjørn Nesbø Høiland",

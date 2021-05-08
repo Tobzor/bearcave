@@ -5,13 +5,11 @@ import "../docs/docs";
 import EnvPaths from "../environments/environmentPaths";
 import { rootPath, join } from "./root";
 
-import { CleanWebpackPlugin } from "clean-webpack-plugin";
-const cleanWebpackPlugin = new CleanWebpackPlugin();
-
 import HtmlWebpackPlugin from "html-webpack-plugin";
 const htmlWebPackPlugin = new HtmlWebpackPlugin({
     template: "./config/templates/index.html",
     filename: "index.html",
+    favicon: join(rootPath, "/resources/favicon/favicon.ico"),
 });
 
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
@@ -19,15 +17,31 @@ const miniCssExtractPlugin = new MiniCssExtractPlugin({
     filename: "css/[name].[contenthash].css",
 });
 
-import CopyWebpackPlugin from "copy-webpack-plugin";
-const copyWebpackPlugin = new CopyWebpackPlugin({
-    patterns: [
+import WebpackPWAManifest from "webpack-pwa-manifest";
+const pwaManifestPlugin = new WebpackPWAManifest({
+    name: "Bearcave",
+    short_name: "bearcave",
+    description: "Bearcave PWA awesomeness",
+    display: "standalone",
+    start_url: "/",
+    publicPath: "./",
+    theme_color: "#ffffff",
+    background_color: "#ffffff",
+    icons: [
         {
-            // manifest.json moved to build
-            from: join(rootPath, "/resources/pwa"),
-            to: join(rootPath, "/build"),
+            src: join(rootPath, "/resources/favicon/favicon.ico"),
+            // multiple sizes
+            sizes: [96, 256, 512],
         },
     ],
+});
+
+import WorkboxPlugin from "workbox-webpack-plugin";
+const workboxSWPlugin = new WorkboxPlugin.GenerateSW({
+    // these options encourage the ServiceWorkers to get in there fast
+    // and not allow any straggling "old" SWs to hang around
+    clientsClaim: true,
+    skipWaiting: true,
 });
 
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
@@ -52,11 +66,11 @@ const progressReport = new WebpackBar({
  */
 export function defineBasePlugins() {
     return [
-        cleanWebpackPlugin,
-        copyWebpackPlugin,
-        htmlWebPackPlugin,
-        ignoreTypings,
         progressReport,
+        htmlWebPackPlugin,
+        workboxSWPlugin,
+        pwaManifestPlugin,
+        ignoreTypings,
         miniCssExtractPlugin,
     ];
 }

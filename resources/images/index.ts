@@ -1,6 +1,6 @@
 // TODO: lazy load specific images?
 // bearcave
-export { default as bearsplash } from "./bearsplash.png";
+export { default as bearsplash } from "./bear.png";
 
 // work
 export { default as capgemini } from "./capgemini.jpeg";
