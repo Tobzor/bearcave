@@ -14,6 +14,5 @@ export function defineDevServer() {
         },
         stats: "errors-only",
         noInfo: true,
-        writeToDisk: true,
     };
 }
