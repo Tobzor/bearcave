@@ -9,13 +9,3 @@
     align-items: center;
     justify-content: center;
 }
-
-.content {
-    composes: border from "~@css/mixins.css";
-    background-color: var(--color-primary);
-
-    padding: var(--padding-small);
-
-    min-width: 40%;
-    min-height: 40%;
-}

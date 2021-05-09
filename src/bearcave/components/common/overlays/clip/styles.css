@@ -1,0 +1,9 @@
+.content {
+    composes: border from "~@css/mixins.css";
+    background-color: var(--color-primary);
+
+    padding: var(--base-space);
+
+    min-width: 40%;
+    min-height: 40%;
+}

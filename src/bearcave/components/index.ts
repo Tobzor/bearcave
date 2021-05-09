@@ -13,7 +13,12 @@ export { default as Button } from "./common/button/Button";
 export { default as ItemGroup } from "./common/lists/group/ItemGroup";
 export { default as Item } from "./common/lists/group/Item";
 
-export { default as Modal } from "./common/modal/Modal";
+/**
+ * OVERLAYS
+ */
+export { Clip } from "./common/overlays/clip/Clip";
+export { default as Modal } from "./common/overlays/modal/Modal";
+export { Overlay } from "./common/overlays/overlay/Overlay";
 
 /**
  * CORE
