@@ -7,7 +7,15 @@ type OverlayProps = WithChildren<{
     className?: string;
     onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }>;
-export function Overlay({ className, onClick }: OverlayProps): JSX.Element {
+export function Overlay({
+    className,
+    onClick,
+    children,
+}: OverlayProps): JSX.Element {
     const containerStyles = classnames(styles.container, className);
-    return <div className={containerStyles} onClick={onClick}></div>;
+    return (
+        <div className={containerStyles} onClick={onClick}>
+            {children}
+        </div>
+    );
 }

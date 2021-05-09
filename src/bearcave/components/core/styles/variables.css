@@ -9,6 +9,9 @@
     --large-space: 3rem;
     /* font things */
     --font-size: 16px;
+    /* rgba things */
+    --black-rgb: 0, 0, 0;
+    --overlay-alpha: 0.7;
     /* overlay things */
     --overlay-z-index: 9991;
     --toast-z-index: 9992;

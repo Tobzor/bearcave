@@ -1,5 +1,5 @@
 .container {
-    background-color: rgba(var(--color-black-rgb), 0.5);
+    background-color: rgba(var(--black-rgb), var(--overlay-alpha));
 
     width: 100%;
     height: 100%;
