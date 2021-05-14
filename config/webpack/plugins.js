@@ -17,6 +17,9 @@ const miniCssExtractPlugin = new MiniCssExtractPlugin({
     filename: "css/[name].[contenthash].css",
 });
 
+// TODO: update plugin to be using the official faviscons-webpack-plugin
+// this will generate the necessary icons and the manifest for you
+// based on package.json or via specified data.
 import WebpackPWAManifest from "webpack-pwa-manifest";
 const pwaManifestPlugin = new WebpackPWAManifest({
     name: "Bearcave",
@@ -50,7 +53,7 @@ const ignoreTypings = new WatchIgnorePlugin({ paths: [/css\.d\.ts$/] });
 import WebpackBar from "webpackbar";
 const progressReport = new WebpackBar({
     name: "bearcave",
-    color: "#007079",
+    color: "hotpink",
     profile: true,
 });
 
