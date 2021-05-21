@@ -1,5 +1,6 @@
 // deps
 import { createPortal } from "react-dom";
+import { CSSTransition } from "react-transition-group";
 // locals
 import { useBearcave } from "@utils";
 import { Overlay } from "@components";
@@ -26,14 +27,32 @@ export function Clip({ show, close, children }: ClipProps): JSX.Element | null {
     // TODO: add css transitiongroup and animate popping up from below.
     // display on desktop, tablet + mobile.
 
+    const classnameTransition = {
+        appear: "",
+        appearActive: "",
+        appearDone: "",
+        enter: "",
+        enterActive: "",
+        enterDone: "",
+        exit: "",
+        exitActive: "",
+        exitDone: "",
+    };
+
     return createPortal(
         <Overlay onClick={handleClickOutside}>
-            <div
-                className={styles.content}
-                onClick={(e) => e.stopPropagation()}
+            <CSSTransition
+                in={show}
+                timeout={300}
+                classNames={classnameTransition}
             >
-                {children}
-            </div>
+                <div
+                    className={styles.content}
+                    onClick={(e) => e.stopPropagation()}
+                >
+                    {children}
+                </div>
+            </CSSTransition>
         </Overlay>,
         dialog.current,
     );
