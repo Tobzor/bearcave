@@ -6,17 +6,27 @@ import { registerCaveApp } from "@utils";
 // This is the vue top level app that we are rendering.
 import App from "./Todo.vue";
 
+let vue: Vue | null = null;
 function startTodoApp() {
-    const vue = new Vue({
-        render: (h) => h(App),
-    });
+    if (!vue) {
+        vue = new Vue({
+            el: "#todo-vue",
+            render: (h) => h(App),
+        });
+    }
+}
 
-    vue.$mount("#todo-vue");
+function destroyVue() {
+    if (vue) {
+        vue.$destroy();
+        vue = null;
+    }
 }
 
 function Todo(): JSX.Element {
     useEffect(() => {
         startTodoApp();
+        return () => destroyVue();
     }, []);
 
     return (
