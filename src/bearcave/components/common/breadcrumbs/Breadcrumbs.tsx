@@ -12,7 +12,7 @@ function Breadcrumbs({}: BreadcrumbsProps): JSX.Element {
 
     return (
         <div className={styles.container}>
-            <Button onClick={() => navigate(-1)}>{"< Back"}</Button>
+            <Button onClick={() => navigate("/")}>{"< Back"}</Button>
         </div>
     );
 }
