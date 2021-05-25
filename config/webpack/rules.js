@@ -39,6 +39,20 @@ function defineTranspiler(env) {
 }
 
 /**
+ * Defines a ruleset for bundling TS code.
+ * @param {ENV} env The build environment.
+ * @returns {RuleSetRule} Transpiler rules.
+ */
+function defineVueTranspiler(env) {
+    return {
+        test: /\.vue$/,
+        use: {
+            loader: "vue-loader",
+        },
+    };
+}
+
+/**
  * Defines RuleSetRule for bundling markup.
  * @param {ENV} env The build environment.
  * @returns {RuleSetRule} Markup bundling rules.
@@ -130,12 +144,13 @@ function defineIcons(env) {
  */
 export function defineModule(env) {
     const transpiler = defineTranspiler(env);
+    const vueTranspiler = defineVueTranspiler(env);
     const markup = defineMarkup(env);
     const styles = defineStyles(env);
     const images = defineImages(env);
     const icons = defineIcons(env);
 
     return {
-        rules: [transpiler, markup, styles, images, icons],
+        rules: [transpiler, vueTranspiler, markup, styles, images, icons],
     };
 }

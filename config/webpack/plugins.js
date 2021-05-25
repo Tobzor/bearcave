@@ -7,6 +7,7 @@ import { rootPath, join } from "./root";
 
 import HtmlWebpackPlugin from "html-webpack-plugin";
 const htmlWebPackPlugin = new HtmlWebpackPlugin({
+    publicPath: "/",
     template: "./config/templates/index.html",
     filename: "index.html",
     favicon: join(rootPath, "/resources/favicon/favicon.png"),
@@ -24,7 +25,7 @@ const pwaManifestPlugin = new WebpackPWAManifest({
     description: "Bearcave PWA awesomeness",
     display: "standalone",
     start_url: "/",
-    publicPath: "./",
+    publicPath: "/",
     theme_color: "#ffffff",
     background_color: "#ffffff",
     icons: [
@@ -54,6 +55,9 @@ const progressReport = new WebpackBar({
     profile: true,
 });
 
+import { VueLoaderPlugin } from "vue-loader";
+const vueLoaderPlugin = new VueLoaderPlugin();
+
 // import ReactRefreshWebpackPlugin from "react-refresh";
 // const fastRefresh = new ReactRefreshWebpackPlugin();
 
@@ -69,6 +73,7 @@ export function defineBasePlugins() {
         pwaManifestPlugin,
         ignoreTypings,
         miniCssExtractPlugin,
+        vueLoaderPlugin,
     ];
 }
 

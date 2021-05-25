@@ -1,23 +1,27 @@
 // deps
-import React from "react";
-import { Route, Routes } from "react-router";
+import React, { useEffect } from "react";
+import Vue from "vue";
 // locals
 import { registerCaveApp } from "@utils";
-import { Link } from "react-router-dom";
+// This is the vue top level app that we are rendering.
+import App from "./Todo.vue";
+
+function startTodoApp() {
+    const vue = new Vue({
+        render: (h) => h(App),
+    });
+
+    vue.$mount("#todo-vue");
+}
 
 function Todo(): JSX.Element {
+    useEffect(() => {
+        startTodoApp();
+    }, []);
+
     return (
         <div>
-            <h2>TODO</h2>
-            <nav>
-                <Link to="somewhere">somewhere</Link>
-            </nav>
-
-            <Routes>
-                <Route path="somewhere">
-                    <h2>{"TODO'"} somewhere</h2>
-                </Route>
-            </Routes>
+            <div id="todo-vue"></div>
         </div>
     );
 }

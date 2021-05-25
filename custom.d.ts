@@ -12,3 +12,8 @@ declare module "*.svg" {
     const icon: any;
     export default icon;
 }
+
+declare module "*.vue" {
+    const app: any;
+    export default app;
+}
