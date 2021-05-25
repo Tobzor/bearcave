@@ -1,5 +1,15 @@
 <template>
-    <div>This is vue!</div>
+    <div>
+        {{ greeting }}
+    </div>
 </template>
 
-<script></script>
+<script>
+export default {
+    data() {
+        return {
+            greeting: "This is vue!",
+        };
+    },
+};
+</script>
