@@ -44,6 +44,7 @@ export { default as EventEmitter } from "./event/EventEmitter";
  */
 export { useEffectAsync } from "./hooks/useEffectAsync";
 export { useEvent } from "./hooks/useEvent";
+export { useKeyPress } from "./hooks/useKeyPress";
 export { usePWA } from "./hooks/usePWA";
 
 /**
