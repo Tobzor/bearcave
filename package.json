@@ -54,6 +54,8 @@
         "eslint-plugin-react": "^7.23.2",
         "eslint-plugin-react-hooks": "^4.2.0",
         "eslint-plugin-standard": "^5.0.0",
+        "favicons": "^6.2.2",
+        "favicons-webpack-plugin": "^5.0.2",
         "file-loader": "^6.2.0",
         "html-loader": "^2.1.2",
         "html-webpack-plugin": "^5.3.1",
@@ -68,7 +70,6 @@
         "webpack-bundle-analyzer": "^4.4.1",
         "webpack-cli": "^4.6.0",
         "webpack-dev-server": "^3.11.2",
-        "webpack-pwa-manifest": "^4.3.0",
         "webpackbar": "^5.0.0-3",
         "workbox-webpack-plugin": "^6.1.5"
     },
