@@ -18,23 +18,39 @@ const miniCssExtractPlugin = new MiniCssExtractPlugin({
     filename: "css/[name].[contenthash].css",
 });
 
-import WebpackPWAManifest from "webpack-pwa-manifest";
-const pwaManifestPlugin = new WebpackPWAManifest({
-    name: "Bearcave",
-    short_name: "bearcave",
-    description: "Bearcave PWA awesomeness",
-    display: "standalone",
-    start_url: "/",
+import FaviconsWebpackPlugin from "favicons-webpack-plugin";
+const faviconsManifest = new FaviconsWebpackPlugin({
+    logo: join(rootPath, "/resources/favicon/favicon.png"), // svg works too!
+    mode: "webapp", // optional can be 'webapp', 'light' or 'auto' - 'auto' by default
+    devMode: "light", // optional can be 'webapp' or 'light' - 'light' by default
     publicPath: "/",
-    theme_color: "#ffffff",
-    background_color: "#ffffff",
-    icons: [
-        {
-            src: join(rootPath, "/resources/favicon/favicon.png"),
-            // multiple sizes
-            sizes: [192, 512],
+    cache: true,
+    prefix: "static/",
+    favicons: {
+        appName: "Bearcave",
+        appShortName: "bearcave",
+        appDescription: "Bearcave PWA awesomeness",
+        developerURL: null, // prevent retrieving from the nearest package.json
+        background: "#ffffff",
+        theme_color: "#ffffff",
+        display: "standalone",
+        start_url: "/",
+        appleStatusBarStyle: "black-translucent",
+        orientation: "any",
+        icons: {
+            // mobiles
+            android: true,
+            appleIcon: true,
+            appleStartup: true,
+            // browsers
+            favicons: true,
+            coast: false,
+            firefox: false,
+            yandex: false,
+            // other
+            windows: false,
         },
-    ],
+    },
 });
 
 import WorkboxPlugin from "workbox-webpack-plugin";
@@ -70,7 +86,7 @@ export function defineBasePlugins() {
         progressReport,
         htmlWebPackPlugin,
         workboxSWPlugin,
-        pwaManifestPlugin,
+        faviconsManifest,
         ignoreTypings,
         miniCssExtractPlugin,
         vueLoaderPlugin,
