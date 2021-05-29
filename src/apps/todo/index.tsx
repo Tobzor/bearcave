@@ -1,24 +1,23 @@
 // deps
 import React, { useEffect } from "react";
-import Vue from "vue";
+import { App, createApp } from "vue";
 // locals
 import { registerCaveApp } from "@utils";
 // This is the vue top level app that we are rendering.
-import App from "./Todo.vue";
+import TodoApp from "./Todo.vue";
 
-let vue: Vue | null = null;
+let vue: App<Element> | null = null;
 function startTodoApp() {
     if (!vue) {
-        vue = new Vue({
-            el: "#todo-vue",
-            render: (h) => h(App),
-        });
+        vue = createApp(TodoApp);
     }
+
+    vue.mount("#todo-vue");
 }
 
 function destroyVue() {
     if (vue) {
-        vue.$destroy();
+        vue.unmount();
         vue = null;
     }
 }
