@@ -1,18 +1,40 @@
 // deps
-import React from "react";
-import { useNavigate } from "react-router";
+import React, { useMemo } from "react";
+import { Link } from "react-router-dom";
 // locals
-import { Button } from "@components";
+import { combineUrls } from "@utils";
 
 import styles from "./styles.css";
 
-type BreadcrumbsProps = {};
-function Breadcrumbs({}: BreadcrumbsProps): JSX.Element {
-    const navigate = useNavigate();
+function Breadcrumbs(): JSX.Element {
+    const breadCrumbs = useMemo(() => {
+        const crumbs = window.location.pathname
+            .split("/")
+            .filter(Boolean)
+            .reduce(
+                (acc, curr) => {
+                    let url = acc[acc.length - 1] + "/" + curr;
+
+                    if (acc.length === 1) {
+                        url = acc[acc.length - 1] + curr;
+                    }
+
+                    acc.push(url);
+                    return acc;
+                },
+                ["/"] as string[],
+            );
+        return crumbs.map((crumb) => (
+            <Link key={crumb} to={crumb}>
+                {crumb}
+            </Link>
+        ));
+    }, [window.location.pathname]);
 
     return (
         <div className={styles.container}>
-            <Button onClick={() => navigate("/")}>{"< Back"}</Button>
+            {/* <Button onClick={() => navigate("/")}>{"< Back"}</Button> */}
+            {breadCrumbs}
         </div>
     );
 }

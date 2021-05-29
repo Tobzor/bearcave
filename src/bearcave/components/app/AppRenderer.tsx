@@ -3,6 +3,7 @@ import React, { useMemo } from "react";
 import { Route, Routes, useParams } from "react-router";
 // locals
 import { useCurrentApp } from "@utils";
+import { Breadcrumbs } from "@components";
 
 import AppNotFound from "./AppNotFound";
 import AppBrowser from "./AppBrowser";
@@ -10,10 +11,16 @@ import AppBrowser from "./AppBrowser";
 function AppRenderer(): JSX.Element {
     return (
         <Routes>
-            <Route path="/">
-                <AppBrowser />
-            </Route>
-            <Route path="/:appKey/*" element={<SingleAppRenderer />} />
+            <Route path="/" element={<AppBrowser />} />
+            <Route
+                path="/:appKey/*"
+                element={
+                    <>
+                        <Breadcrumbs />
+                        <SingleAppRenderer />
+                    </>
+                }
+            />
         </Routes>
     );
 }
