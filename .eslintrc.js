@@ -43,6 +43,21 @@ module.exports = {
             ],
             rules: {
                 "vue/html-indent": ["error", 4],
+                "vue/max-attributes-per-line": [
+                    "error",
+                    {
+                        singleline: {
+                            max: 3,
+                            allowFirstLine: true,
+                        },
+                        multiline: {
+                            max: 1,
+                            allowFirstLine: false,
+                        },
+                    },
+                ],
+                "vue/html-self-closing": 0,
+                "vue/singleline-html-element-content-newline": 0,
             },
         },
     ],
