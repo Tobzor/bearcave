@@ -12,7 +12,7 @@ function AppBrowser(): JSX.Element {
 
     const appItems = useMemo(() => {
         return apps.map((app) => (
-            <Link key={app.key} to={app.key}>
+            <Link className={styles.appItems} key={app.key} to={app.key}>
                 <Item
                     src={app.icon}
                     description={app.description ?? ""}

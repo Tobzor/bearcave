@@ -3,20 +3,24 @@ import { Fallback } from "@icons";
 import styles from "./styles.css";
 
 type ItemProps = {
-    src: string;
+    src: React.ReactNode | string;
     title: string;
     description: string;
 };
 
 function Item({ src, title, description }: ItemProps): JSX.Element {
     return (
-        <div className={styles.item}>
+        <span className={styles.item}>
             {src ? (
-                <img
-                    className={styles.itemImage}
-                    src={src}
-                    alt={"Logo for " + title}
-                />
+                typeof src === "string" ? (
+                    <img
+                        className={styles.itemImage}
+                        src={src}
+                        alt={"Logo for " + title}
+                    />
+                ) : (
+                    <span className={styles.itemImage}>src</span>
+                )
             ) : (
                 <Fallback className={styles.itemImage} />
             )}
@@ -24,7 +28,7 @@ function Item({ src, title, description }: ItemProps): JSX.Element {
                 <h3 style={{ margin: "0" }}>{title}</h3>
                 <p style={{ margin: "0" }}>{description}</p>
             </span>
-        </div>
+        </span>
     );
 }
 

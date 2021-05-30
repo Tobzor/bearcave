@@ -9,6 +9,11 @@ body {
     color: var(--main-text);
 }
 
+a {
+    text-decoration: none;
+    color: var(--main-link);
+}
+
 .root {
     position: relative;
     /* TODO: add transition when toggling dark theme?? Ruins first load at the moment */
