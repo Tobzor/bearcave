@@ -35,3 +35,7 @@ export function classnames(
 
     return undefined;
 }
+
+export function capitalize(str: string): string {
+    return str.replace(/^\w/, (c) => c.toUpperCase());
+}

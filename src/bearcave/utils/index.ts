@@ -51,4 +51,4 @@ export { usePWA } from "./hooks/usePWA";
  */
 export { default as JSON } from "./utils/JSON";
 export { combineUrls, sanitizedUrl, trimTrailingSlash } from "./utils/url";
-export { classnames } from "./utils/string";
+export { classnames, capitalize } from "./utils/string";

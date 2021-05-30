@@ -2,39 +2,47 @@
 import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 // locals
-import { combineUrls } from "@utils";
+import { capitalize } from "@utils";
 
 import styles from "./styles.css";
 
 function Breadcrumbs(): JSX.Element {
     const breadCrumbs = useMemo(() => {
-        const crumbs = window.location.pathname
+        return window.location.pathname
             .split("/")
             .filter(Boolean)
             .reduce(
                 (acc, curr) => {
-                    let url = acc[acc.length - 1] + "/" + curr;
+                    const title = capitalize(curr);
+                    let url = acc[acc.length - 1].url + "/" + curr;
 
                     if (acc.length === 1) {
-                        url = acc[acc.length - 1] + curr;
+                        url = acc[acc.length - 1].url + curr;
                     }
 
-                    acc.push(url);
+                    acc.push({ title, url });
                     return acc;
                 },
-                ["/"] as string[],
+                [{ title: "Home", url: "/" }] as Array<{
+                    title: string;
+                    url: string;
+                }>,
             );
-        return crumbs.map((crumb) => (
-            <Link key={crumb} to={crumb}>
-                {crumb}
-            </Link>
-        ));
     }, [window.location.pathname]);
 
     return (
         <div className={styles.container}>
-            {/* <Button onClick={() => navigate("/")}>{"< Back"}</Button> */}
-            {breadCrumbs}
+            {breadCrumbs.map((crumb, index) => {
+                return (
+                    <span key={index} className={styles.crumb}>
+                        <Link key={crumb.url} to={crumb.url}>
+                            {crumb.title}
+                        </Link>
+
+                        {index !== breadCrumbs.length - 1 && ">"}
+                    </span>
+                );
+            })}
         </div>
     );
 }
