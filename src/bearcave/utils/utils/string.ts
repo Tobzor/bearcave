@@ -37,5 +37,5 @@ export function classnames(
 }
 
 export function capitalize(str: string): string {
-    return str.replace(/^\w/, (c) => c.toUpperCase());
+    return str.trim().replace(/^\w/, (c) => c.toUpperCase());
 }
