@@ -1,5 +1,6 @@
 // deps
 import Dotenv from "dotenv-webpack";
+import webpack from "webpack";
 // locals
 import "../docs/docs";
 import EnvPaths from "../environments/environmentPaths";
@@ -90,6 +91,11 @@ export function defineBasePlugins() {
         ignoreTypings,
         miniCssExtractPlugin,
         vueLoaderPlugin,
+        // Vue ESM bundler options modification
+        new webpack.DefinePlugin({
+            __VUE_OPTIONS_API__: true,
+            __VUE_PROD_DEVTOOLS__: false,
+        }),
     ];
 }
 
