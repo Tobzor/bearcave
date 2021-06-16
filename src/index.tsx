@@ -11,6 +11,8 @@ import Home from "./homepage";
 function Root(): JSX.Element {
     const dialog = useRef(null);
     const root = useRef(null);
+
+    // Context might not be necessary at all...
     const bearcaveContext = createBearcave({ root, dialog });
 
     return (

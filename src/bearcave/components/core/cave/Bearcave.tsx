@@ -22,7 +22,6 @@ function Bearcave({ dialog, root, children }: BearcaveProps): JSX.Element {
     return (
         <>
             <div className={styles.root} ref={root}>
-                {/* TODO: add navigation breadcrumbs... */}
                 <main className={styles.content}>{children}</main>
                 <BearcaveFooter />
             </div>

@@ -6,6 +6,8 @@ import AppContainer, { appContainerFactory } from "../app/AppContainer";
 
 const BearcaveContext = createContext({} as Bearcave);
 const createBearcave = (refs: Refs): Bearcave => {
+    // having some magic factory things so that apps can call this function
+    // and wait for it being set.
     const appContainer = new AppContainer();
     appContainerFactory(appContainer);
 
