@@ -1,11 +1,10 @@
 // deps
 import React, { useState } from "react";
 // locals
-import { classnames, useBearcave } from "@utils";
+import { classnames } from "@utils";
 import { Clip } from "@components";
 import { WithChildren } from "@types";
 import styles from "./styles.css";
-import NavItem, { NavItemProps } from "./NavItem";
 import NavLogo from "./NavLogo";
 
 type HeaderProps = WithChildren<unknown>;

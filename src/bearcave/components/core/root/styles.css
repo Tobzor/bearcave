@@ -1,0 +1,42 @@
+@value notsmall from "~@css/breakpoints.css";
+
+.root,
+.dialog {
+}
+
+body {
+    background: var(--main-background);
+    color: var(--main-text);
+}
+
+a {
+    text-decoration: none;
+    color: var(--main-link);
+}
+
+.root {
+    position: relative;
+    /* TODO: add transition when toggling dark theme?? Ruins first load at the moment */
+    /* transition: background 0.8s, color 0.8s; */
+    font-size: var(--font-size);
+    border-top: 2px solid hotpink;
+}
+
+@media notsmall {
+    .root {
+        border-width: 5px;
+    }
+}
+
+.dialog {
+    position: absolute;
+    z-index: var(--dialog-z-index);
+    pointer-events: none;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.dialog > * {
+    pointer-events: all;
+}

@@ -41,6 +41,7 @@
 :global(:root.dark-theme) {
     /* PRIMARY */
     --theme-primary: var(--color-dark-blue);
+    --theme-on-primary-rgb: 19, 38, 52;
     --theme-on-primary: var(--color-dark-white);
     --theme-on-primary-active: var(--color-blue-ice);
     --theme-on-primary-hover: var(--color-hot-pink);
@@ -62,6 +63,8 @@
     /* MAIN */
     --main-background: var(--theme-primary);
     --main-text: var(--theme-on-primary);
+    --main-link: var(--theme-on-primary-hover);
+    --main-border-shadow: var(--theme-on-primary-rgb);
     /* NAV MENU */
     --nav-logo-color: var(--theme-on-primary-hover);
     --nav-item-active-background: var(--theme-on-primary-active);

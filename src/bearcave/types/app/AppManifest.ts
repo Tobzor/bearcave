@@ -1,8 +1,10 @@
+import React from "react";
+
 export type AppManifest = {
     key: string;
     name: string; // "Home"
-    render: React.ComponentType; // top level component.
+    render: () => JSX.Element; // top level component.
     shortName?: string;
     description?: string;
-    icon?: React.ComponentType | string;
+    icon?: React.ReactNode;
 };
