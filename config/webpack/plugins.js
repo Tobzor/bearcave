@@ -68,7 +68,7 @@ const ignoreTypings = new WatchIgnorePlugin({ paths: [/css\.d\.ts$/] });
 import WebpackBar from "webpackbar";
 const progressReport = new WebpackBar({
     name: "bearcave",
-    color: "#007079",
+    color: "#FF69B4",
     profile: true,
 });
 
