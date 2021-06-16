@@ -1,10 +1,21 @@
 .container {
     min-height: var(--large-space);
 
-    margin: var(--base-space) 0;
     padding: 0 var(--base-space);
 
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
+}
+
+.crumb {
+    margin-right: var(--small-space);
+
+    color: hotpink;
+}
+
+.crumb > a {
+    margin-right: var(--small-space);
+
+    color: hotpink;
 }

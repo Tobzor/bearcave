@@ -2,7 +2,7 @@ import { Events, EventHandlerParameter } from "@types";
 
 type Handler<
     TEvents extends Events,
-    TKey extends keyof TEvents = keyof TEvents
+    TKey extends keyof TEvents = keyof TEvents,
 > = {
     key: TKey;
     handler: (arg: EventHandlerParameter<TEvents, TKey>) => void;
@@ -31,7 +31,7 @@ export default abstract class EventEmitter<TEvents extends Events> {
 
     protected emit<
         TKey extends keyof TEvents,
-        TParameter = EventHandlerParameter<TEvents, TKey>
+        TParameter = EventHandlerParameter<TEvents, TKey>,
     >(key: TKey, arg: TParameter): this {
         const handlers = this.handlers.filter((h) => h.key === key);
 

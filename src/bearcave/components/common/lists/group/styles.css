@@ -13,6 +13,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    padding: var(--base-space);
+}
+
+.itemImage {
+    border-radius: 50%;
+    min-width: 50px;
+    max-width: calc(50px * var(--item-width-multiplier));
 }
 
 .item > span {
@@ -20,12 +28,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
 
-.itemImage {
-    border-radius: 50%;
-    min-width: 50px;
-    max-width: calc(50px * var(--item-width-multiplier));
+    color: var(--main-text);
 }
 
 @media notsmall {

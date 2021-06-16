@@ -10,16 +10,17 @@ type ReliableStorageProviderEvents<TCacheType> = {
     change: (storageProvider: TCacheType) => void;
 };
 
-type AdditionalEvents = Record<string, unknown>;
+type AdditionalEvents = Record<string, (...args: any) => void>;
 
 export default abstract class ReliableStorageProvider<
         TCacheType = LocalCache,
         TAdditionalEvents extends Events = AdditionalEvents,
         TEvents extends Events = ReliableStorageProviderEvents<TCacheType> &
-            TAdditionalEvents
+            TAdditionalEvents,
     >
     extends EventEmitter<TEvents>
-    implements ReliableStorage<TCacheType> {
+    implements ReliableStorage<TCacheType>
+{
     protected provider: StorageDictionary;
 
     constructor(provider: StorageDictionary) {

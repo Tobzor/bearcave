@@ -1,5 +1,6 @@
 // deps
 import Dotenv from "dotenv-webpack";
+import webpack from "webpack";
 // locals
 import "../docs/docs";
 import EnvPaths from "../environments/environmentPaths";
@@ -7,6 +8,7 @@ import { rootPath, join } from "./root";
 
 import HtmlWebpackPlugin from "html-webpack-plugin";
 const htmlWebPackPlugin = new HtmlWebpackPlugin({
+    publicPath: "/",
     template: "./config/templates/index.html",
     filename: "index.html",
     favicon: join(rootPath, "/resources/favicon/favicon.png"),
@@ -17,23 +19,39 @@ const miniCssExtractPlugin = new MiniCssExtractPlugin({
     filename: "css/[name].[contenthash].css",
 });
 
-import WebpackPWAManifest from "webpack-pwa-manifest";
-const pwaManifestPlugin = new WebpackPWAManifest({
-    name: "Bearcave",
-    short_name: "bearcave",
-    description: "Bearcave PWA awesomeness",
-    display: "standalone",
-    start_url: "/",
-    publicPath: "./",
-    theme_color: "#ffffff",
-    background_color: "#ffffff",
-    icons: [
-        {
-            src: join(rootPath, "/resources/favicon/favicon.png"),
-            // multiple sizes
-            sizes: [192, 512],
+import FaviconsWebpackPlugin from "favicons-webpack-plugin";
+const faviconsManifest = new FaviconsWebpackPlugin({
+    logo: join(rootPath, "/resources/favicon/favicon.png"), // svg works too!
+    mode: "webapp", // optional can be 'webapp', 'light' or 'auto' - 'auto' by default
+    devMode: "light", // optional can be 'webapp' or 'light' - 'light' by default
+    publicPath: "/",
+    cache: true,
+    prefix: "static/",
+    favicons: {
+        appName: "Bearcave",
+        appShortName: "bearcave",
+        appDescription: "Bearcave PWA awesomeness",
+        developerURL: null, // prevent retrieving from the nearest package.json
+        background: "#ffffff",
+        theme_color: "#ffffff",
+        display: "standalone",
+        start_url: "/",
+        appleStatusBarStyle: "black-translucent",
+        orientation: "any",
+        icons: {
+            // mobiles
+            android: true,
+            appleIcon: true,
+            appleStartup: true,
+            // browsers
+            favicons: true,
+            coast: false,
+            firefox: false,
+            yandex: false,
+            // other
+            windows: false,
         },
-    ],
+    },
 });
 
 import WorkboxPlugin from "workbox-webpack-plugin";
@@ -50,9 +68,12 @@ const ignoreTypings = new WatchIgnorePlugin({ paths: [/css\.d\.ts$/] });
 import WebpackBar from "webpackbar";
 const progressReport = new WebpackBar({
     name: "bearcave",
-    color: "#007079",
+    color: "#FF69B4",
     profile: true,
 });
+
+import { VueLoaderPlugin } from "vue-loader";
+const vueLoaderPlugin = new VueLoaderPlugin();
 
 // import ReactRefreshWebpackPlugin from "react-refresh";
 // const fastRefresh = new ReactRefreshWebpackPlugin();
@@ -66,9 +87,15 @@ export function defineBasePlugins() {
         progressReport,
         htmlWebPackPlugin,
         workboxSWPlugin,
-        pwaManifestPlugin,
+        faviconsManifest,
         ignoreTypings,
         miniCssExtractPlugin,
+        vueLoaderPlugin,
+        // Vue ESM bundler options modification
+        new webpack.DefinePlugin({
+            __VUE_OPTIONS_API__: true,
+            __VUE_PROD_DEVTOOLS__: false,
+        }),
     ];
 }
 
