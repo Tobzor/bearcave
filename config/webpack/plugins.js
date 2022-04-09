@@ -72,9 +72,6 @@ const progressReport = new WebpackBar({
     profile: true,
 });
 
-import { VueLoaderPlugin } from "vue-loader";
-const vueLoaderPlugin = new VueLoaderPlugin();
-
 // import ReactRefreshWebpackPlugin from "react-refresh";
 // const fastRefresh = new ReactRefreshWebpackPlugin();
 
@@ -90,12 +87,6 @@ export function defineBasePlugins() {
         faviconsManifest,
         ignoreTypings,
         miniCssExtractPlugin,
-        vueLoaderPlugin,
-        // Vue ESM bundler options modification
-        new webpack.DefinePlugin({
-            __VUE_OPTIONS_API__: true,
-            __VUE_PROD_DEVTOOLS__: false,
-        }),
     ];
 }
 
