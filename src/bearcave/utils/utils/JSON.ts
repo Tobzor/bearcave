@@ -18,4 +18,9 @@ function stringify<T>(parsed: T): string {
     }
 }
 
-export default { parse, stringify };
+const JSON = {
+    parse,
+    stringify,
+};
+
+export { JSON };

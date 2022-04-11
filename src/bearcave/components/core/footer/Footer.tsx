@@ -7,4 +7,4 @@ function Footer(): JSX.Element {
     return <footer className={styles.container}></footer>;
 }
 
-export default Footer;
+export { Footer };

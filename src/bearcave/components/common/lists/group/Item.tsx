@@ -32,4 +32,4 @@ function Item({ src, title, description }: ItemProps): JSX.Element {
     );
 }
 
-export default Item;
+export { Item };

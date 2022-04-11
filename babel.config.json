@@ -1,15 +1,22 @@
 {
-  "browserslistConfigFile": true,
   "presets": [
     [
       "@babel/preset-env",
       {
-        "useBuiltIns": "entry",
-        "corejs": 3
+        "useBuiltIns": "usage",
+        "corejs": 3,
+        "targets": "> 0.25%, not dead"
       }
     ],
-    "@babel/preset-react",
+    [
+      "@babel/preset-react",
+      {
+        "runtime": "automatic" // This ensures new JSX transform works until Babel 8 is ready.
+      }
+    ],
     "@babel/preset-typescript"
   ],
-  "plugins": ["@babel/plugin-transform-runtime"]
+  "plugins": [
+    "@babel/plugin-transform-runtime"
+  ]
 }

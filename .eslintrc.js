@@ -21,5 +21,6 @@ module.exports = {
         "react-hooks/exhaustive-deps": "warn",
         "react/prop-types": 0,
         "prettier/prettier": "warn",
+        "react/react-in-jsx-scope": 0,
     },
 };

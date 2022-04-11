@@ -1,6 +1,5 @@
 // deps
 import Dotenv from "dotenv-webpack";
-import webpack from "webpack";
 // locals
 import "../docs/docs";
 import EnvPaths from "../environments/environmentPaths";
@@ -83,7 +82,6 @@ export function defineBasePlugins() {
     return [
         progressReport,
         htmlWebPackPlugin,
-        workboxSWPlugin,
         faviconsManifest,
         ignoreTypings,
         miniCssExtractPlugin,
@@ -102,6 +100,7 @@ export function definePlugins(env) {
             return [
                 ...defineBasePlugins(),
                 new Dotenv({
+                    debug: true,
                     path: EnvPaths.dev,
                 }),
                 // fastRefresh,
@@ -110,17 +109,20 @@ export function definePlugins(env) {
             return [
                 ...defineBasePlugins(),
                 new Dotenv({ path: EnvPaths.test }),
+                workboxSWPlugin,
             ];
         case "analyze":
             return [
                 ...defineBasePlugins(),
                 new Dotenv({ path: EnvPaths.prod }),
                 bundleAnalyzer,
+                workboxSWPlugin,
             ];
         case "prod":
             return [
                 ...defineBasePlugins(),
                 new Dotenv({ path: EnvPaths.prod }),
+                workboxSWPlugin,
             ];
         default:
             throw new Error("No matching ENV found in define plugins: ", env);

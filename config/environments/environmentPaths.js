@@ -1,11 +1,11 @@
-import { join } from "../webpack/root";
+import { rootPath, join } from "../webpack/root";
 
-const basePath = join(__dirname + "/.env");
-const devEnv = basePath + ".development";
-const testEnv = basePath + ".test";
+const basePath = join(rootPath, "/config/environments/");
+const devEnv = basePath + "development.env";
+const testEnv = basePath + "test.env";
 
 const EnvPaths = {
-    prod: basePath,
+    prod: basePath + ".env",
     dev: devEnv,
     test: testEnv,
 };

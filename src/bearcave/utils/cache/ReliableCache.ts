@@ -4,7 +4,7 @@ import type {
     ReliableStorage,
     StorageDictionary,
 } from "@types";
-import EventEmitter from "../event/EventEmitter";
+import { EventEmitter } from "../event/EventEmitter";
 
 type ReliableStorageProviderEvents<TCacheType> = {
     change: (storageProvider: TCacheType) => void;
@@ -12,7 +12,7 @@ type ReliableStorageProviderEvents<TCacheType> = {
 
 type AdditionalEvents = Record<string, (...args: any) => void>;
 
-export default abstract class ReliableStorageProvider<
+export abstract class ReliableCache<
         TCacheType = LocalCache,
         TAdditionalEvents extends Events = AdditionalEvents,
         TEvents extends Events = ReliableStorageProviderEvents<TCacheType> &

@@ -14,6 +14,7 @@ const env = "prod";
 
 const config = {
     mode: "production",
+    devtool: "source-map",
     entry: defineEntry(rootPath, appsPath),
     module: defineModule(env),
     resolve: defineResolve(rootPath),

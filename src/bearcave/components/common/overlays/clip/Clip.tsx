@@ -3,7 +3,7 @@ import { useCallback } from "react";
 import { createPortal } from "react-dom";
 import { CSSTransition } from "react-transition-group";
 // locals
-import { useBearcave, useKeyPress } from "@utils";
+import { useDialog, useKeyPress } from "@utils";
 import { Overlay } from "@components";
 import { WithChildren } from "@types";
 import styles from "./styles.css";
@@ -14,13 +14,11 @@ type ClipProps = WithChildren<{
 }>;
 
 export function Clip({ show, close, children }: ClipProps): JSX.Element | null {
-    const {
-        refs: { dialog },
-    } = useBearcave();
+    const dialog = useDialog();
 
     const handleClose = useCallback(() => show && close(), [close]);
 
-    if (!dialog.current || show === false) {
+    if (!dialog || show === false) {
         return null;
     }
     // TODO: add css transitiongroup and animate popping up from below.
@@ -48,7 +46,7 @@ export function Clip({ show, close, children }: ClipProps): JSX.Element | null {
                 <ModalContent close={handleClose}>{children}</ModalContent>
             </CSSTransition>
         </Overlay>,
-        dialog.current,
+        dialog,
     );
 }
 

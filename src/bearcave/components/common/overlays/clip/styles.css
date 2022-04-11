@@ -1,7 +1,7 @@
 .content {
     composes: border from "~@css/mixins.css";
-    background-color: var(--color-primary);
-
+    background-color: var(--elevated-background-1);
+    color: var(--elevated-text);
     padding: var(--base-space);
 
     min-width: 40%;

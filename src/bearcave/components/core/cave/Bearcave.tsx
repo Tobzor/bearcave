@@ -1,8 +1,6 @@
-// deps
-import React from "react";
 // locals
 import { WithChildren } from "@types";
-import { BearcaveFooter } from "@components";
+import { Footer } from "@components";
 import { usePWA } from "@utils";
 
 // bearcave global css/theme things
@@ -11,25 +9,22 @@ import "@css/mixins.css";
 // local styling for cave
 import styles from "./styles.css";
 
-type BearcaveProps = WithChildren<{
-    dialog: React.MutableRefObject<HTMLDivElement | null>;
-    root: React.MutableRefObject<HTMLDivElement | null>;
-}>;
+type BearcaveProps = WithChildren<{}>;
 
-function Bearcave({ dialog, root, children }: BearcaveProps): JSX.Element {
+function BearcaveRoot({ children }: BearcaveProps): JSX.Element {
     usePWA();
 
     return (
         <>
-            <div className={styles.root} ref={root}>
+            <div id="cave-root" className={styles.root}>
                 <main className={styles.content}>{children}</main>
-                <BearcaveFooter />
+                <Footer />
             </div>
-            <div id="dialog-root" className={styles.dialog} ref={dialog}>
+            <div id="dialog-root" className={styles.dialog}>
                 {/* Modals, Clip */}
             </div>
         </>
     );
 }
 
-export default Bearcave;
+export { BearcaveRoot };

@@ -1,9 +1,7 @@
-// deps
-import React from "react";
 import { createPortal } from "react-dom";
 // locals
 import { WithChildren } from "@types";
-import { classnames, useBearcave } from "@utils";
+import { classnames, useDialog } from "@utils";
 import { Overlay } from "@components";
 import styles from "./styles.css";
 
@@ -21,11 +19,9 @@ function Modal({
     closeOnOutsideClick,
     children,
 }: ModalProps): React.ReactPortal | null {
-    const {
-        refs: { dialog },
-    } = useBearcave();
+    const dialog = useDialog();
 
-    if (!dialog.current || show === false) {
+    if (!dialog || show === false) {
         return null;
     }
 
@@ -41,8 +37,8 @@ function Modal({
                 {children}
             </div>
         </Overlay>,
-        dialog.current,
+        dialog,
     );
 }
 
-export default Modal;
+export { Modal };

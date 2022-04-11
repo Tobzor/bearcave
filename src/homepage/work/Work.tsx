@@ -19,4 +19,4 @@ function Work(): JSX.Element {
     );
 }
 
-export default Work;
+export { Work };

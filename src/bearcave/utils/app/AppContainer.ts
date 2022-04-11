@@ -7,15 +7,14 @@ class AppContainer {
         return this.apps;
     }
 
-    getCurrentApp(appKey: string): AppManifest | null {
-        return this.findApp(appKey);
+    getCurrentApp(appKey?: string): AppManifest | undefined {
+        return appKey ? this.findApp(appKey) : undefined;
     }
 
     registerApp(app: AppManifest): void {
         const existing = this.apps.find((ea) => ea.key === app.key);
 
         if (existing) {
-            // TODO: handle if key exists? Update current?
             console.log("found existing manifest: ", existing);
             return;
         }
@@ -29,45 +28,14 @@ class AppContainer {
         if (app) {
             return app;
         }
-
-        return null;
     }
 }
 
-let appContainerInstance: AppContainer | null = null;
-let appContainerPromise: Promise<AppContainer> | null = null;
-let setAppContainerSingleton: ((appContainer: AppContainer) => void) | null;
-
-function appContainerFactory(appContainer: AppContainer): void {
-    appContainerInstance = appContainer;
-
-    if (setAppContainerSingleton) {
-        setAppContainerSingleton(appContainer);
-        setAppContainerSingleton = null;
-    }
-}
-
-async function getAppContainer(): Promise<AppContainer> {
-    if (appContainerInstance) {
-        return Promise.resolve(appContainerInstance);
-    }
-
-    if (appContainerPromise) {
-        return appContainerPromise;
-    }
-
-    appContainerPromise = new Promise((resolve) => {
-        setAppContainerSingleton = resolve;
-    });
-
-    return appContainerPromise;
-}
+const apps = new AppContainer();
 
 async function registerCaveApp(manifest: AppManifest): Promise<void> {
-    const container = await getAppContainer();
-    container.registerApp(manifest);
+    apps.registerApp(manifest);
 }
 
-export default AppContainer;
+export { AppContainer, apps, registerCaveApp };
 export type { AppManifest };
-export { registerCaveApp, appContainerFactory };

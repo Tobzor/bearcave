@@ -52,8 +52,7 @@
     --theme-disabled: var(--color-disabled-grey);
 }
 
-:global(:root.light-theme) {
-}
+:global(:root.light-theme) {}
 
 /* 
  * Specific border/text etc colors based on concepts
@@ -71,4 +70,7 @@
     --nav-item-active-text: var(--theme-on-primary-hover-text);
     --nav-item-hover-background: var(--theme-on-primary-hover);
     --nav-item-hover-text: var(--theme-on-primary-hover-text);
+    /* Elevations */
+    --elevated-background-1: var(--theme-primary);
+    --elevated-text: var(--theme-on-primary);
 }

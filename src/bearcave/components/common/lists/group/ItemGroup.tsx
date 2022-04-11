@@ -14,4 +14,4 @@ function ItemGroup({ title, children }: ItemGroupProps): JSX.Element {
     );
 }
 
-export default ItemGroup;
+export { ItemGroup };

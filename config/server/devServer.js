@@ -12,7 +12,5 @@ export function defineDevServer() {
             disableDotRule: true,
             index: "/",
         },
-        stats: "errors-only",
-        noInfo: true,
     };
 }

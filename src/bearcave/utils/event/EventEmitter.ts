@@ -8,8 +8,7 @@ type Handler<
     handler: (arg: EventHandlerParameter<TEvents, TKey>) => void;
 };
 
-// TODO: steal from shiny stidding or create something similar
-export default abstract class EventEmitter<TEvents extends Events> {
+export abstract class EventEmitter<TEvents extends Events> {
     private handlers: Handler<TEvents>[] = [];
 
     on<TKey extends keyof TEvents>(
@@ -37,7 +36,7 @@ export default abstract class EventEmitter<TEvents extends Events> {
 
         handlers.forEach((handler) => {
             const handlerFunction = handler.handler as TEvents[TKey];
-            window.requestAnimationFrame(() => handlerFunction(arg));
+            handlerFunction(arg);
         });
 
         return this;
