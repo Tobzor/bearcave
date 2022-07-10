@@ -5,8 +5,8 @@ import { Route, Routes, useParams } from "react-router";
 import { useCurrentApp } from "@utils";
 import { Breadcrumbs } from "@components";
 
-import AppNotFound from "./AppNotFound";
-import AppBrowser from "./AppBrowser";
+import { AppNotFound } from "./AppNotFound";
+import { AppBrowser } from "./AppBrowser";
 
 function AppRenderer(): JSX.Element {
     return (
@@ -45,4 +45,4 @@ function SingleAppRenderer() {
     return <AppComponent />;
 }
 
-export default AppRenderer;
+export { AppRenderer };

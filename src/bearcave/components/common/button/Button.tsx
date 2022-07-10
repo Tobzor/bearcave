@@ -1,5 +1,3 @@
-// deps
-import React from "react";
 // locals
 import { WithChildren } from "@types";
 
@@ -15,4 +13,4 @@ function Button({ onClick, children }: ButtonProps): JSX.Element {
     );
 }
 
-export default Button;
+export { Button };

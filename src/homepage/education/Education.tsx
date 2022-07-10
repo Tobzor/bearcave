@@ -18,4 +18,4 @@ function Education(): JSX.Element {
     );
 }
 
-export default Education;
+export { Education };

@@ -2,24 +2,19 @@
 import { useEffect, useState } from "react";
 // locals
 import { AppManifest } from "@types";
+import { apps } from "./AppContainer";
 
-import { useBearcave } from "../core/BearcaveContext";
-
-export function useCurrentApp(appKey: string): AppManifest | null {
-    const {
-        app: { container },
-    } = useBearcave();
-
-    const [app, setApp] = useState<AppManifest | null>(() =>
-        container.getCurrentApp(appKey),
+export function useCurrentApp(appKey?: string): AppManifest | undefined {
+    const [app, setApp] = useState<AppManifest | undefined>(() =>
+        apps.getCurrentApp(appKey),
     );
 
     useEffect(() => {
-        const currapp = container.getCurrentApp(appKey);
+        const currapp = apps.getCurrentApp(appKey);
         if (app?.key !== currapp?.key) {
             setApp(currapp);
         }
-    }, [appKey]);
+    }, [appKey, app]);
 
     return app;
 }

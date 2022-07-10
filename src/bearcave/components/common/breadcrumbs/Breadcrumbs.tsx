@@ -1,5 +1,5 @@
 // deps
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { Link } from "react-router-dom";
 // locals
 import { capitalize } from "@utils";
@@ -28,7 +28,7 @@ function Breadcrumbs(): JSX.Element {
                     url: string;
                 }>,
             );
-    }, [window.location.pathname]);
+    }, []);
 
     return (
         <div className={styles.container}>
@@ -47,4 +47,4 @@ function Breadcrumbs(): JSX.Element {
     );
 }
 
-export default Breadcrumbs;
+export { Breadcrumbs };

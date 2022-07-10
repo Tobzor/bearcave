@@ -31,4 +31,4 @@ function PastProjects(): JSX.Element {
     );
 }
 
-export default PastProjects;
+export { PastProjects };

@@ -1,11 +1,9 @@
-// deps
-import React from "react";
+import { useState } from "react";
 // locals
 import { classnames } from "@utils";
 import { WithChildren } from "@types";
-
 import styles from "./styles.css";
-import NavLogo from "./NavLogo";
+import { NavLogo } from "./NavLogo";
 
 type HeaderProps = WithChildren<unknown>;
 
@@ -28,4 +26,4 @@ function Header({ children }: HeaderProps): JSX.Element {
     );
 }
 
-export default Header;
+export { Header };

@@ -1,31 +1,14 @@
 {
-    "eslint.options": {
-        "configFile": ".eslintrc.js"
+    "editor.formatOnSave": true,
+    "javascript.format.enable": false,
+    "typescript.format.enable": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
     },
     "eslint.validate": [
         "javascript",
         "javascriptreact",
         "typescript",
-        "typescriptreact"
-    ],
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    },
-
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "javascript.preferences.quoteStyle": "double",
-    "[javascript]": {
-        "editor.formatOnSave": false
-    },
-    "[javascriptreact]": {
-        "editor.formatOnSave": false
-    },
-    "typescript.preferences.quoteStyle": "double",
-    "[typescript]": {
-        "editor.formatOnSave": false
-    },
-    "[typescriptreact]": {
-        "editor.formatOnSave": false
-    }
+        "typescriptreact",
+    ]
 }

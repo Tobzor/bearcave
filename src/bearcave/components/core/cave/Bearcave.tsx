@@ -1,22 +1,30 @@
-// deps
-import React from "react";
 // locals
-import { BearcaveFooter, BearcaveRoot } from "@components";
-import { RootProps } from "../root/Root";
 import { WithChildren } from "@types";
+import { Footer } from "@components";
+import { usePWA } from "@utils";
 
+// bearcave global css/theme things
+import "@css/variables.css";
+import "@css/mixins.css";
+// local styling for cave
 import styles from "./styles.css";
 
-type BearcaveProps = WithChildren<RootProps>;
+type BearcaveProps = WithChildren<{}>;
 
-function Bearcave({ dialog, root, children }: BearcaveProps): JSX.Element {
+function BearcaveRoot({ children }: BearcaveProps): JSX.Element {
+    usePWA();
+
     return (
-        <BearcaveRoot dialog={dialog} root={root}>
-            {/* TODO: add navigation breadcrumbs... */}
-            <main className={styles.content}>{children}</main>
-            <BearcaveFooter />
-        </BearcaveRoot>
+        <>
+            <div id="cave-root" className={styles.root}>
+                <main className={styles.content}>{children}</main>
+                <Footer />
+            </div>
+            <div id="dialog-root" className={styles.dialog}>
+                {/* Modals, Clip */}
+            </div>
+        </>
     );
 }
 
-export default Bearcave;
+export { BearcaveRoot };

@@ -1,19 +1,17 @@
-// deps
-import React from "react";
 // locals
-import { BearcaveNav, NavItem, ItemGroup } from "@components";
+import { Header, NavItem, ItemGroup } from "@components";
 import styles from "./styles.css";
-import Work from "./work/Work";
-import Education from "./education/Education";
-import PastProjects from "./projects/Projects";
+import { Work } from "./work/Work";
+import { Education } from "./education/Education";
+import { PastProjects } from "./projects/Projects";
 
 function Home(): JSX.Element {
     return (
         <>
-            <BearcaveNav>
+            <Header>
                 {/* Removed apps from homepage until it can be fine tuned/styled */}
                 {/* <NavItem linkTo="/apps">Apps</NavItem> */}
-            </BearcaveNav>
+            </Header>
             <div className={styles.container}>
                 <ItemGroup title="Experience">
                     <Work />

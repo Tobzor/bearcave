@@ -30,7 +30,7 @@ type NotificationEvents = {
     finished: NotificationEvent;
 };
 
-export default class NotificationCenter extends ReliableCache<
+export class NotificationCenter extends ReliableCache<
     NotificationCache,
     NotificationEvents
 > {

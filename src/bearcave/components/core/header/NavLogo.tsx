@@ -1,5 +1,3 @@
-// deps
-import React from "react";
 import { Link } from "react-router-dom";
 // locals
 import { bearsplash } from "@images";
@@ -14,4 +12,4 @@ function NavLogo(): JSX.Element {
     );
 }
 
-export default NavLogo;
+export { NavLogo };

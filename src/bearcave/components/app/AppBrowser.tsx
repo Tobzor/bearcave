@@ -8,7 +8,7 @@ import { useRegisteredApps } from "@utils";
 import styles from "./styles.css";
 
 function AppBrowser(): JSX.Element {
-    const { apps } = useRegisteredApps();
+    const apps = useRegisteredApps();
 
     const appItems = useMemo(() => {
         return apps.map((app) => (
@@ -32,4 +32,4 @@ function AppBrowser(): JSX.Element {
     );
 }
 
-export default AppBrowser;
+export { AppBrowser };

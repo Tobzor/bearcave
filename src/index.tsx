@@ -1,32 +1,26 @@
 // Deps
-import React, { Suspense, useRef } from "react";
-import { render } from "react-dom";
+import { Suspense } from "react";
+import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // Locals
-import { BearcaveContext, createBearcave } from "@utils";
-import { Bearcave, AppRenderer } from "@components";
+import { BearcaveRoot, AppRenderer } from "@components";
+import { isDev } from "@utils";
 
 import Home from "./homepage";
 
 function Root(): JSX.Element {
-    const dialog = useRef(null);
-    const root = useRef(null);
-    const bearcaveContext = createBearcave({ root, dialog });
-
     return (
-        <BearcaveContext.Provider value={bearcaveContext}>
-            <Suspense fallback={<div>Loading...</div>}>
-                <Router>
-                    <Bearcave root={root} dialog={dialog}>
-                        <Routes>
-                            <Route path="/*" element={<Home />} />
-                            <Route path="apps/*" element={<AppRenderer />} />
-                            <Route path="*" element={<PageNotFound />} />
-                        </Routes>
-                    </Bearcave>
-                </Router>
-            </Suspense>
-        </BearcaveContext.Provider>
+        <Suspense fallback={<div>Loading...</div>}>
+            <Router>
+                <BearcaveRoot>
+                    <Routes>
+                        <Route path="/*" element={<Home />} />
+                        <Route path="apps/*" element={<AppRenderer />} />
+                        <Route path="*" element={<PageNotFound />} />
+                    </Routes>
+                </BearcaveRoot>
+            </Router>
+        </Suspense>
     );
 }
 
@@ -36,7 +30,7 @@ function PageNotFound() {
 
 async function start(): Promise<void> {
     // Registering serviceworker.
-    if ("serviceWorker" in navigator) {
+    if ("serviceWorker" in navigator && !isDev()) {
         navigator.serviceWorker
             .register("/service-worker.js")
             .then((registration) => {
@@ -46,7 +40,14 @@ async function start(): Promise<void> {
                 console.log("SW registration failed: ", registrationError);
             });
     }
-    render(<Root />, document.getElementById("root"));
+
+    const container = document.getElementById("root");
+    if (container) {
+        const root = createRoot(container);
+        root.render(<Root />);
+    } else {
+        throw new Error("Bearcave failed to create root");
+    }
 }
 
 start()

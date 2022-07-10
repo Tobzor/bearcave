@@ -1,5 +1,3 @@
-// deps
-import React from "react";
 import { NavLink } from "react-router-dom";
 // locals
 import styles from "./styles.css";
@@ -31,4 +29,4 @@ function NavItem({ onClick, linkTo, children }: NavItemProps): JSX.Element {
     );
 }
 
-export default NavItem;
+export { NavItem };

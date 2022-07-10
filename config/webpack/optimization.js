@@ -19,26 +19,15 @@ export function defineOptimization(env) {
         splitChunks: {
             chunks: "all",
             cacheGroups: {
-                vendors: {
-                    test: /[\\/]node_modules[\\/]/,
-                    minSize: 0,
-                    name(module) {
-                        const packageName = module.context.match(
-                            /[\\/]node_modules[\\/](.*?)([\\/]|$)/,
-                        )[1];
-                        return `npm.${packageName.replace("@", "")}`;
-                    },
-                },
                 bearcave: {
                     test: /[\\/]src[\\/]bearcave[\\/]/,
-                    minSize: 0,
-                    name(module) {
-                        const packageName = module.context.match(
-                            /[\\/]src[\\/]bearcave[\\/](.*?)([\\/]|$)/,
-                        )[1];
-
-                        return `bearcave/${packageName.replace("@", "")}`;
-                    },
+                    name: "bearcave",
+                    chunks: "all",
+                },
+                vendors: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: "node_vendors",
+                    chunks: "all",
                 },
             },
         },
