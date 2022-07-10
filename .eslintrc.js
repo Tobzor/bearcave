@@ -7,8 +7,8 @@ module.exports = {
             jsx: true,
         },
     },
-    plugins: ["react", "react-hooks"],
-    extends: ["plugin:react/recommended", "plugin:prettier/recommended"],
+    plugins: ["react", "react-hooks", "prettier"],
+    extends: ["plugin:react/recommended"],
     settings: {
         react: {
             version: "detect",
