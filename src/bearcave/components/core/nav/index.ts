@@ -1,3 +1,3 @@
-export * from "./Nav";
-export * from "./NavItem";
+export * from "./Header";
+export * from "./HeaderItem";
 export * from "./NavLogo";
