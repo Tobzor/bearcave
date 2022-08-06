@@ -7,6 +7,7 @@ import { registerCaveApp } from "@utils";
 function Todo(): JSX.Element {
     useEffect(() => {
         // could do things
+        console.log("This is TODO app");
     }, []);
 
     return <div>TODO</div>;
