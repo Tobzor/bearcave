@@ -1,5 +1,5 @@
 // deps
-import React, { lazy, Suspense, useEffect } from "react";
+import { lazy } from "react";
 // locals
 import { registerCaveApp } from "@utils";
 // This is the vue top level app that we are rendering.
