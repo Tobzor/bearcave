@@ -1,17 +1,10 @@
 // deps
-import React, { useEffect } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 // locals
 import { registerCaveApp } from "@utils";
 // This is the vue top level app that we are rendering.
 
-function Todo(): JSX.Element {
-    useEffect(() => {
-        // could do things
-        console.log("This is TODO app");
-    }, []);
-
-    return <div>TODO</div>;
-}
+const Todo = lazy(() => import("./Todo"));
 
 registerCaveApp({
     key: "todo",
