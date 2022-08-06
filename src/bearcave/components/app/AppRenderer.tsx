@@ -1,5 +1,5 @@
 // deps
-import { ReactNode, Suspense, useMemo } from "react";
+import { Suspense, useMemo } from "react";
 import { Route, Routes, useParams } from "react-router";
 // locals
 import { useCurrentApp } from "@utils";
