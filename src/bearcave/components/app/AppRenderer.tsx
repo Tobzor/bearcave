@@ -1,5 +1,5 @@
 // deps
-import React, { useMemo } from "react";
+import { Suspense, useMemo } from "react";
 import { Route, Routes, useParams } from "react-router";
 // locals
 import { useCurrentApp } from "@utils";
@@ -25,6 +25,10 @@ function AppRenderer(): JSX.Element {
     );
 }
 
+function NullComponent() {
+    return null;
+}
+
 function SingleAppRenderer() {
     const { appKey } = useParams();
 
@@ -35,14 +39,18 @@ function SingleAppRenderer() {
             return app.render;
         }
 
-        return () => null;
+        return NullComponent;
     }, [app]);
 
     if (!app) {
         return <AppNotFound />;
     }
 
-    return <AppComponent />;
+    return (
+        <Suspense fallback="Loading...">
+            <AppComponent />
+        </Suspense>
+    );
 }
 
 export { AppRenderer };
