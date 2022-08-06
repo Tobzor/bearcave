@@ -1,6 +1,11 @@
+@value caveWidth from "@css/mixins.css";
+
 .container {
+    composes: caveWidth;
+
+    margin-top: var(--base-space);
+    margin-bottom: var(--base-space);
     min-height: var(--large-space);
-    margin: var(--base-space) 0;
     padding: 0 var(--base-space);
 
     display: flex;

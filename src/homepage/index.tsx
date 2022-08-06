@@ -10,7 +10,7 @@ function Home(): JSX.Element {
         <>
             <Header>
                 {/* Removed apps from homepage until it can be fine tuned/styled */}
-                {/* <NavItem linkTo="/apps">Apps</NavItem> */}
+                <NavItem linkTo="/apps">Apps</NavItem>
             </Header>
             <div className={styles.container}>
                 <ItemGroup title="Experience">
