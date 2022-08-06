@@ -11,12 +11,7 @@ export type NavItemProps = WithChildren<{
 function NavItem({ onClick, linkTo, children }: NavItemProps): JSX.Element {
     if (linkTo) {
         return (
-            <NavLink
-                className={styles.navItem}
-                activeClassName={styles.activeNavItem}
-                to={linkTo}
-                onClick={onClick}
-            >
+            <NavLink className={styles.navItem} to={linkTo} onClick={onClick}>
                 {children}
             </NavLink>
         );

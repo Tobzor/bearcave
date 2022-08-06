@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { BearcaveRoot, AppRenderer } from "@components";
 import { isDev } from "@utils";
 
-import Home from "./homepage";
+import { Home } from "./homepage";
 
 function Root(): JSX.Element {
     return (

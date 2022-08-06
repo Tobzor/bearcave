@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 // locals
 import { AppManifest } from "@types";
+
 import { apps } from "./AppContainer";
 
 export function useCurrentApp(appKey?: string): AppManifest | undefined {

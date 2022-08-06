@@ -1,5 +1,5 @@
 // deps
-import React, { useMemo } from "react";
+import { ReactNode, useMemo } from "react";
 import { Route, Routes, useParams } from "react-router";
 // locals
 import { useCurrentApp } from "@utils";
@@ -25,17 +25,21 @@ function AppRenderer(): JSX.Element {
     );
 }
 
+function NullComponent() {
+    return null;
+}
+
 function SingleAppRenderer() {
     const { appKey } = useParams();
 
     const app = useCurrentApp(appKey);
 
-    const AppComponent = useMemo(() => {
+    const AppComponent: () => JSX.Element | null = useMemo(() => {
         if (app) {
             return app.render;
         }
 
-        return () => null;
+        return NullComponent;
     }, [app]);
 
     if (!app) {

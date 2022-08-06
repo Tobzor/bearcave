@@ -8,7 +8,7 @@ export function useKeyPress(
     const [keyPressed, setKeyPressed] = useState(false);
 
     const downHandler = useCallback(
-        (e) => {
+        (e: KeyboardEvent) => {
             if (e.key === targetKey) {
                 if (handler) {
                     handler(e);
@@ -23,7 +23,7 @@ export function useKeyPress(
     );
 
     const upHandler = useCallback(
-        (e) => {
+        (e: KeyboardEvent) => {
             if (e.key === targetKey) {
                 // preventing default helps stopping browser from triggering scroll events on arrowdown
                 e.preventDefault();
