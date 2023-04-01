@@ -1,7 +1,5 @@
-@value caveWidth from "@css/mixins.css";
-
 .container {
-    composes: caveWidth;
+    composes: caveWidth from global;
 
     margin-top: var(--base-space);
     margin-bottom: var(--base-space);

@@ -1,14 +1,15 @@
 // Deps
-import { Suspense } from "react";
-import { createRoot } from "react-dom/client";
+import { StrictMode, Suspense } from "react";
+import { Root, createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import "./index.css";
 // Locals
 import { BearcaveRoot, AppRenderer } from "@components";
 import { isDev } from "@utils";
 
 import { Home } from "./homepage";
 
-function Root(): JSX.Element {
+function Bearcave(): JSX.Element {
     return (
         <Suspense fallback={<div>Loading...</div>}>
             <Router>
@@ -28,26 +29,24 @@ function PageNotFound() {
     return <div>Could not find the requested page.</div>;
 }
 
-async function start(): Promise<void> {
-    // Registering serviceworker.
-    if ("serviceWorker" in navigator && !isDev()) {
-        navigator.serviceWorker
-            .register("/service-worker.js")
-            .then((registration) => {
-                console.log("SW registered: ", registration);
-            })
-            .catch((registrationError) => {
-                console.log("SW registration failed: ", registrationError);
-            });
-    }
 
+/**
+ * TODO: can this be done via vite config instead?
+ */
+const appModules = import.meta.glob("./apps/**/index.tsx");
+for (const appPath in appModules) {
+    await appModules[appPath]();
+}
+
+async function start(): Promise<void> {
     const container = document.getElementById("root");
     if (container) {
         const root = createRoot(container);
-        root.render(<Root />);
+        root.render(<StrictMode><Bearcave /></StrictMode>);
     } else {
         throw new Error("Bearcave failed to create root");
     }
+    
 }
 
 start()

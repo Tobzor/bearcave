@@ -1,6 +1,8 @@
 import { Item } from "@components";
 
-import { idean, capgemini } from "@images";
+
+import idean from "@assets/images/idean.jpeg"
+import capgemini from "@assets/images/capgemini.jpeg";
 
 function Work(): JSX.Element {
     return (

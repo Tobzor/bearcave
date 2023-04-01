@@ -1,3 +1,6 @@
+
+
 export function isDev() {
-    return Boolean(process.env.ENV === "dev");
+    const env = import.meta.env;
+    return Boolean(env.MODE === "development");
 }

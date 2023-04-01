@@ -1,5 +1,5 @@
-@value notsmall from "~@css/breakpoints.css";
-@value large from "~@css/breakpoints.css";
+/* @value notsmall from "~@css/breakpoints.css";
+@value large from "~@css/breakpoints.css"; */
 
 .itemgroup {
     --itemgroup-repeat: 1;
@@ -23,7 +23,7 @@
     max-width: calc(50px * var(--item-width-multiplier));
 }
 
-.item > span {
+.item>span {
     margin-top: var(--base-space);
     display: flex;
     flex-direction: column;
@@ -32,14 +32,14 @@
     color: var(--main-text);
 }
 
-@media notsmall {
+/* @media notsmall {
     .itemgroup {
         --itemgroup-repeat: 2;
         --item-width-multiplier: 2;
     }
-}
+} */
 
-@media large {
+/* @media large {
     .itemgroup {
         --itemgroup-repeat: 3;
         --item-width-multiplier: 1;
@@ -49,7 +49,7 @@
         flex-flow: row nowrap;
     }
 
-    .item > span {
+    .item>span {
         margin-top: 0;
         align-items: flex-start;
     }
@@ -57,4 +57,4 @@
     .itemImage {
         margin: var(--base-space);
     }
-}
+} */

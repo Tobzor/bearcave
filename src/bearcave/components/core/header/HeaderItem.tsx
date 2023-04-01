@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 // locals
-import styles from "./styles.css";
+import styles from "./styles.module.css";
 import { WithChildren } from "@types";
 
 export type NavItemProps = WithChildren<{

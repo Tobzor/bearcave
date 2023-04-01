@@ -1,79 +1,50 @@
-/*
-// Compiler options docs.
-// https://www.typescriptlang.org/docs/handbook/compiler-options.html
-*/
 {
-    "compilerOptions": {
-        // Basic options
-        "module": "ESNext",
-        "rootDir": ".",
-        "target": "ESNext",
-        // for reexporting types
-        "isolatedModules": true,
-        "importsNotUsedAsValues": "remove",
-        "sourceMap": true,
-        "importHelpers": true,
-        "lib": [
-            "dom",
-            "dom.iterable",
-            "esnext"
-        ],
-        "jsx": "preserve",
-        "allowJs": true,
-        "checkJs": false,
-        // must be set to true because we rely on Babel for transpiling ts(x)js(x)
-        "noEmit": true,
-        // Strict type checking.
-        "strict": true,
-        "noImplicitAny": true,
-        "strictNullChecks": true,
-        "noImplicitThis": false,
-        "noUnusedParameters": false,
-        "alwaysStrict": false,
-        // Module resolutions
-        "moduleResolution": "node",
-        "resolveJsonModule": true,
-        "esModuleInterop": true,
-        "composite": false,
-        // Error handling
-        "pretty": true,
-        // Others
-        "allowSyntheticDefaultImports": true,
-        "forceConsistentCasingInFileNames": true,
-        "skipLibCheck": true,
-        "allowUnusedLabels": true,
-        // paths to sub projects
-        "baseUrl": ".",
-        "paths": {
-            "@utils": [
-                "src/bearcave/utils"
-            ],
-            "@components": [
-                "src/bearcave/components"
-            ],
-            "@css": [
-                "src/bearcave/components/core/styles"
-            ],
-            "@types": [
-                "src/bearcave/types"
-            ],
-            "@images": [
-                "resources/images"
-            ],
-            "@icons": [
-                "resources/icons"
-            ],
-            "@locales": [
-                "resources/locales"
-            ]
-        }
-    },
-    "include": [
-        "custom.d.ts",
-        "src/**/*",
-        "config/**/*"
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
     ],
-    "exclude": [
-        "node_modules",
-    ]
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "baseUrl": "src",
+    "paths": {
+      "@components": [
+        "bearcave/components"
+      ],
+      "@utils": [
+        "bearcave/utils"
+      ],
+      "@assets/*": [
+        "assets/*"
+      ],
+      "@types": [
+        "bearcave/types"
+      ],
+      "@css/*": [
+        "bearcave/components/core/styles/*"
+      ]
+    }
+  },
+  "include": [
+    "src",
+    "src/apps/**/*"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }

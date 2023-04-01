@@ -5,9 +5,10 @@ import { usePWA } from "@utils";
 
 // bearcave global css/theme things
 import "@css/variables.css";
-import "@css/mixins.css";
+// import "@css/mixins.css";
+
 // local styling for cave
-import styles from "./styles.css";
+import styles from "./styles.module.css";
 
 type BearcaveProps = WithChildren<{}>;
 

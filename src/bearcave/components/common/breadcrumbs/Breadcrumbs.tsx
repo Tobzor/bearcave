@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 // locals
 import { capitalize } from "@utils";
 
-import styles from "./styles.css";
+import styles from "./styles.module.css";
 
 function Breadcrumbs(): JSX.Element {
     const breadCrumbs = useMemo(() => {

@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 // locals
-import { bearsplash } from "@images";
-import styles from "./styles.css";
+import bearsplash from "@assets/images/bear.png";
+
+import styles from "./styles.module.css";
 
 function NavLogo(): JSX.Element {
     return (

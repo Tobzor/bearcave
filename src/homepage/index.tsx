@@ -1,6 +1,6 @@
 // locals
 import { Header, NavItem, ItemGroup } from "@components";
-import styles from "./styles.css";
+import styles from "./styles.module.css";
 import { Work } from "./work/Work";
 import { Education } from "./education/Education";
 import { PastProjects } from "./projects/Projects";

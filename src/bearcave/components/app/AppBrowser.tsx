@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Breadcrumbs, ItemGroup, Item } from "@components";
 import { useRegisteredApps } from "@utils";
 
-import styles from "./styles.css";
+import styles from "./styles.module.css";
 
 function AppBrowser(): JSX.Element {
     const apps = useRegisteredApps();

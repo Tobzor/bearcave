@@ -1,5 +1,4 @@
-@value notsmall from "@css/breakpoints.css";
-@value caveWidth from "@css/mixins.css";
+/* @value notsmall from "~@css/breakpoints.css"; */
 
 .root,
 .dialog {}
@@ -17,14 +16,15 @@ body {
     border-top: 2px solid hotpink;
 }
 
+/* 
 @media notsmall {
     .root {
         border-width: 5px;
     }
-}
+} */
 
 .content {
-    composes: caveWidth
+    composes: caveWidth from global;
 }
 
 .dialog {

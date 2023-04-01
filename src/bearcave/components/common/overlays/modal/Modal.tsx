@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { WithChildren } from "@types";
 import { classnames, useDialog } from "@utils";
 import { Overlay } from "@components";
-import styles from "./styles.css";
+import styles from "./styles.module.css";
 
 type ModalProps = WithChildren<{
     show: boolean;

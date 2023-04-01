@@ -1,5 +1,5 @@
 .content {
-    composes: border from "~@css/mixins.css";
+    composes: border from global;
     background-color: var(--elevated-background-1);
     color: var(--elevated-text);
     padding: var(--base-space);
