@@ -14,11 +14,9 @@
     -webkit-text-size-adjust: 100%;
 }
 
+body {
+    background: var(--main-background);
+    color: var(--main-text);
 
-
-@media (prefers-color-scheme: light) {
-    :root {
-        color: #213547;
-        background-color: #ffffff;
-    }
+    margin: 0;
 }

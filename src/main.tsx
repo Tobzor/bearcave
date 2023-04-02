@@ -1,27 +1,23 @@
 // Deps
-import { StrictMode, Suspense } from "react";
-import { Root, createRoot } from "react-dom/client";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import "./index.css";
 // Locals
+import "./index.css";
 import { BearcaveRoot, AppRenderer } from "@components";
-import { isDev } from "@utils";
-
 import { Home } from "./homepage";
 
 function Bearcave(): JSX.Element {
     return (
-        <Suspense fallback={<div>Loading...</div>}>
-            <Router>
-                <BearcaveRoot>
-                    <Routes>
-                        <Route path="/*" element={<Home />} />
-                        <Route path="apps/*" element={<AppRenderer />} />
-                        <Route path="*" element={<PageNotFound />} />
-                    </Routes>
-                </BearcaveRoot>
-            </Router>
-        </Suspense>
+        <Router>
+            <BearcaveRoot>
+                <Routes>
+                    <Route path="/*" element={<Home />} />
+                    <Route path="apps/*" element={<AppRenderer />} />
+                    <Route path="*" element={<PageNotFound />} />
+                </Routes>
+            </BearcaveRoot>
+        </Router>
     );
 }
 
@@ -32,7 +28,7 @@ function PageNotFound() {
 async function start(): Promise<void> {
     /**
      * We dynamically import all index files under apps/* to include in bundle
-     * TODO: can this be done via vite config instead?
+     * //TODO: can this be done via vite config instead?
      */
     const appModules = import.meta.glob("./apps/**/index.tsx");
     for (const appPath in appModules) {

@@ -47,7 +47,7 @@ function SingleAppRenderer() {
     }
 
     return (
-        <Suspense fallback="Loading...">
+        <Suspense fallback={<p>Loading...</p>}>
             <AppComponent />
         </Suspense>
     );

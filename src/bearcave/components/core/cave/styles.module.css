@@ -3,11 +3,6 @@
 .root,
 .dialog {}
 
-body {
-    background: var(--main-background);
-    color: var(--main-text);
-}
-
 .root {
     position: relative;
     /* TODO: add transition when toggling dark theme?? Ruins first load at the moment */
