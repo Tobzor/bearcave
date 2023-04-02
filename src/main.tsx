@@ -29,24 +29,27 @@ function PageNotFound() {
     return <div>Could not find the requested page.</div>;
 }
 
-
-/**
- * TODO: can this be done via vite config instead?
- */
-const appModules = import.meta.glob("./apps/**/index.tsx");
-for (const appPath in appModules) {
-    await appModules[appPath]();
-}
-
 async function start(): Promise<void> {
+    /**
+     * We dynamically import all index files under apps/* to include in bundle
+     * TODO: can this be done via vite config instead?
+     */
+    const appModules = import.meta.glob("./apps/**/index.tsx");
+    for (const appPath in appModules) {
+        await appModules[appPath]();
+    }
+
     const container = document.getElementById("root");
     if (container) {
         const root = createRoot(container);
-        root.render(<StrictMode><Bearcave /></StrictMode>);
+        root.render(
+            <StrictMode>
+                <Bearcave />
+            </StrictMode>,
+        );
     } else {
         throw new Error("Bearcave failed to create root");
     }
-    
 }
 
 start()
