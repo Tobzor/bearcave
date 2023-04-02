@@ -6,7 +6,7 @@ import { CSSTransition } from "react-transition-group";
 import { useDialog, useKeyPress } from "@utils";
 import { Overlay } from "@components";
 import { WithChildren } from "@types";
-import styles from "./styles.css";
+import styles from "./styles.module.css";
 
 type ClipProps = WithChildren<{
     show: boolean;

@@ -1,6 +1,6 @@
-import { Fallback } from "@icons";
+import Fallback from "@assets/icons/fallback.svg";
 
-import styles from "./styles.css";
+import styles from "./styles.module.css";
 
 type ItemProps = {
     src: React.ReactNode | string;
@@ -22,7 +22,7 @@ function Item({ src, title, description }: ItemProps): JSX.Element {
                     <span className={styles.itemImage}>src</span>
                 )
             ) : (
-                <Fallback className={styles.itemImage} />
+                <img src={Fallback} className={styles.itemImage} />
             )}
             <span>
                 <h3 style={{ margin: "0" }}>{title}</h3>

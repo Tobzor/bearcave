@@ -1,5 +1,7 @@
 import { Item } from "@components";
-import { uio, uis } from "@images";
+
+import uio from "@assets/images/uio.png";
+import uis from "@assets/images/uis.png";
 
 function Education(): JSX.Element {
     return (

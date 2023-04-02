@@ -1,13 +1,7 @@
 @value notsmall from "@css/breakpoints.css";
-@value caveWidth from "@css/mixins.css";
 
 .root,
 .dialog {}
-
-body {
-    background: var(--main-background);
-    color: var(--main-text);
-}
 
 .root {
     position: relative;
@@ -24,7 +18,7 @@ body {
 }
 
 .content {
-    composes: caveWidth
+    composes: caveWidth from global;
 }
 
 .dialog {

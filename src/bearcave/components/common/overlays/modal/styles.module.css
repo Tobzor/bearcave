@@ -1,5 +1,5 @@
 .content {
-    composes: border from "~@css/mixins.css";
+    composes: border from global;
     background-color: var(--color-primary);
 
     padding: var(--padding-small);

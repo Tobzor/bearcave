@@ -1,7 +1,7 @@
 /*
  * Variables and things?
  */
-:global(:root.variables) {
+:root {
     /* spacing */
     --small-space: 0.5rem;
     --base-space: 1rem;
@@ -21,7 +21,7 @@
 /* 
  * All available and used colors
  */
-:global(:root.colors) {
+:root {
     --color-white: #ffffff;
     --color-black: #000000;
     --color-error: #b00020;
@@ -31,46 +31,4 @@
     --color-blue-ice: #97cace;
     --color-hot-pink: hotpink;
     --color-disabled-grey: #9ca6ac;
-}
-
-/* 
- * General color for primary, secondary etc.
- * Uses colors as variables
- * Dark theme default -- themes can be added here.
- */
-:global(:root.dark-theme) {
-    /* PRIMARY */
-    --theme-primary: var(--color-dark-blue);
-    --theme-on-primary-rgb: 19, 38, 52;
-    --theme-on-primary: var(--color-dark-white);
-    --theme-on-primary-active: var(--color-blue-ice);
-    --theme-on-primary-hover: var(--color-hot-pink);
-    --theme-on-primary-hover-text: var(--color-darker-blue);
-    /* SECONDARY */
-    /* TERTIARY */
-    /* GENERAL STATES ETC. ++*/
-    --theme-disabled: var(--color-disabled-grey);
-}
-
-:global(:root.light-theme) {}
-
-/* 
- * Specific border/text etc colors based on concepts
- * The only variables to be used by components.
- */
-:global(:root.entities) {
-    /* MAIN */
-    --main-background: var(--theme-primary);
-    --main-text: var(--theme-on-primary);
-    --main-link: var(--theme-on-primary-hover);
-    --main-border-shadow: var(--theme-on-primary-rgb);
-    /* NAV MENU */
-    --nav-logo-color: var(--theme-on-primary-hover);
-    --nav-item-active-background: var(--theme-on-primary-active);
-    --nav-item-active-text: var(--theme-on-primary-hover-text);
-    --nav-item-hover-background: var(--theme-on-primary-hover);
-    --nav-item-hover-text: var(--theme-on-primary-hover-text);
-    /* Elevations */
-    --elevated-background-1: var(--theme-primary);
-    --elevated-text: var(--theme-on-primary);
 }

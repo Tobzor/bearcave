@@ -1,5 +1,5 @@
-@value notsmall from "~@css/breakpoints.css";
-@value large from "~@css/breakpoints.css";
+@value notsmall from "@css/breakpoints.css";
+@value large from "@css/breakpoints.css";
 
 .itemgroup {
     --itemgroup-repeat: 1;
@@ -23,7 +23,7 @@
     max-width: calc(50px * var(--item-width-multiplier));
 }
 
-.item > span {
+.item>span {
     margin-top: var(--base-space);
     display: flex;
     flex-direction: column;
@@ -49,7 +49,7 @@
         flex-flow: row nowrap;
     }
 
-    .item > span {
+    .item>span {
         margin-top: 0;
         align-items: flex-start;
     }

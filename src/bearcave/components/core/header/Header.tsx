@@ -1,7 +1,7 @@
 // locals
 import { classnames } from "@utils";
 import { WithChildren } from "@types";
-import styles from "./styles.css";
+import styles from "./styles.module.css";
 import { NavLogo } from "./NavLogo";
 
 type HeaderProps = WithChildren<unknown>;
