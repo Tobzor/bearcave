@@ -1,8 +1,8 @@
-:global .border {
+.border {
     border: 1px solid rgba(229, 229, 229, 0.16);
 }
 
-:global .caveWidth {
+.caveWidth {
     padding-left: 1rem;
     padding-right: 1rem;
     max-width: 72rem;
@@ -10,7 +10,7 @@
     margin-right: auto;
 }
 
-:global .escapeCaveWidth {
+.escapeCaveWidth {
     left: 50%;
     margin-left: -50vw;
     margin-right: -50vw;

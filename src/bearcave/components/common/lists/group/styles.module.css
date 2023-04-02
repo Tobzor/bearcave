@@ -1,5 +1,5 @@
-/* @value notsmall from "~@css/breakpoints.css";
-@value large from "~@css/breakpoints.css"; */
+@value notsmall from "@css/breakpoints.css";
+@value large from "@css/breakpoints.css";
 
 .itemgroup {
     --itemgroup-repeat: 1;
@@ -32,14 +32,14 @@
     color: var(--main-text);
 }
 
-/* @media notsmall {
+@media notsmall {
     .itemgroup {
         --itemgroup-repeat: 2;
         --item-width-multiplier: 2;
     }
-} */
+}
 
-/* @media large {
+@media large {
     .itemgroup {
         --itemgroup-repeat: 3;
         --item-width-multiplier: 1;
@@ -57,4 +57,4 @@
     .itemImage {
         margin: var(--base-space);
     }
-} */
+}

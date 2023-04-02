@@ -1,4 +1,4 @@
-/* @value notsmall from "~@css/breakpoints.css"; */
+@value notsmall from "@css/breakpoints.css";
 
 .root,
 .dialog {}
@@ -16,12 +16,11 @@ body {
     border-top: 2px solid hotpink;
 }
 
-/* 
 @media notsmall {
     .root {
         border-width: 5px;
     }
-} */
+}
 
 .content {
     composes: caveWidth from global;
