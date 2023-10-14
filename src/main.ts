@@ -1,5 +1,4 @@
 // Locals
-
 import App from "./bearcave/app";
 import { createFirebase } from "./config";
 
