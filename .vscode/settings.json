@@ -1,4 +1,9 @@
 {
+    "css.lint.validProperties": [
+        "composes",
+        "@value"
+    ],
+    "css.lint.unknownAtRules": "ignore",
     "editor.formatOnSave": true,
     "javascript.format.enable": false,
     "typescript.format.enable": false,
