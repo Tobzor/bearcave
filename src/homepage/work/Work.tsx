@@ -1,12 +1,17 @@
 import { Item } from "@components";
 
-
-import idean from "@assets/images/idean.jpeg"
+import webstep from "@assets/images/webstep.jpg";
+import idean from "@assets/images/idean.jpeg";
 import capgemini from "@assets/images/capgemini.jpeg";
 
 function Work(): JSX.Element {
     return (
         <>
+            <Item
+                src={webstep}
+                title="Webstep Stavanger"
+                description="Developing for tomorrow"
+            />
             <Item
                 src={idean}
                 title="Idean"
@@ -14,7 +19,7 @@ function Work(): JSX.Element {
             />
             <Item
                 src={capgemini}
-                title="Capgemini Norge AS"
+                title="Capgemini Stavanger"
                 description="Software Engineering"
             />
         </>

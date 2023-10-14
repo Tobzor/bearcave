@@ -62,9 +62,10 @@
     composes: headerItem;
 
     display: inline-flex;
-    flex-direction: column;
+    flex-flow: row wrap;
     justify-content: center;
     align-items: center;
+    gap: 0.5rem;
 }
 
 .navLogo img {
