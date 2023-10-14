@@ -18,9 +18,9 @@ function NavItem({ onClick, linkTo, children }: NavItemProps): JSX.Element {
     }
 
     return (
-        <div className={styles.navItem} onClick={onClick}>
+        <button className={styles.navItem} onClick={onClick}>
             {children}
-        </div>
+        </button>
     );
 }
 
