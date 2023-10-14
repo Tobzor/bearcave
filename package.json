@@ -1,12 +1,12 @@
 {
     "name": "bearcave",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "cave of the bear.",
     "main": "index.js",
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "tsc && vite build",
+        "build": "tsc --noEmit && vite build",
         "preview": "vite preview",
         "lint": "tsc --noEmit && eslint */**/*.{js,ts,tsx} --quiet --fix"
     },
