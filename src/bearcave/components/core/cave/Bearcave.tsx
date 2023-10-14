@@ -21,9 +21,7 @@ function BearcaveRoot({ children }: BearcaveProps): JSX.Element {
                 <main className={styles.content}>{children}</main>
                 <Footer />
             </div>
-            <div id="dialog-root" className={styles.dialog}>
-                {/* Modals, Clip */}
-            </div>
+            <div id="dialog-root" className={styles.dialog}></div>
         </>
     );
 }

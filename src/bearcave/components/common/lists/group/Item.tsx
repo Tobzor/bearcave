@@ -22,7 +22,11 @@ function Item({ src, title, description }: ItemProps): JSX.Element {
                     <span className={styles.itemImage}>src</span>
                 )
             ) : (
-                <img src={Fallback} className={styles.itemImage} />
+                <img
+                    className={styles.itemImage}
+                    src={Fallback}
+                    alt={"Fallback logo for: " + title}
+                />
             )}
             <span>
                 <h3 style={{ margin: "0" }}>{title}</h3>

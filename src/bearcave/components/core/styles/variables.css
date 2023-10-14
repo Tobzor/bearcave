@@ -3,6 +3,7 @@
  */
 :root {
     /* spacing */
+    --minimal-space: 0.1rem;
     --small-space: 0.5rem;
     --base-space: 1rem;
     --medium-space: 2rem;

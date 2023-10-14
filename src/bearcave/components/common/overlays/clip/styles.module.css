@@ -1,9 +1,0 @@
-.content {
-    composes: border from global;
-    background-color: var(--elevated-background-1);
-    color: var(--elevated-text);
-    padding: var(--base-space);
-
-    min-width: 40%;
-    min-height: 40%;
-}

@@ -8,7 +8,7 @@ function NavLogo(): JSX.Element {
     return (
         <Link to="/" className={styles.navLogo}>
             <img src={bearsplash} alt="logo" />
-            <h3>bearcave</h3>
+            <h3>Bearcave</h3>
         </Link>
     );
 }
