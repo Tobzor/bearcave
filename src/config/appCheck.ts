@@ -10,13 +10,13 @@ declare global {
     }
 }
 
-// Recaptcha key used in deployed environments. One for PROD
-// TODO: extend hosting-pull-request action to generate or add new domain to STAGING captcha key.
+// Recaptcha key specific to tobzor-32daa web project in firebase.
+// If you want test env for previews you have to create a different project.
+// TODO: is it possible to extend github action to add domains to reCaptcha key when they are generated?
 const reCaptchaKey = import.meta.env.VITE_RECAPTCHA_KEY;
 
 export function createAppCheck(app: FirebaseApp) {
-    // Specifically set only for local development.
-    // Staging and Prod has their own captcha public keys
+    // Specifically set only for local development based on local env file.
     if (import.meta.env.DEV) {
         self.FIREBASE_APPCHECK_DEBUG_TOKEN = import.meta.env.VITE_DEBUG_TOKEN;
     }
