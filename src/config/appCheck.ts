@@ -18,12 +18,6 @@ export function createAppCheck(app: FirebaseApp) {
     // SHOULD NOT EXIST IN PROD
     self.FIREBASE_APPCHECK_DEBUG_TOKEN = import.meta.env.VITE_DEBUG_TOKEN;
 
-    console.log(
-        "DEBUG TOKEN ASSIGNMENT",
-        import.meta.env.VITE_DEBUG_TOKEN,
-        self.FIREBASE_APPCHECK_DEBUG_TOKEN,
-    );
-
     return initializeAppCheck(app, {
         provider: new ReCaptchaEnterpriseProvider(reCaptchaKey),
         isTokenAutoRefreshEnabled: true,
