@@ -27,4 +27,3 @@ jobs:
                   projectId: tobzor-32daa
               env:
                   FIREBASE_CLI_PREVIEWS: hostingchannels
-                  DEBUG_TOKEN: "${{ secrets.APP_CHECK_DEBUG_TOKEN_FROM_CI }}"
