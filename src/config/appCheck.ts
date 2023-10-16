@@ -10,16 +10,21 @@ declare global {
     }
 }
 
-// PROD public key for app-check. Only used if we don't assign debug_token.
-const reCaptchaKey = "6LcSEKAoAAAAADm5tRdKbPMgCxtKuwAsHBxJevQs";
+// Recaptcha key used in deployed environments. One for PROD
+// TODO: extend hosting-pull-request action to generate or add new domain to STAGING captcha key.
+const reCaptchaKey = import.meta.env.VITE_RECAPTCHA_KEY;
 
 export function createAppCheck(app: FirebaseApp) {
-    // We set debug tokens if they exist in the current environment (only local and preview)
-    // SHOULD NOT EXIST IN PROD
-    self.FIREBASE_APPCHECK_DEBUG_TOKEN = import.meta.env.VITE_DEBUG_TOKEN;
+    // Specifically set only for local development.
+    // Staging and Prod has their own captcha public keys
+    if (import.meta.env.DEV) {
+        self.FIREBASE_APPCHECK_DEBUG_TOKEN = import.meta.env.VITE_DEBUG_TOKEN;
+    }
 
     return initializeAppCheck(app, {
-        provider: new ReCaptchaEnterpriseProvider(reCaptchaKey),
+        provider: new ReCaptchaEnterpriseProvider(
+            reCaptchaKey ?? "we're in development woho",
+        ),
         isTokenAutoRefreshEnabled: true,
     });
 }
