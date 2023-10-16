@@ -17,8 +17,13 @@ function Bearcave(): JSX.Element {
     useEffectAsync(async () => {
         const firebase = createFirebase();
         const appsRef = collection(firebase.db, "apps");
-        const appsSnapshot = await getDocs(appsRef);
-        appsSnapshot.docs.map((doc) => console.log(doc));
+
+        try {
+            const appsSnapshot = await getDocs(appsRef);
+            appsSnapshot.docs.map((doc) => console.log(doc));
+        } catch (error) {
+            console.warn("Failed to fetch docs: ", error);
+        }
     }, []);
 
     return (
