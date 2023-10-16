@@ -17,7 +17,7 @@ jobs:
               run: npm install --frozen-lockfile
             - name: Build
               env:
-                VITE_DEBUG_TOKEN: "${{ secrets.RECAPTCHA_KEY_STAGING}}"
+                VITE_RECAPTCHA_KEY: "${{ secrets.RECAPTCHA_KEY_STAGING}}"
               run: npm run build
             - name: Deploy to firebase
               uses: FirebaseExtended/action-hosting-deploy@v0
