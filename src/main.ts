@@ -10,7 +10,7 @@ async function start(): Promise<void> {
      * We dynamically import all index files under apps/* to include in bundle
      * //TODO: can this be done via vite config instead?
      */
-    const appModules = import.meta.glob("./apps/**/index.tsx");
+    const appModules = import.meta.glob("./apps/**/index.{ts,tsx}");
     for (const appPath in appModules) {
         await appModules[appPath]();
     }
