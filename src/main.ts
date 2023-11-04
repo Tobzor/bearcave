@@ -1,6 +1,6 @@
 // Locals
 import App from "./bearcave/app";
-import { createFirebase } from "./config";
+import { createFirebase } from "@utils";
 
 async function start(): Promise<void> {
     // Ensure we have firebase up and running
