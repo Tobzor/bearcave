@@ -1,17 +1,4 @@
-import { useEffect } from "react";
-
-function useDocumentTitle(newTitle: string): void {
-    useEffect(() => {
-        const previousTitle = document.title;
-
-        // new title assignment
-        document.title = "Bearcave | " + newTitle;
-
-        return () => {
-            document.title = previousTitle;
-        };
-    }, [newTitle]);
-}
+import { useDocumentTitle } from "@utils";
 
 function ZuzuCity(): JSX.Element {
     // Set "tab" text to Bearcave | Zuzu City.
@@ -26,4 +13,5 @@ function ZuzuCity(): JSX.Element {
         </div>
     );
 }
+
 export default ZuzuCity;

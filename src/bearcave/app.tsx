@@ -4,28 +4,10 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // Locals
 import { BearcaveRoot, AppRenderer } from "@components";
-import { useEffectAsync } from "@utils";
 import { Home } from "../homepage";
 import "./index.css";
 
-// TODO: create better imports for firebase config
-import { createFirebase } from "../config";
-
-import { getDocs, collection } from "@firebase/firestore/lite";
-
 function Bearcave(): JSX.Element {
-    useEffectAsync(async () => {
-        const firebase = createFirebase();
-        const appsRef = collection(firebase.db, "apps");
-
-        try {
-            const appsSnapshot = await getDocs(appsRef);
-            appsSnapshot.docs.map((doc) => console.log(doc));
-        } catch (error) {
-            console.warn("Failed to fetch docs: ", error);
-        }
-    }, []);
-
     return (
         <Router>
             <BearcaveRoot>

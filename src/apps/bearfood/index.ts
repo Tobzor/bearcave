@@ -4,10 +4,10 @@ import { lazy } from "react";
 import { registerCaveApp } from "@utils";
 // This is the vue top level app that we are rendering.
 
-const Todo = lazy(() => import("./Todo"));
+const BearFood = lazy(() => import("./BearFood"));
 
 registerCaveApp({
-    key: "todo",
-    name: "Todo",
-    render: Todo,
+    key: "bearfood",
+    name: "BearFood",
+    render: BearFood,
 });

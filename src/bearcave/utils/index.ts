@@ -4,3 +4,4 @@ export * from "./error";
 export * from "./event";
 export * from "./hooks";
 export * from "./utils";
+export * from "./firebase";
