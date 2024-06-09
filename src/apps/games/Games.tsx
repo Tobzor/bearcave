@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { BreakoutGame } from "./gameStructs/BreakoutGame";
+import { BreakoutGame } from "./2d/BreakoutGame";
 
 import styles from "./styles.module.css";
 
@@ -30,15 +30,15 @@ type BreakoutV1Game = {
     canvas: HTMLCanvasElement;
 };
 function BreakoutV1Game({ canvas }: BreakoutV1Game) {
+    const [game] = useState(new BreakoutGame(canvas));
+
     useEffect(() => {
-        console.log("Running effect");
-        const game = new BreakoutGame(canvas);
         game.start();
 
         return () => {
             game.stop();
         };
-    }, [canvas]);
+    }, [game]);
 
     return null;
 }
