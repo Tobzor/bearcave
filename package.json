@@ -1,6 +1,6 @@
 {
     "name": "bearcave",
-    "version": "2.1.0",
+    "version": "2.2.0",
     "description": "cave of the bear.",
     "main": "index.js",
     "type": "module",
