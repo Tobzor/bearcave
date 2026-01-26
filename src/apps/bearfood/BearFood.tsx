@@ -2,8 +2,9 @@ import { DelayedDisplay } from "@components";
 
 import { getIngredients } from "./helpers/getIngredients";
 import { useAwait } from "@utils";
+import {ReactElement} from "react";
 
-export default function BearFood() {
+export default function BearFood(): ReactElement {
     const [data, loading] = useAwait(getIngredients);
     const ingredients = data ?? [];
     return (

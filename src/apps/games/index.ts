@@ -10,4 +10,5 @@ registerCaveApp({
     key: "games",
     name: "Games",
     render: Games,
+    isHidden: true,
 });

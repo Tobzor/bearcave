@@ -1,5 +1,5 @@
 // deps
-import React, { useMemo } from "react";
+import React, {ReactElement, useMemo} from "react";
 import { Link } from "react-router-dom";
 // locals
 import { Breadcrumbs, ItemGroup, Item } from "@components";
@@ -7,7 +7,7 @@ import { useRegisteredApps } from "@utils";
 
 import styles from "./styles.module.css";
 
-function AppBrowser(): JSX.Element {
+function AppBrowser(): ReactElement {
     const apps = useRegisteredApps();
 
     const appItems = useMemo(() => {

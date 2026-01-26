@@ -1,6 +1,8 @@
+import {ReactElement} from "react";
+
 import { useDocumentTitle } from "@utils";
 
-function ZuzuCity(): JSX.Element {
+function ZuzuCity(): ReactElement {
     // Set "tab" text to Bearcave | Zuzu City.
     useDocumentTitle("Zuzu City");
 

@@ -10,4 +10,5 @@ registerCaveApp({
     key: "bearfood",
     name: "BearFood",
     render: BearFood,
+    isHidden: true
 });

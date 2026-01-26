@@ -25,6 +25,6 @@ export function createAppCheck(app: FirebaseApp) {
         provider: new ReCaptchaEnterpriseProvider(
             reCaptchaKey ?? "we're in development woho",
         ),
-        isTokenAutoRefreshEnabled: true,
+        isTokenAutoRefreshEnabled: !import.meta.env.DEV,
     });
 }

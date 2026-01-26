@@ -8,4 +8,5 @@ registerCaveApp({
     key: "zuzu_city",
     name: "ZuzuCity",
     render: ZuzuCity,
+    isHidden: true
 });

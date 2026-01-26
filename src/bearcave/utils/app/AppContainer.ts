@@ -4,7 +4,7 @@ class AppContainer {
     private apps: AppManifest[] = [];
 
     getAllApps(): AppManifest[] {
-        return this.apps;
+        return this.apps.filter((app) => !app.isHidden);
     }
 
     getCurrentApp(appKey?: string): AppManifest | undefined {
