@@ -1,5 +1,5 @@
 // deps
-import { Suspense, useMemo } from "react";
+import {ReactElement, Suspense, useMemo} from "react";
 import { Route, Routes, useParams } from "react-router";
 // locals
 import { useCurrentApp } from "@utils";
@@ -8,7 +8,7 @@ import { Breadcrumbs } from "@components";
 import { AppNotFound } from "./AppNotFound";
 import { AppBrowser } from "./AppBrowser";
 
-function AppRenderer(): JSX.Element {
+function AppRenderer(): ReactElement {
     return (
         <Routes>
             <Route path="/" element={<AppBrowser />} />
@@ -29,7 +29,7 @@ function NullComponent() {
     return null;
 }
 
-function SingleAppRenderer() {
+function SingleAppRenderer(): ReactElement {
     const { appKey } = useParams();
 
     const app = useCurrentApp(appKey);

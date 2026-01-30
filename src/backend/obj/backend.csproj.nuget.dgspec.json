@@ -1,25 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Programming\\Projects\\Fun\\bearcave\\src\\apps\\bearfood\\backend\\backend.csproj": {}
+    "/Users/thoil/Documents/LocalDev/bearcave/src/backend/backend.csproj": {}
   },
   "projects": {
-    "C:\\Programming\\Projects\\Fun\\bearcave\\src\\apps\\bearfood\\backend\\backend.csproj": {
+    "/Users/thoil/Documents/LocalDev/bearcave/src/backend/backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Programming\\Projects\\Fun\\bearcave\\src\\apps\\bearfood\\backend\\backend.csproj",
+        "projectUniqueName": "/Users/thoil/Documents/LocalDev/bearcave/src/backend/backend.csproj",
         "projectName": "backend",
-        "projectPath": "C:\\Programming\\Projects\\Fun\\bearcave\\src\\apps\\bearfood\\backend\\backend.csproj",
-        "packagesPath": "C:\\Users\\t_hoi\\.nuget\\packages\\",
-        "outputPath": "C:\\Programming\\Projects\\Fun\\bearcave\\src\\apps\\bearfood\\backend\\obj\\",
+        "projectPath": "/Users/thoil/Documents/LocalDev/bearcave/src/backend/backend.csproj",
+        "packagesPath": "/Users/thoil/.nuget/packages/",
+        "outputPath": "/Users/thoil/Documents/LocalDev/bearcave/src/backend/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\t_hoi\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/thoil/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "/Users/thoil/.dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,7 +39,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net9.0": {
@@ -47,6 +48,10 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.7, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[9.0.12, )"
             }
           },
           "imports": [
@@ -60,6 +65,20 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[9.0.11, 9.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-arm64",
+              "version": "[9.0.11, 9.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[9.0.11, 9.0.11]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -68,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\t_hoi\\.dotnet\\sdk\\9.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/Users/thoil/.dotnet/sdk/10.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

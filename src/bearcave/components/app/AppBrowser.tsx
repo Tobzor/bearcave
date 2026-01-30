@@ -21,7 +21,7 @@ function AppBrowser(): ReactElement {
             </Link>
         ));
     }, [apps]);
-
+    
     return (
         <>
             <Breadcrumbs />
