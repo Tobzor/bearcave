@@ -17,11 +17,27 @@ dist-ssr
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
-*.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
 *.d.ts
-/Folder.DotSettings.user
+
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.vs/
+.vscode/
+*.dbmdl
+
+# Rider
+.idea/
+*.DotSettings.user
+
+# Others
+.DS_Store
+Thumbs.db
