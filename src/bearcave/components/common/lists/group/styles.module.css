@@ -13,7 +13,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
     padding: var(--base-space);
 }
 
@@ -23,7 +22,7 @@
     max-width: calc(50px * var(--item-width-multiplier));
 }
 
-.item>span {
+.item>.content {
     margin-top: var(--base-space);
     display: flex;
     flex-direction: column;
@@ -49,7 +48,7 @@
         flex-flow: row nowrap;
     }
 
-    .item>span {
+    .item>.content {
         margin-top: 0;
         align-items: flex-start;
     }

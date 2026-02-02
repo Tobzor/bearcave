@@ -1,14 +1,15 @@
 import Fallback from "@assets/icons/fallback.svg";
 
 import styles from "./styles.module.css";
+import {ReactElement, ReactNode} from "react";
 
 type ItemProps = {
-    src: React.ReactNode | string;
+    src: ReactNode | string;
     title: string;
     description: string;
 };
 
-function Item({ src, title, description }: ItemProps): JSX.Element {
+function Item({ src, title, description }: ItemProps): ReactElement {
     return (
         <span className={styles.item}>
             {src ? (
@@ -19,7 +20,7 @@ function Item({ src, title, description }: ItemProps): JSX.Element {
                         alt={"Logo for " + title}
                     />
                 ) : (
-                    <span className={styles.itemImage}>src</span>
+                    <span className={styles.itemImage}>{src}</span>
                 )
             ) : (
                 <img
@@ -28,7 +29,7 @@ function Item({ src, title, description }: ItemProps): JSX.Element {
                     alt={"Fallback logo for: " + title}
                 />
             )}
-            <span>
+            <span className={styles.content}>
                 <h3 style={{ margin: "0" }}>{title}</h3>
                 <p style={{ margin: "0" }}>{description}</p>
             </span>

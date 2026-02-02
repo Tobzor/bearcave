@@ -1,14 +1,15 @@
-// deps
+﻿// deps
 import { lazy } from "react";
 // locals
 import { registerCaveApp } from "@utils";
 // This is the vue top level app that we are rendering.
 
-const BearFood = lazy(() => import("./BearFood"));
+const DogHotels = lazy(() => import("./DogHotels"));
 
 registerCaveApp({
-    key: "bearfood",
-    name: "BearFood",
-    render: BearFood,
+    key: "doghotels",
+    name: "DogHotels",
+    render: DogHotels,
+    icon: <div>🐶🏨</div>,
     isHidden: false
 });
