@@ -1,24 +1,28 @@
 using Microsoft.AspNetCore.Mvc;
-using backend.Services;
+using backend.Application.Interfaces;
 
 namespace backend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class DogHotelsController : ControllerBase
+    public class DogHotelsController(IDogHotelService dogHotelService) : ControllerBase
     {
-        private readonly IDogHotelService _dogHotelService;
-
-        public DogHotelsController(IDogHotelService dogHotelService)
-        {
-            _dogHotelService = dogHotelService;
-        }
-
         [HttpGet]
         public IActionResult GetAll()
         {
-            var hotels = _dogHotelService.GetAllHotels();
+            var hotels = dogHotelService.GetAllHotels();
             return Ok(hotels);
+        }
+        
+        [HttpGet("{id}")]
+        public IActionResult GetById(string id)
+        {
+            var hotel = dogHotelService.GetHotelById(id);
+            if (hotel == null)
+            {
+                return NotFound();
+            }
+            return Ok(hotel);
         }
     }
 }

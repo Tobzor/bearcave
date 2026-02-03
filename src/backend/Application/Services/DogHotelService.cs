@@ -1,20 +1,22 @@
 using System.Collections.Generic;
 using System.Linq;
-using backend.Models;
-using backend.Models.GeoJson;
+using backend.Application.Interfaces;
+using backend.Contracts;
+using backend.Domain.Entities;
+using backend.Domain.GeoJson;
 
-namespace backend.Services
-{
+namespace backend.Application.Services;
+
     public class DogHotelService : IDogHotelService
     {
-        private static readonly List<DogHotel> _hotels = new()
+        private static readonly List<DogHotel> Hotels = new()
         {
             new DogHotel
             {
                 Id = 1,
                 Name = "Paws Palace",
                 Address = "123 Bark St",
-                Geometry = new GeoJsonPoint { Coordinates = new[] { -74.0060, 40.7128 } },
+                Geometry = new GeoJsonPoint() { Coordinates = new[] { -74.0060, 40.7128 } },
                 Description = "Luxury dog hotel in the city center."
             },
             new DogHotel
@@ -31,10 +33,10 @@ namespace backend.Services
         {
             return new GeoJsonFeatureCollection
             {
-                Features = _hotels.Select(h => new GeoJsonFeature
+                Features = Hotels.Select(h => new GeoJsonFeature
                 {
                     Geometry = h.Geometry,
-                    Properties = new DogHotelDto
+                    Properties = new DogHotelDto()
                     {
                         Id = h.Id,
                         Name = h.Name,
@@ -45,5 +47,9 @@ namespace backend.Services
                 })
             };
         }
+
+        public GeoJsonFeature? GetHotelById(string id)
+        {
+            throw new NotImplementedException();
+        }
     }
-}
