@@ -8,16 +8,16 @@ namespace backend.Controllers
     public class DogHotelsController(IDogHotelService dogHotelService) : ControllerBase
     {
         [HttpGet]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            var hotels = dogHotelService.GetAllHotels();
+            var hotels = await dogHotelService.GetAllHotels();
             return Ok(hotels);
         }
         
         [HttpGet("{id}")]
-        public IActionResult GetById(string id)
+        public async Task<IActionResult> GetById(string id)
         {
-            var hotel = dogHotelService.GetHotelById(id);
+            var hotel = await dogHotelService.GetHotelById(id);
             if (hotel == null)
             {
                 return NotFound();

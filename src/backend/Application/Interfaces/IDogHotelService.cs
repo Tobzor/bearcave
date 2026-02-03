@@ -5,6 +5,6 @@ namespace backend.Application.Interfaces;
 
 public interface IDogHotelService
 {
-    GeoJsonFeatureCollection GetAllHotels();
-    GeoJsonFeature? GetHotelById(string id);
+    Task<GeoJsonFeatureCollection> GetAllHotels();
+    Task<GeoJsonFeature?> GetHotelById(string id);
 }
