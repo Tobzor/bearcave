@@ -1,10 +1,10 @@
 
-using backend.Domain.GeoJson;
+using backend.Domain.Entities;
 
 namespace backend.Application.Interfaces;
 
 public interface IDogHotelService
 {
-    Task<GeoJsonFeatureCollection> GetAllHotels();
-    Task<GeoJsonFeature?> GetHotelById(string id);
+    Task<List<DogHotel>> GetAllHotels();
+    Task<DogHotel?> GetHotelById(string id);
 }

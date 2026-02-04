@@ -1,12 +1,12 @@
-using backend.Domain.GeoJson;
+using GeoJSON.Net.Geometry;
 
 namespace backend.Contracts;
 
 public class DogHotelDto
 {
-    public string Id { get; set; }
-    public string Name { get; set; }
-    public string Address { get; set; }
-    public GeoJsonPoint Geometry { get; set; }
-    public string Description { get; set; }
+    public required string Id { get; init; }
+    public required string Name { get; init; }
+    public string? Address { get; init; }
+    public Point? Location { get; init; }
+    public string? Description { get; init; }
 }

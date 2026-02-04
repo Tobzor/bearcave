@@ -1,12 +1,15 @@
-using backend.Domain.GeoJson;
+using System.ComponentModel.DataAnnotations;
+using GeoJSON.Net.Geometry;
 
 namespace backend.Domain.Entities;
 
 public class DogHotel
 {
-    public string Id { get; set; }
-    public string Name { get; set; }
-    public string Address { get; set; }
-    public GeoJsonPoint Geometry { get; set; }
-    public string Description { get; set; }
+    [MaxLength(40)]
+    public required string Id { get; set; }
+    public required string Name { get; set; }
+    public string? Address { get; set; }
+    public Point? Location { get; set; }
+    [MaxLength(500)]
+    public string? Description { get; set; }
 }

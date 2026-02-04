@@ -1,19 +1,18 @@
 using Scalar.AspNetCore;
-
+using GeoJSON.Net.Geometry;
+using Microsoft.EntityFrameworkCore;
 using backend.Application.Interfaces;
 using backend.Application.Services;
 using backend.Domain.Entities;
-using backend.Domain.GeoJson;
 using backend.Infrastructure.Persistence;
 using backend.Infrastructure.Repository;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddEndpointsApiExplorer();
 
 // Cors handling
@@ -40,29 +39,29 @@ builder.Services.AddDbContext<DogHotelsDb>(opt =>
             
             var mockHotels = new List<DogHotel>
             {
-                new DogHotel
+                new()
                 {
                     Id = Guid.NewGuid().ToString(),
                     Name = "Paws Palace",
                     Address = "Bark Street 12, Stockholm",
                     Description = "Modern dog hotel with large play areas.",
-                    Geometry = new GeoJsonPoint{Longitude = 18.0686, Latitude = 59.3293}
+                    Location = new Point(new Position(59.3293, 18.0686))
                 },
-                new DogHotel
+                new()
                 {
                     Id = Guid.NewGuid().ToString(),
                     Name = "Happy Tails Inn",
                     Address = "Tail Avenue 5, Gothenburg",
                     Description = "Cozy rooms and daily walks by the river.",
-                    Geometry =  new GeoJsonPoint{Longitude = 11.9746, Latitude = 57.7089}
+                    Location =  new Point(new Position(57.7089,11.9746))
                 },
-                new DogHotel
+                new()
                 {
                     Id = Guid.NewGuid().ToString(),
                     Name = "Bark & Stay",
                     Address = "Woof Road 7, Malmo",
                     Description = "Affordable stays with supervised play.",
-                    Geometry =  new GeoJsonPoint{Longitude = 13.0038, Latitude = 55.6050}
+                    Location =  new Point(new Position(55.6050, 13.0038))
                 }
         };
             context.Set<DogHotel>().AddRange(mockHotels);
