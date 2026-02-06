@@ -1,6 +1,6 @@
 using backend.Application.Interfaces;
+using backend.Contracts;
 using backend.Domain.Entities;
-using GeoJSON.Net.Feature;
 
 namespace backend.Application.Services;
 
@@ -12,6 +12,16 @@ namespace backend.Application.Services;
         }
 
         public async Task<DogHotel?> GetHotelById(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<DogHotel> CreateHotel(DogHotelDto hotel)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<List<DogHotel>> CreateHotels(List<DogHotelDto> hotels)
         {
             throw new NotImplementedException();
         }

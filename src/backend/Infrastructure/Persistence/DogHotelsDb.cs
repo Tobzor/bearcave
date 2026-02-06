@@ -17,9 +17,9 @@ public class DogHotelsDb : DbContext
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        var pointConverter = new ValueConverter<Point, string>(
+        var pointConverter = new ValueConverter<Point?, string>(
             v => JsonConvert.SerializeObject(v),
-            v => DeserializePointOrThrow(v));
+            v => JsonConvert.DeserializeObject<Point>(v));
 
         modelBuilder.Entity<DogHotel>(entity =>
         {
@@ -30,17 +30,5 @@ public class DogHotelsDb : DbContext
                 .HasConversion(pointConverter)
                 .HasColumnType("json");
         });
-    }
-    
-    private static Point DeserializePointOrThrow(string v)
-    {
-        if (string.IsNullOrWhiteSpace(v))
-            throw new InvalidOperationException("Location JSON is empty.");
-
-        var point = JsonConvert.DeserializeObject<Point>(v);
-        if (point is null)
-            throw new InvalidOperationException("Failed to deserialize Point from JSON.");
-
-        return point;
     }
 }
