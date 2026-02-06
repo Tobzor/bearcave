@@ -1,5 +1,6 @@
+using System.Text.Json;
 using Scalar.AspNetCore;
-using GeoJSON.Net.Geometry;
+using GeoJSON.Text.Geometry;
 using Microsoft.EntityFrameworkCore;
 using backend.Application.Interfaces;
 using backend.Application.Services;
@@ -12,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
-builder.Services.AddControllers().AddNewtonsoftJson();
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 // Cors handling
@@ -95,9 +96,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.MapControllers();
 
 // Enable cors policy
 app.UseCors("AllowSpecificOrigins");
+
+app.MapControllers();
 
 app.Run();

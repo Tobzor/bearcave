@@ -1,9 +1,7 @@
+using GeoJSON.Text.Feature;
 using Microsoft.AspNetCore.Mvc;
 using backend.Application.Interfaces;
 using backend.Contracts;
-using GeoJSON.Net.Feature;
-using GeoJSON.Net.Geometry;
-using NuGet.Protocol;
 
 namespace backend.Controllers
 {

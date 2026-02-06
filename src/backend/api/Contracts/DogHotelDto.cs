@@ -1,22 +1,17 @@
-using GeoJSON.Net.Geometry;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
+using GeoJSON.Text.Geometry;
 
 namespace backend.Contracts;
 
 public class DogHotelDto
 {
-    [JsonProperty(PropertyName = "id")]
-    public required string Id { get; init; }
+    public required string Id { get; set; }
     
-    [JsonProperty(PropertyName = "name")]
-    public required string Name { get; init; }
+    public required string Name { get; set; }
     
-    [JsonProperty(PropertyName = "address")]
-    public string? Address { get; init; }
+    public string? Address { get; set; }
+
+    public Point? Location { get; set; }
     
-    [JsonProperty(PropertyName = "location")]
-    public Point? Location { get; init; }
-    
-    [JsonProperty(PropertyName = "description")]
-    public string? Description { get; init; }
+    public string? Description { get; set; }
 }

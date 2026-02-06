@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-using GeoJSON.Net.Geometry;
+using GeoJSON.Text.Geometry;
 
 namespace backend.Domain.Entities;
 

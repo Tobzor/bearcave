@@ -18,11 +18,11 @@ type Feature<TProperties = unknown> = {
 type Geometry = {type: string, coordinates: unknown};
 
 type DogHotelDto = {
-    id: string;
-    name: string;
-    address?: string;
-    description?: string;
-    location?: Geometry;
+    Id: string;
+    Name: string;
+    Address?: string;
+    Description?: string;
+    Location?: Geometry;
 }
 
 async function getDogHotels() {
@@ -45,10 +45,10 @@ export default function DogHotels(): ReactElement {
             ) : (
                 <ul>
                     {data?.features.map(feature => (
-                        <li key={feature.properties.id}>
-                            <h2>{feature.properties.name}</h2>
-                            {feature.properties.address && <p>{feature.properties.address}</p>}
-                            {feature.properties.description && <p>{feature.properties.description}</p>}
+                        <li key={feature.properties.Id}>
+                            <h2>{feature.properties.Name}</h2>
+                            {feature.properties.Address && <p>{feature.properties.Address}</p>}
+                            {feature.properties.Description && <p>{feature.properties.Description}</p>}
                         </li>
                     ))}
                 </ul>

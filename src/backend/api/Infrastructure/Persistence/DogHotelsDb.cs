@@ -1,9 +1,8 @@
-﻿using GeoJSON.Net.Geometry;
+﻿using System.Text.Json;
+using GeoJSON.Text.Geometry;
 using Microsoft.EntityFrameworkCore;
 using backend.Domain.Entities;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Newtonsoft.Json;
-using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace backend.Infrastructure.Persistence;
 
@@ -18,8 +17,8 @@ public class DogHotelsDb : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         var pointConverter = new ValueConverter<Point?, string>(
-            v => JsonConvert.SerializeObject(v),
-            v => JsonConvert.DeserializeObject<Point>(v));
+            v => JsonSerializer.Serialize(v),
+            v => JsonSerializer.Deserialize<Point>(v));
 
         modelBuilder.Entity<DogHotel>(entity =>
         {
