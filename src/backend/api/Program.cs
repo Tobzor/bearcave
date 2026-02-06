@@ -21,7 +21,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowSpecificOrigins", policy =>
     {
         // Need to whitelist these in azure server to only enforce requests from these
-        policy.WithOrigins("localhost:5173", "tobzor.dev") 
+        policy.WithOrigins("http://localhost:5173", "https://tobzor.dev") 
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
